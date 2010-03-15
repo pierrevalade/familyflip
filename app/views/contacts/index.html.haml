@@ -1,0 +1,28 @@
+:javascript
+  $(function() {
+    $('#contacts-list').jCarouselLite({
+      vertical: true,
+      btnPrev: ".up",
+      btnNext: ".down",
+      visible: 10
+    });
+    
+    
+    
+  })
+  
+.content
+
+  #navigation.fullheight
+    .up= image_tag 'icons/up_64.png'
+    .down= image_tag 'icons/down_64.png'
+
+  #contacts-list
+    %ul
+      - @contacts.each do |contact|
+        %li{:onclick => "go('#{contact_path(contact)}');"}
+          .photo
+            = image_tag contact.image_path, :width => 100
+          .name= contact.name
+            
+  

@@ -1,0 +1,26 @@
+:javascript
+  $(function() {
+    $('#messages-list').jCarouselLite({
+      vertical: true,
+      btnPrev: ".up",
+      btnNext: ".down",
+      visible: 11
+    });
+    
+    
+    
+  })
+  
+.content
+
+  #navigation.fullheight
+    .up= image_tag 'icons/up_64.png'
+    .down= image_tag 'icons/down_64.png'
+
+  #messages-list
+    %ul
+      - @messages.each do |message|
+        %li{:onclick => "go('#{message_path(message)}');"}
+          .subject
+            = message.subject
+            

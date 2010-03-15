@@ -1,0 +1,283 @@
+html, body {
+  margin: 0;
+  font-family: Arial; }
+
+html {
+  background-color: #EEE; }
+
+a {
+  text-decoration: none;
+  color: black; }
+
+.clear:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden; }
+
+.content {
+  width: 900px;
+  margin: auto;
+  background-color: white; }
+
+#doc3 {
+  margin: 0; }
+
+#bd {
+  overflow: hidden; }
+
+#dashboard {
+  border-top: 5px solid #C1CCD7;
+  height: 100px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: #898378;
+  text-align: center; }
+  #dashboard .buttons #contacts-button {
+    float: left; }
+    #dashboard .buttons #contacts-button a {
+      background: #eee url(/images/icons/address_48.png) no-repeat 10px 10px; }
+  #dashboard .buttons #messages-button {
+    float: right; }
+    #dashboard .buttons #messages-button a {
+      background: #eee url(/images/icons/letter_48.png) no-repeat 10px 10px; }
+  #dashboard .buttons div {
+    margin-top: 15px; }
+    #dashboard .buttons div a {
+      display: block;
+      font-weight: bold;
+      color: #4B4740;
+      font-size: 300%;
+      background-color: #eee;
+      padding: 10px 30px 10px 80px;
+      -moz-border-radius: 10px;
+      -webkit-border-radius: 10px;
+      border: 1px solid #7A8C97; }
+
+#refresh a {
+  z-index: 10;
+  background-color: white;
+  font-size: 200%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 10px;
+  -moz-border-radius: 0 5px 0 0;
+  -webkit-border-radius: 0 5px 0 0; }
+
+.contacts.index #navigation {
+  float: right;
+  width: 100px;
+  position: relative; }
+  .contacts.index #navigation div {
+    text-align: center;
+    padding: 10px;
+    cursor: pointer; }
+  .contacts.index #navigation .down {
+    position: absolute;
+    bottom: 0;
+    right: 0; }
+.contacts.index #contacts-list {
+  width: 800px;
+  border-right: 5px solid #C1CCD7; }
+  .contacts.index #contacts-list ul li {
+    overflow: auto;
+    border-bottom: 5px solid #EEE;
+    padding: 10px 25px;
+    cursor: pointer; }
+    .contacts.index #contacts-list ul li .photo {
+      float: left; }
+    .contacts.index #contacts-list ul li .name {
+      margin-left: 130px;
+      font-size: 280%;
+      margin-top: 20px; }
+  .contacts.index #contacts-list ul li:hover {
+    background-color: #EEE; }
+
+.contacts.show .back {
+  margin-bottom: 20px;
+  border-bottom: 5px solid #C1CCD7; }
+  .contacts.show .back a {
+    font-size: 200%;
+    display: block;
+    padding: 15px 65px;
+    border-style: solid;
+    border-color: #C1CCD7;
+    border-width: 5px 5px 0px;
+    width: 70px;
+    font-weight: bold;
+    background: url(/images/icons/left_32.png) no-repeat 15px 15px;
+    -moz-border-radius: 20px 20px 0 0;
+    -webkit-border-radius: 20px 20px 0 0; }
+.contacts.show #user {
+  padding: 10px 30px; }
+.contacts.show #user {
+  background-color: #898378;
+  padding: 20px 30px; }
+  .contacts.show #user .photo {
+    float: left; }
+  .contacts.show #user .name {
+    margin-left: 250px;
+    font-size: 400%;
+    color: white; }
+.contacts.show #actions {
+  margin-left: 250px;
+  margin-top: 20px; }
+  .contacts.show #actions li {
+    float: left; }
+    .contacts.show #actions li a {
+      display: block;
+      border: 3px solid #7A8C97;
+      font-size: 200%;
+      margin-right: 40px;
+      padding: 15px 30px 20px 80px;
+      color: #4B4740;
+      -moz-border-radius: 10px;
+      -webkit-border-radius: 10px;
+      min-width: 100px; }
+  .contacts.show #actions li.write a {
+    background: #EEEEEE url(/images/icons/pencil_48.png) no-repeat 15px 10px; }
+  .contacts.show #actions li.call a {
+    background: #EEEEEE url(/images/icons/bubble_48.png) no-repeat 15px 10px; }
+.contacts.show .title {
+  font-size: 200%;
+  font-weight: bold;
+  padding: 20px 10px; }
+.contacts.show #messages {
+  border-right: 5px solid #C1CCD7; }
+  .contacts.show #messages ul li {
+    overflow: auto;
+    border-bottom: 5px solid #EEE;
+    padding: 20px 10px;
+    cursor: pointer;
+    font-size: 150%; }
+  .contacts.show #messages ul li:hover {
+    background-color: #EEE; }
+.contacts.show #navigation {
+  float: right;
+  width: 100px;
+  position: relative; }
+  .contacts.show #navigation div {
+    text-align: center;
+    padding: 10px;
+    cursor: pointer; }
+  .contacts.show #navigation .down {
+    position: absolute;
+    bottom: 0;
+    right: 0; }
+
+.messages.show #back a {
+  font-size: 300%;
+  text-align: center;
+  padding: 20px 0;
+  background-color: #C1CCD7;
+  display: block;
+  margin: auto;
+  font-weight: bold; }
+.messages.show #medias {
+  border-right: 5px solid #C1CCD7;
+  padding: 20px; }
+  .messages.show #medias ul li {
+    width: 200px;
+    height: 200px;
+    float: left;
+    overflow: hidden;
+    margin: 10px 35px; }
+.messages.show #message {
+  padding: 20px; }
+  .messages.show #message .user .photo {
+    float: left; }
+  .messages.show #message .user .name {
+    font-size: 300%;
+    margin-left: 130px; }
+  .messages.show #message .title {
+    font-size: 400%;
+    margin-top: 10px; }
+  .messages.show #message .text {
+    font-size: 140%;
+    margin-top: 15px; }
+  .messages.show #message .reply a {
+    border: 1px solid #ccc;
+    display: block;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 200%;
+    margin-top: 20px;
+    font-weight: bold;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    background-color: #C1CCD7; }
+
+.messages.reply #back a {
+  font-size: 300%;
+  padding: 20px 0;
+  background-color: #C1CCD7;
+  display: block;
+  margin: auto;
+  font-weight: bold;
+  text-align: center; }
+
+.photos.show #photo {
+  text-align: center; }
+  .photos.show #photo .back a {
+    font-size: 300%;
+    padding: 20px 0;
+    background-color: #C1CCD7;
+    display: block;
+    margin: auto;
+    font-weight: bold; }
+
+.contacts.call #back a {
+  font-size: 300%;
+  padding: 20px 0;
+  background-color: #C1CCD7;
+  display: block;
+  margin: auto;
+  font-weight: bold;
+  text-align: center; }
+.contacts.call #call {
+  font-size: 400%;
+  text-align: center;
+  border: 5px solid #ccc;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  width: 1000px;
+  margin: 200px auto;
+  padding: 20px; }
+
+.contacts.write #back a {
+  font-size: 300%;
+  padding: 20px 0;
+  background-color: #C1CCD7;
+  display: block;
+  margin: auto;
+  font-weight: bold;
+  text-align: center; }
+
+.messages.index #navigation {
+  float: right;
+  width: 100px;
+  position: relative; }
+  .messages.index #navigation div {
+    text-align: center;
+    padding: 10px;
+    cursor: pointer; }
+  .messages.index #navigation .down {
+    position: absolute;
+    bottom: 0;
+    right: 0; }
+.messages.index #messages-list {
+  width: 800px;
+  border-right: 5px solid #C1CCD7; }
+  .messages.index #messages-list ul li {
+    overflow: auto;
+    border-bottom: 5px solid #EEE;
+    padding: 10px 25px;
+    cursor: pointer; }
+    .messages.index #messages-list ul li .subject {
+      font-size: 280%;
+      margin-top: 20px; }
+  .messages.index #messages-list ul li:hover {
+    background-color: #EEE; }

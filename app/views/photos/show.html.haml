@@ -1,0 +1,5 @@
+#photo
+  .back
+    = link_to_function "Retour", "history.go(-1)"
+    
+  = image_tag("photos/big/#{params[:id]}.jpg") 

@@ -1,0 +1,31 @@
+#back
+  = link_to_function "Retour", "history.go(-1)"
+
+.yui-g
+  .yui-u.first
+    #medias.fullheight
+      - if @message.id == 15
+        %ul
+          - 10.times do |i|
+            %li= link_to image_tag("photos/#{i}.jpg", :width => 200), photo_path(i)
+    
+  .yui-u
+
+    #message.fullheight
+      .user
+        .photo
+          = image_tag @message.contact.image_path, :width => 100
+        .name
+          = @message.contact.name
+
+      .clear
+      
+      .title= @message.subject
+      
+      
+      .text
+        = simple_format @message.text
+    
+      .reply= link_to 'Répondre', reply_message_path(@message)
+      
+      

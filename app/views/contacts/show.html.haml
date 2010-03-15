@@ -1,0 +1,43 @@
+:javascript
+  $(function() {
+    $('#messages').jCarouselLite({
+      vertical: true,
+      btnPrev: ".up",
+      btnNext: ".down",
+      visible: "#{@contact.messages.count}"
+    });
+    
+    $("#navigation").height($(window).height() - 475);
+  })
+
+.content
+
+  .back
+    %div
+      = link_to_function "Retour", "history.go(-1)"
+
+  #user
+    .photo
+      = image_tag @contact.image_path, :width => 200
+    .name= @contact.name
+      
+    #actions
+      %ul
+        %li.write= link_to 'Ecrire', write_contact_path(@contact)
+        %li.call= link_to 'Appeler', call_contact_path(@contact)
+    
+    .clear
+    
+  .clear
+  
+  .title Derniers messages
+  
+  #navigation
+    .up= image_tag 'icons/up_64.png'
+    .down= image_tag 'icons/down_64.png'
+  
+  #messages
+    %ul
+      - @contact.messages.each do |message|
+        %li{:onclick => "go('#{message_path(message)}');"}
+          = message.subject
