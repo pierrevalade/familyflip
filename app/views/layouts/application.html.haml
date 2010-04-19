@@ -10,25 +10,10 @@
     / %meta{"http-equiv" => "refresh", :content => 5}
   %body
     :javascript
-      $(function() {
-        
-        document.onmousedown = function() {return false;}
-        
-        $(".fullheight").height($(window).height() - 105);
-        $("#bd .content").css('min-height', $(window).height() - 105);
-      });
-      
-    #dashboard
-      .content
-        .buttons
-          #contacts-button
-            = link_to 'Contacts', contacts_path
-          #messages-button
-            = link_to 'Messages', messages_path
           
-    #refresh
-      /= link_to "Refresh"
+    /
+      #refresh
+      = link_to "Refresh"
     
-    #doc3{:class => "#{controller.controller_name} #{controller.action_name}"}
-      #bd.fullheight
-        = yield
+    #doc4{:class => "yui-t7 #{controller.controller_name} #{controller.action_name}"}
+      = yield
