@@ -1,0 +1,22 @@
+.yui-g
+  .yui-u.first
+    #left
+      .title= @album.title
+      
+      - @images[0..1].each do |image|
+        = render image
+        
+      .button
+        = link_to image_tag('previous.png')
+
+  .yui-u
+    #right
+      .title= @album.title
+      
+      - @images[0..1].each do |image|
+        = render image
+    
+      .button
+        = link_to image_tag('next.png')
+      
+      .clear

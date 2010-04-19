@@ -1,0 +1,18 @@
+.yui-g
+  .yui-u.first
+    #left
+      - @albums[0..1].each do |album|
+        = render album
+        
+      .button
+        = link_to image_tag('previous.png')
+
+  .yui-u
+    #right
+      - @albums[2..3].each do |album|
+        = render album
+    
+      .button
+        = link_to image_tag('next.png')
+      
+      .clear

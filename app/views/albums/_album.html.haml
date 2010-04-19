@@ -1,0 +1,8 @@
+.album
+  .photo
+    = link_to image_tag(album.preview_url, :width => '350px'), album
+  .title
+    - link_to album do
+      = album.contact.name
+      = album.title
+      = album.date.strftime("%B %Y")

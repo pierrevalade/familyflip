@@ -1,0 +1,19 @@
+# == Schema Information
+#
+# Table name: images
+#
+#  id         :integer(4)      not null, primary key
+#  album_id   :integer(4)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  album_id: 1
+  caption: 
+
+two:
+  album_id: 1
+  caption: 
