@@ -6,7 +6,9 @@ class AlbumsController < ApplicationController
   
   def show
     @album = Album.find(params[:id])
-    @images = 10.times.map { |i| @album.images.build }
+    @images = 10.times.map do |i|
+      @album.images.build
+    end
   end
   
 end
