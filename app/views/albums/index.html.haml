@@ -1,18 +1,22 @@
 .yui-g
   .yui-u.first
     #left
-      - @albums[0..1].each do |album|
-        = render album
-        
-      .button
-        = link_to image_tag('previous.png')
+      - unless @albums_in_groups.first.nil?
+        - @albums_in_groups.first.each do |album|
+          = render album
+      
+        - if @albums.previous_page
+          .button
+            = link_to image_tag('previous.png'), paged_albums_url(@albums.previous_page)
 
   .yui-u
     #right
-      - @albums[2..3].each do |album|
-        = render album
+      - unless @albums_in_groups.second.nil?
+        - @albums_in_groups.second.each do |album|
+          = render album
     
-      .button
-        = link_to image_tag('next.png')
+        - if @albums.next_page
+          .button
+            = link_to image_tag('next.png'), paged_albums_url(@albums.next_page)
       
-      .clear
+        .clear

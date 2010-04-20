@@ -12,8 +12,6 @@ class Image < ActiveRecord::Base
   
   belongs_to :album
   
-  def url
-    "/albums/#{album_id}/0#{rand(9) + 1}.jpg"
-  end
+  attr_accessor :url
   
 end

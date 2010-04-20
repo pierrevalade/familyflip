@@ -7,7 +7,7 @@ html
   
 a
   :text-decoration none
-  :color black
+  :color white
 
 .clear:after
   :clear both
@@ -15,6 +15,9 @@ a
   :display block
   :height 0
   :visibility hidden
+  
+.space
+  :height 10px
 
 #refresh
   a
@@ -27,20 +30,27 @@ a
     :padding 10px
     :-moz-border-radius 0 5px 0 0
     :-webkit-border-radius 0 5px 0 0
+    
+#right, #left
+  :background-color #2c2a2d
+  :min-height 700px
+  :position relative
+
+.button
+  :color white
+  :font-size 120%
+  :padding 10px
+  :position absolute
+  :top 565px
+
+#right
+  .button
+    :right 0px
 
 .albums
   #right, #left
     :background-color #2c2a2d
   
-  .button
-    :color white
-    :font-size 120%
-    :padding 10px
-    :margin-top -20px
-
-  #right
-    .button
-      :float right
       
 .albums.index
   .album
@@ -51,24 +61,33 @@ a
       :overflow hidden
     .title
       :background-color white
-      :padding 10px
+      a
+        :color black
+        :display block
+        :padding 10px
+      .contact_image
+        :float left
+      .info
+        :margin-left 40px
+        :margin-top 7px
       
 .albums.show
   .title
     :padding 10px
-    :color white
     
   .image
     :margin 0 auto
     :width 350px
     :padding 10px 0
+    :height 250px
+    :overflow hidden
     
-.contacts
+.contacts.index
   #right, #left
     :background-color #00aa3e
     
   .contact
-    :margin 10px auto
+    :margin 0 auto
     :width 350px
     :padding 10px
     :background-color #ededed
@@ -77,3 +96,39 @@ a
     .name
       :margin-left 85px
       :font-size 170%
+      a
+        :color black
+        
+.contacts.show
+  #right, #left
+    :background-color white
+    
+  #user
+    :padding 10px
+    :margin 0 auto
+    :width 380px
+    .image
+      :float left
+    .name
+      :margin-left 130px
+      :font-size 180%
+      
+  #images
+    :width 400px
+    :margin 20px auto
+    
+    .previous
+      :float left
+    .next
+      :float right
+      
+  #write
+    a
+      :font-size 120%
+      :padding 30px
+      :position absolute
+      :top 565px
+      :right 20px
+      :background-color #00a93e
+      :border 1px solid #87cd96
+      :display block

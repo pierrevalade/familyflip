@@ -1,5 +1,5 @@
 .contact
   .photo
-    = image_tag contact.image_path, :width => 70
-  .name= contact.name
+    = link_to image_tag(contact.image_path, :width => 70), contact
+  .name= link_to contact.name, contact
   .clear

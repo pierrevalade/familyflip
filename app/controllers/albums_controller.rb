@@ -1,12 +1,15 @@
 class AlbumsController < ApplicationController
   
   def index
-    @albums = Album.all
+    @albums = Album.paginate(:page => params[:page], :per_page => 4)
+    @albums_in_groups = @albums.in_groups_of(2, false)
   end
   
   def show
     @album = Album.find(params[:id])
-    @images = (1..9).to_a.map { |i| @album.images.build }
+    @images = @album.images.paginate(:page => params[:page], :per_page => 4)
+    @images_in_groups = @images.in_groups_of(2, false)
+    
   end
   
 end

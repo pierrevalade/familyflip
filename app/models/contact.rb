@@ -10,7 +10,9 @@
 #
 
 class Contact < ActiveRecord::Base
+  
   has_many :messages
+  has_many :albums
   
   default_scope :order => 'last_name'
   
