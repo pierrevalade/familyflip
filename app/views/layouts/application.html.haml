@@ -4,13 +4,20 @@
     = stylesheet_link_tag 'home'
     
     = javascript_include_tag 'jquery-1.4.2.min.js'
+    = javascript_include_tag 'jquery.hotkeys.js'
     = javascript_include_tag 'jcarousellite_1.0.1.min'
     = javascript_include_tag 'application'
     
     / %meta{"http-equiv" => "refresh", :content => 5}
   %body
     :javascript
-          
+       $(document).bind('keyup', 'a', function(){
+         window.location = '/albums/';
+       })
+       $(document).bind('keyup', 'c', function(){
+          window.location = '/contacts/';
+        })
+       
     /
       #refresh
       = link_to "Refresh"
