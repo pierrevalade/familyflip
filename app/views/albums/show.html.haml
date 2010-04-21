@@ -10,6 +10,8 @@
         - if @images.previous_page
           .button
             = link_to image_tag('previous.png'), paged_images_albums_url(:id => @album.id, :page => @images.previous_page)
+            
+      .clear
 
   .yui-u
     #right

@@ -1,9 +1,10 @@
 html, body {
   margin: 0;
-  font-family: Arial; }
+  font-family: Arial;
+  overflow: hidden; }
 
 html {
-  background-color: #dddcdc; }
+  background-color: #2c2a2d; }
 
 a {
   text-decoration: none;
@@ -32,15 +33,18 @@ a {
 
 #right, #left {
   background-color: #2c2a2d;
-  min-height: 700px;
-  position: relative; }
+  height: 840px;
+  width: 472px;
+  position: relative;
+  border: 1px dashed #eee;
+  overflow: hidden;
+  margin-top: 20px; }
 
 .button {
   color: white;
   font-size: 120%;
-  padding: 10px;
   position: absolute;
-  top: 565px; }
+  top: 725px; }
 
 #right .button {
   right: 0px; }
@@ -50,7 +54,7 @@ a {
 
 .albums.index .album {
   margin: 0 auto;
-  width: 350px;
+  width: 440px;
   padding: 10px 0; }
   .albums.index .album .photo {
     overflow: hidden; }
@@ -69,8 +73,8 @@ a {
 .albums.show .title {
   padding: 10px; }
 .albums.show .image {
-  margin: 0 auto;
-  width: 350px;
+  margin: 40px auto;
+  width: 440px;
   padding: 10px 0;
   height: 250px;
   overflow: hidden; }
@@ -81,7 +85,8 @@ a {
   margin: 0 auto;
   width: 350px;
   padding: 10px;
-  background-color: #ededed; }
+  background-color: #ededed;
+  cursor: pointer; }
   .contacts.index .contact .photo {
     float: left; }
   .contacts.index .contact .name {
@@ -101,6 +106,16 @@ a {
   .contacts.show #user .name {
     margin-left: 130px;
     font-size: 180%; }
+.contacts.show .message {
+  background-color: #9bddf6;
+  padding: 20px;
+  margin: 10px;
+  font-size: 130%;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px; }
+.contacts.show #messages {
+  height: 730px;
+  overflow: auto; }
 .contacts.show #images {
   width: 400px;
   margin: 20px auto; }
@@ -112,8 +127,24 @@ a {
   font-size: 120%;
   padding: 30px;
   position: absolute;
-  top: 565px;
+  top: 745px;
   right: 20px;
   background-color: #00a93e;
   border: 1px solid #87cd96;
   display: block; }
+
+.messages.new form {
+  width: 400px;
+  margin: 50px auto; }
+.messages.new #message_text {
+  width: 400px;
+  height: 700px;
+  font-size: 170%;
+  padding: 30px; }
+.messages.new #message_submit {
+  width: 400px;
+  height: 40px;
+  margin-top: 10px;
+  background-color: #00a93e;
+  border: 1px solid #87cd96;
+  font-size: 140%; }

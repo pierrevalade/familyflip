@@ -1,0 +1,15 @@
+:javascript
+  $(function() {
+    $('#message_text').focus();
+  });
+
+.yui-g
+  .yui-u.first
+    #left
+
+  .yui-u
+    #right
+      - form_for @message do |f|
+        = f.text_area :text
+        = f.hidden_field :contact_id
+        = f.submit 'Send'

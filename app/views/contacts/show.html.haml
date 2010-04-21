@@ -1,13 +1,7 @@
 :javascript
   $(function() {
-    $('#messages').jCarouselLite({
-      vertical: true,
-      btnPrev: ".up",
-      btnNext: ".down",
-      visible: "#{@contact.messages.count}"
-    });
-    
-    $("#navigation").height($(window).height() - 475);
+    var objDiv = document.getElementById("messages");
+    objDiv.scrollTop = objDiv.scrollHeight;
   })
 
 
@@ -33,9 +27,12 @@
         
   .yui-u
     #right
+      #messages
+        - @contact.messages.each do |message|
+          = render message
     
       #write
-        = link_to "Write a new message"
+        = link_to "Write a new message", new_message_url(:contact_id => @contact.id)
       
       / #navigation
       /         .up= image_tag 'icons/up_64.png'

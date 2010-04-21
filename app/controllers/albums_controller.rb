@@ -9,7 +9,6 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
     @images = @album.images.paginate(:page => params[:page], :per_page => 4)
     @images_in_groups = @images.in_groups_of(2, false)
-    
   end
   
 end

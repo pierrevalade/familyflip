@@ -1,18 +1,13 @@
 class MessagesController < ApplicationController
   
   def new
-    
+    @message = Message.new(:contact_id => params[:contact_id])
   end
   
-  def index
-    @messages = Message.all
-  end
-  
-  def show
-    @message = Message.find(params[:id])
-  end
-  
-  def reply
+  def create
+    @message = Message.new(params[:message])
+    @message.save
+    redirect_to @message.contact
   end
   
 end
