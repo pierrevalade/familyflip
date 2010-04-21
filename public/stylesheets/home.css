@@ -110,9 +110,13 @@ a {
   background-color: #9bddf6;
   padding: 20px;
   margin: 10px;
-  font-size: 130%;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px; }
+  .contacts.show .message .date {
+    float: right;
+    margin: 0 0 10px 10px; }
+  .contacts.show .message .text {
+    font-size: 130%; }
 .contacts.show #messages {
   height: 730px;
   overflow: auto; }

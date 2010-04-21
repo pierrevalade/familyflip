@@ -1,2 +1,5 @@
 .message
-  = simple_format message.text
+  .date
+    = time_ago_in_words message.created_at
+    ago
+  .text= simple_format message.text

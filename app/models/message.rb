@@ -14,7 +14,7 @@ class Message < ActiveRecord::Base
   
   belongs_to :contact
   
-  default_scope :order => 'created_at DESC'
+  default_scope :order => 'created_at ASC'
   
   def to_s
     subject
