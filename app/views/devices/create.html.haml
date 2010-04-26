@@ -1,0 +1,48 @@
+:javascript
+  $(function() {
+    $("#user_password").focus();
+  });
+
+- if @user.new_record?
+
+  %h1 Create your account and link your PixShare
+  - form_for @user do |fuser|
+    = fuser.hidden_field :email
+    
+    %table.input-form
+      %tr
+        %td= fuser.label :password, "Password"
+        %td= fuser.password_field :password, :class => :title
+      %tr
+        %td= fuser.label :password_confirmation, "Password confirmation"
+        %td= fuser.password_field :password_confirmation, :class => :title
+      
+      - fields_for @device do |fdevice|
+        = fdevice.hidden_field :uuid
+        %tr
+          %td= fdevice.label :name, "Name your PixShare"
+          %td= fdevice.text_field :name, :class => :title
+      %tr
+        %td
+        %td= fuser.submit "Create my account"
+    
+    
+- else
+  %h1 Add this PixShare to your existing account
+  
+  - form_for @user do |fuser|
+    = fuser.hidden_field :email
+    
+    %table.input-form
+      %tr
+        %td= fuser.label :password, "Password"
+        %td= fuser.password_field :password, :class => :title
+      
+      - fields_for @device do |fdevice|
+        = fdevice.hidden_field :uuid
+        %tr
+          %td= fdevice.label :name, "Name your device"
+          %td= fdevice.text_field :name, :class => :title
+      %tr
+        %td
+        %td= fuser.submit "Add this PixShare"

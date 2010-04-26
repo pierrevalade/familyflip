@@ -1,0 +1,29 @@
+%html
+  %head
+    = stylesheet_link_tag 'reset-fonts-grids.css', 'forms.css'
+    = stylesheet_link_tag 'welcome'
+    
+    = javascript_include_tag 'jquery-1.4.2.min.js'
+  %body
+    #doc{:class => "#{controller.controller_name} #{controller.action_name}"}
+      #hd
+        #logo
+          = link_to "PixShare", '/welcome'
+        
+        %ul#nav
+          - if current_user
+            %li= current_user.email
+            %li= link_to 'My PixShare', devices_path
+            %li= link_to 'Settings', edit_account_url
+            %li= link_to 'Logout', logout_url
+        
+          - else
+            %li= link_to 'Login', login_url(:return_path => yield(:return_path))
+            /%li= link_to 'Sign Up', signup_url(:return_path => yield(:return_path))
+                
+      #bd
+        = display_flash(:error)
+        = display_flash(:notice)
+        = yield
+      #ft
+        PixShare

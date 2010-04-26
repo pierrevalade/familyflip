@@ -1,0 +1,18 @@
+:javascript
+  $(function() {
+    $("#device_uuid").focus();
+  });
+
+%h1 Register a new PixShare
+
+- form_for @device do |f|
+  %table.input-form
+    %tr
+      %td= f.label :uuid, "PixShare ID"
+      %td= f.text_field :uuid, :class => :title
+    %tr
+      %td= f.label :email, "Email"
+      %td= f.text_field :email, :class => :title
+    %tr
+      %td
+      %td= f.submit "Register"

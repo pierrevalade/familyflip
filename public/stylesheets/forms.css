@@ -1,0 +1,59 @@
+/* -------------------------------------------------------------- 
+   
+   forms.css
+   * Sets up some default styling for forms
+   * Gives you classes to enhance your forms
+   
+   Usage:
+   * For text fields, use class .title or .text
+   
+-------------------------------------------------------------- */
+
+/*label       { font-weight: bold; }
+*/
+fieldset    { padding:1.4em; margin: 0 0 1.5em 0; border: 1px solid #ccc; }
+legend      { font-weight: bold; font-size:1.2em; }
+
+
+/* Form fields
+-------------------------------------------------------------- */
+
+input[type=text],
+input.text, input.title, 
+textarea, select { 
+  background-color:#fff; 
+  border:1px solid #bbb; 
+}
+
+input[type=text]:focus, 
+input.text:focus, input.title:focus, 
+textarea:focus, select:focus { 
+  border-color:#bbb;
+}
+
+input.text, 
+input.title   { padding:5px; }
+input.title   { font-size: 123.1%; }
+textarea      { width: 390px; height: 250px; padding:5px; }
+
+form.inline { line-height:3; }
+form.inline p { margin-bottom:0; }
+
+
+/* Success, notice and error boxes
+-------------------------------------------------------------- */
+
+.error,
+.notice, 
+.success,
+.errorExplanation
+{ padding: .8em; border: 2px solid #ddd; }
+
+.error, .errorExplanation
+{ background: #FBE3E4; color: #8a1f11; border-color: #FBC2C4; }
+
+.notice     { background: #FFF6BF; color: #514721; border-color: #FFD324; }
+.success    { background: #E6EFC2; color: #264409; border-color: #C6D880; }
+.error a    { color: #8a1f11; }
+.notice a   { color: #514721; }
+.success a  { color: #264409; }
