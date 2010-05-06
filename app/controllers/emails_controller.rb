@@ -5,6 +5,8 @@ class EmailsController < ApplicationController
   def create
     email = Email.sendgrid(params)
     email.save
+    
+    render :nothing => true
   end
   
 end
