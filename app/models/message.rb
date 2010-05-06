@@ -14,10 +14,18 @@ class Message < ActiveRecord::Base
   
   belongs_to :contact
   
+  validates_presence_of :contact, :text
+  
   default_scope :order => 'created_at ASC'
   
   def to_s
     subject
+  end
+  
+  def email=(email)
+    self.contact = email.contact
+    self.subject = email.subject
+    self.text = email.text_body
   end
   
 end

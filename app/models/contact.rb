@@ -7,12 +7,15 @@
 #  last_name  :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  email      :string(255)
 #
 
 class Contact < ActiveRecord::Base
   
   has_many :messages
   has_many :albums
+  
+  validates_presence_of :first_name, :last_name, :email
   
   default_scope :order => 'last_name'
   

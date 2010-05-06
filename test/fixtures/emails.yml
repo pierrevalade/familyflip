@@ -1,0 +1,31 @@
+# == Schema Information
+#
+# Table name: emails
+#
+#  id         :integer(4)      not null, primary key
+#  from       :string(255)
+#  to         :string(255)
+#  subject    :string(255)
+#  text_body  :text
+#  html_body  :text
+#  created_at :datetime
+#  updated_at :datetime
+#  contact_id :integer(4)
+#  message_id :integer(4)
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  from: MyString
+  to: MyString
+  subject: MyString
+  text_body: MyText
+  html_body: MyText
+
+two:
+  from: MyString
+  to: MyString
+  subject: MyString
+  text_body: MyText
+  html_body: MyText

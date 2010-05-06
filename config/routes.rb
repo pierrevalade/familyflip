@@ -1,5 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   
+  # api
+  map.resources :emails, :only => :create
+  
   map.resource :account
   
   # authlogic
