@@ -1,6 +1,10 @@
 .yui-g
   .yui-u.first
     #left
+      .contacts MY CONTACTS
+      
+      
+      
       - unless @contacts_in_groups.first.nil?
         - @contacts_in_groups.first.each do |contact|
           = render contact

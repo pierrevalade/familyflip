@@ -2,7 +2,7 @@ class AlbumsController < ApplicationController
   
   def index
     @albums = Album.paginate(:page => params[:page], :per_page => 4)
-    @albums_in_groups = @albums.in_groups_of(2, false)
+    #@albums_in_groups = @albums.in_groups_of(2, false)
   end
   
   def show

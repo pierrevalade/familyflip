@@ -1,22 +1,45 @@
 .yui-g
   .yui-u.first
     #left
-      - unless @albums_in_groups.first.nil?
-        - @albums_in_groups.first.each do |album|
-          = render album
+      .albums MY ALBUMS
       
-        - if @albums.previous_page
-          .button
-            = link_to image_tag('previous.png'), paged_albums_url(@albums.previous_page)
+      %table
+        %tr
+          %td{:onclick => "go('#{album_path(1)}')"}= image_tag 'interface/stack0.png'
+          %td{:onclick => "go('#{album_path(2)}')"}= image_tag 'interface/stack1.png'
+        %tr
+          %td.title{:onclick => "go('#{album_path(1)}')"} San Francisco 2/2
+          %td.title{:onclick => "go('#{album_path(2)}')"} Carolyn's holidays
+        %tr
+          %td.stack{:onclick => "go('#{album_path(3)}')"}= image_tag 'interface/stack3.png'
+          %td.stack{:onclick => "go('#{album_path(4)}')"}= image_tag 'interface/stack4.png'
+        %tr
+          %td.title{:onclick => "go('#{album_path(3)}')"} Marroco
+          %td.title{:onclick => "go('#{album_path(4)}')"} San Francisco 1/2
+            
+      - if @albums.previous_page
+        .button
+          = link_to image_tag('previous.png'), paged_albums_url(@albums.previous_page)
 
   .yui-u
     #right
-      - unless @albums_in_groups.second.nil?
-        - @albums_in_groups.second.each do |album|
-          = render album
-    
-        - if @albums.next_page
-          .button
-            = link_to image_tag('next.png'), paged_albums_url(@albums.next_page)
       
-        .clear
+      %table
+        %tr
+          %td{:onclick => "go('#{album_path(1)}')"}= image_tag 'interface/stack0.png'
+          %td{:onclick => "go('#{album_path(2)}')"}= image_tag 'interface/stack1.png'
+        %tr
+          %td.title{:onclick => "go('#{album_path(1)}')"} San Francisco 2/2
+          %td.title{:onclick => "go('#{album_path(2)}')"} Carolyn's holidays
+        %tr
+          %td.stack{:onclick => "go('#{album_path(3)}')"}= image_tag 'interface/stack3.png'
+          %td.stack{:onclick => "go('#{album_path(4)}')"}= image_tag 'interface/stack4.png'
+        %tr
+          %td.title{:onclick => "go('#{album_path(3)}')"} Marroco
+          %td.title{:onclick => "go('#{album_path(4)}')"} San Francisco 1/2
+      
+      - if @albums.next_page
+        .button
+          = link_to image_tag('next.png'), paged_albums_url(@albums.next_page)
+    
+      .clear

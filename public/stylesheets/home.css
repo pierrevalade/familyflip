@@ -4,7 +4,10 @@ html, body {
   overflow: hidden; }
 
 html {
-  background-color: #2c2a2d; }
+  background: #fff url(/images/background.jpg) repeat; }
+
+body {
+  font-family: "Handwriting - Dakota"; }
 
 a {
   text-decoration: none;
@@ -32,13 +35,12 @@ a {
   -webkit-border-radius: 0 5px 0 0; }
 
 #right, #left {
-  background-color: #2c2a2d;
   height: 840px;
   width: 472px;
   position: relative;
-  border: 1px dashed #eee;
   overflow: hidden;
-  margin-top: 20px; }
+  margin-top: 20px;
+  padding: 20px; }
 
 .button {
   color: white;
@@ -49,51 +51,78 @@ a {
 #right .button {
   right: 0px; }
 
-.albums #right, .albums #left {
-  background-color: #2c2a2d; }
 
+.albums.index .albums {
+  font-size: 250%;
+  margin: 10px 0 30px 0; }
+.albums.index .title {
+  font-size: 160%; }
+.albums.index table td {
+  width: 250px; }
+.albums.index table td.stack {
+  padding-top: 40px; }
+.albums.index #right table {
+  margin-top: 80px; }
 .albums.index .album {
   margin: 0 auto;
   width: 440px;
   padding: 10px 0; }
   .albums.index .album .photo {
     overflow: hidden; }
-  .albums.index .album .title {
-    background-color: white; }
-    .albums.index .album .title a {
-      color: black;
-      display: block;
-      padding: 10px; }
-    .albums.index .album .title .contact_image {
-      float: left; }
-    .albums.index .album .title .info {
-      margin-left: 40px;
-      margin-top: 7px; }
+  .albums.index .album .title a {
+    color: black;
+    display: block;
+    padding: 10px; }
+  .albums.index .album .title .contact_image {
+    float: left; }
+  .albums.index .album .title .info {
+    margin-top: 7px; }
 
 .albums.show .title {
   padding: 10px; }
+.albums.show .contact {
+  background: transparent url(/images/interface/contact-bg.png) no-repeat;
+  height: 90px; }
+  .albums.show .contact .name {
+    float: left;
+    margin: 20px 0 0 10px;
+    font-size: 230%;
+    font-family: "Handwriting - Dakota"; }
+  .albums.show .contact .picture {
+    float: left;
+    margin: 7px 0 0 20px; }
 .albums.show .image {
-  margin: 40px auto;
-  width: 440px;
-  padding: 10px 0;
-  height: 250px;
-  overflow: hidden; }
+  padding: 10px 10px 20px 10px;
+  border: 1px solid #BFBFBF;
+  background-color: white;
+  -webkit-box-shadow: 2px 2px 3px rgba(135, 139, 144, 0.4);
+  -moz-box-shadow: 2px 2px 3px rgba(135, 139, 144, 0.4);
+  box-shadow: 2px 2px 3px rgba(135, 139, 144, 0.4);
+  margin: 20px 0; }
+.albums.show .right {
+  -webkit-transform: rotate(1deg);
+  -moz-transform: rotate(1deg);
+  transform: rotate(1deg); }
+.albums.show .left {
+  -webkit-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
+  transform: rotate(-2deg); }
 
-.contacts.index #right, .contacts.index #left {
-  background-color: #00aa3e; }
+.contacts.index .contacts {
+  font-size: 250%;
+  margin: 10px 0 30px 0; }
 .contacts.index .contact {
-  margin: 0 auto;
-  width: 350px;
-  padding: 10px;
-  background-color: #ededed;
-  cursor: pointer; }
-  .contacts.index .contact .photo {
-    float: left; }
+  height: 90px;
+  width: 310px;
+  cursor: pointer;
+  background: transparent url(/images/interface/contact-bg.png) no-repeat; }
+  .contacts.index .contact .picture {
+    float: left;
+    margin: 7px 0 0 20px; }
   .contacts.index .contact .name {
-    margin-left: 85px;
+    float: left;
+    margin: 15px 0 0 10px;
     font-size: 170%; }
-    .contacts.index .contact .name a {
-      color: black; }
 
 .contacts.show #right, .contacts.show #left {
   background-color: white; }

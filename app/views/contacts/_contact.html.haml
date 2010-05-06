@@ -1,5 +1,5 @@
-.contact{:onclick => "window.location = '/contacts/#{contact.id}';"}
-  .photo
-    = image_tag(contact.image_path, :width => 70)
+.contact{:onclick => "go('/contacts/#{contact.id}')"}
+  .picture
+    = image_tag(contact.image_path, :height => 60)
   .name= contact.name
   .clear
