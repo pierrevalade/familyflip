@@ -11,4 +11,10 @@ class AlbumsController < ApplicationController
     @images_in_groups = @images.in_groups_of(2, false)
   end
   
+  def image
+    @album = Album.find(params[:id])
+    
+    render :layout => false
+  end
+  
 end

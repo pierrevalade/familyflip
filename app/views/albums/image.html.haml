@@ -8,11 +8,6 @@
     = javascript_include_tag 'jcarousellite_1.0.1.min'
     = javascript_include_tag 'application'
     
-    / %meta{"http-equiv" => "refresh", :content => 5}
-  %body       
-    /
-      #refresh
-      = link_to "Refresh"
-    
-    #doc3{:class => "#{controller.controller_name} #{controller.action_name}"}
-      = yield
+  %body.albums.image
+    .image
+      =link_to image_tag(params[:url]), album_path(@album.id)

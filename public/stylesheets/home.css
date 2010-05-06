@@ -7,7 +7,7 @@ html {
   background: #fff url(/images/background.jpg) repeat; }
 
 body {
-  font-family: "Handwriting - Dakota"; }
+  font-family: "Handwriting - Dakota", "Dakota Medium"; }
 
 a {
   text-decoration: none;
@@ -51,6 +51,16 @@ a {
 #right .button {
   right: 0px; }
 
+
+.albums.image .image {
+  margin: 40px auto;
+  width: 670px;
+  padding: 10px 10px 20px 10px;
+  border: 1px solid #BFBFBF;
+  background-color: white;
+  -webkit-box-shadow: 2px 2px 3px rgba(135, 139, 144, 0.4);
+  -moz-box-shadow: 2px 2px 3px rgba(135, 139, 144, 0.4);
+  box-shadow: 2px 2px 3px rgba(135, 139, 144, 0.4); }
 
 .albums.index .albums {
   font-size: 250%;

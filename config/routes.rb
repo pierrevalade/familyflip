@@ -22,7 +22,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :messages, :member => {:reply => :get}
   
-  map.resources :albums
+  map.resources :albums, :member => {:image => :get}
   map.paged_albums '/albums/pages/:page', :controller => :albums
   map.paged_images_albums '/albums/:id/pages/:page', :controller => :albums, :action => :show
   

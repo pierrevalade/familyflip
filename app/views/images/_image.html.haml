@@ -1,2 +1,2 @@
 .image{:class => ['right', 'left'][rand(2)]}
-  = image_tag image.url, :width => '440px'
+  = link_to image_tag(image.url, :width => '440px'), image_album_path(@album.id, :url => image.url)

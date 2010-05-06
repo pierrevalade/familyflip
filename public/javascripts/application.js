@@ -4,6 +4,14 @@
 $(function() {
   document.onselectstart = function() {return false;} // ie
   document.onmousedown = function() {return false;} // mozilla
+  
+  $(document).bind('keyup', 'a', function(){
+    window.location = '/albums/';
+  })
+  $(document).bind('keyup', 'c', function(){
+     window.location = '/contacts/';
+   })
+   
 });
 
 function go(url) {
