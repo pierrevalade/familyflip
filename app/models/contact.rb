@@ -40,7 +40,9 @@ class Contact < ActiveRecord::Base
   has_attached_file :image, :styles => { :original => ['300x300>'], :normal => ['100x100#']},
                             :default_style => :normal,
                             :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/aws.yml",
-                            :convert_options => { :all => '-auto-orient' },
                             :path => "profile_images/:id/:style/:filename"
+                            # http://stackoverflow.com/questions/2465035/how-to-pass-additional-convert-options-to-paperclip-on-heroku
+                            #, :convert_options => { :all => '-auto-orient' }
+                            
   
 end
