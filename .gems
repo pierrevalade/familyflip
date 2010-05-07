@@ -1,3 +1,4 @@
 haml
 aws-s3
 authlogic
+right_aws
