@@ -119,7 +119,6 @@ a
       :float left
       :margin 20px 0 0 10px
       :font-size 230%
-      :font-family "Handwriting - Dakota"
       
     .picture
       :float left
@@ -168,22 +167,29 @@ a
         
 .contacts.show
   #right, #left
-    :background-color white
     
-  #user
-    :padding 10px
-    :margin 0 auto
-    :width 380px
-    .image
-      :float left
+  .contact
+    :background transparent url(/images/interface/contact-bg.png) no-repeat
+    :height 90px
     .name
-      :margin-left 130px
-      :font-size 180%
+      :float left
+      :margin 20px 0 0 10px
+      :font-size 230%
+      
+    .picture
+      :float left
+      :margin 7px 0 0 20px
+      
+  .write, .phone
+    :float left
+    
+  .write
+    :margin-left 8px
       
   .message
     :background-color #9bddf6
     :padding 20px
-    :margin 10px
+    :margin 10px 0
     :-moz-border-radius 10px
     :-webkit-border-radius 10px
     .date

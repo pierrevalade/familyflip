@@ -96,8 +96,7 @@ a {
   .albums.show .contact .name {
     float: left;
     margin: 20px 0 0 10px;
-    font-size: 230%;
-    font-family: "Handwriting - Dakota"; }
+    font-size: 230%; }
   .albums.show .contact .picture {
     float: left;
     margin: 7px 0 0 20px; }
@@ -134,21 +133,24 @@ a {
     margin: 15px 0 0 10px;
     font-size: 170%; }
 
-.contacts.show #right, .contacts.show #left {
-  background-color: white; }
-.contacts.show #user {
-  padding: 10px;
-  margin: 0 auto;
-  width: 380px; }
-  .contacts.show #user .image {
-    float: left; }
-  .contacts.show #user .name {
-    margin-left: 130px;
-    font-size: 180%; }
+.contacts.show .contact {
+  background: transparent url(/images/interface/contact-bg.png) no-repeat;
+  height: 90px; }
+  .contacts.show .contact .name {
+    float: left;
+    margin: 20px 0 0 10px;
+    font-size: 230%; }
+  .contacts.show .contact .picture {
+    float: left;
+    margin: 7px 0 0 20px; }
+.contacts.show .write, .contacts.show .phone {
+  float: left; }
+.contacts.show .write {
+  margin-left: 8px; }
 .contacts.show .message {
   background-color: #9bddf6;
   padding: 20px;
-  margin: 10px;
+  margin: 10px 0;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px; }
   .contacts.show .message .date {

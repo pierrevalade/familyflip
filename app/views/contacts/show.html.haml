@@ -1,38 +1,25 @@
-:javascript
-  $(function() {
-    var objDiv = document.getElementById("messages");
-    objDiv.scrollTop = objDiv.scrollHeight;
-  })
-
-
 .yui-g
   .yui-u.first
     #left
-      #user
-        .image
-          = link_to image_tag(@contact.image_path, :width => 100), contacts_url
-        .name= @contact.name
-        .clear
-
-      - unless @images.empty?
-        #images
-          = "#{@images.current_page}/#{@images.total_entries}"
-          = image_tag @images.first.url, :width => '400px'
-        
-          - if @images.previous_page
-            .previous= link_to image_tag('previous.png'), paged_images_contacts_url(:id => @contact.id, :page => @images.previous_page)
-            
-          - if @images.next_page
-            .next= link_to image_tag('next.png'), paged_images_contacts_url(:id => @contact.id, :page => @images.next_page)
-        
-  .yui-u
-    #right
+      .contact
+        .picture
+          = image_tag(@contact.image_path, :width => 65)
+        .name
+          = @contact.name
+          
+      .phone
+        = image_tag 'interface/bphone.png'
+      .write
+        = image_tag 'interface/bwrite.png'
+      
+      .clear
+      
       #messages
         - @contact.messages.each do |message|
           = render message
-    
-      #write
-        = link_to "Write a new message", new_message_url(:contact_id => @contact.id)
+        
+  .yui-u
+    #right
       
       / #navigation
       /         .up= image_tag 'icons/up_64.png'
