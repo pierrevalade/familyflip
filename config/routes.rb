@@ -13,7 +13,7 @@ ActionController::Routing::Routes.draw do |map|
   map.signup 'signup', :controller => "users", :action => "new"
   
   # devices
-  map.resources :devices
+  map.resources :devices, :collection => {:contact => :get}
   
   # embarqued
   map.resources :contacts, :member => {:call => :get, :write => :get}
@@ -29,6 +29,6 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
   
-  map.root :controller => 'albums', :action => :index
+  map.root :controller => 'welcome', :action => :index
   
 end

@@ -8,6 +8,7 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  user_id    :integer(4)
+#  subdomain  :string(255)
 #
 
 require 'test_helper'

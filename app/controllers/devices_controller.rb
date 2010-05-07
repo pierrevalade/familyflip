@@ -1,6 +1,5 @@
 class DevicesController < ApplicationController
   
-  layout "welcome"
   before_filter :require_user, :only => :index
   
   def new
@@ -29,6 +28,24 @@ class DevicesController < ApplicationController
   
   def show
     @device = Device.find(params[:id])
+  end
+  
+  def edit
+    @device = Device.find(params[:id])
+  end
+  
+  def update
+    @device = Device.find(params[:id])
+    
+    if @device.update_attributes(params[:device])
+      redirect_to @device
+    else
+      render :action => :edit
+    end
+  end
+  
+  def contact
+    @contact = Contact.find(params[:id])
   end
   
 end

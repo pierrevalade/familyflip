@@ -1,0 +1,8 @@
+development:
+  access_key_id: AKIAILSDMWYRXH5GDGLQ
+  secret_access_key: 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
+  bucket: me310pioneer-development
+production:
+  access_key_id: AKIAILSDMWYRXH5GDGLQ
+  secret_access_key: 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
+  bucket: me310pioneer-production

@@ -17,9 +17,10 @@
 class Email < ActiveRecord::Base
   
   belongs_to :contact
+  belongs_to :device
   belongs_to :message
   
-  before_validation :set_contact
+  before_validation :set_device, :set_contact
   
   validates_presence_of :contact
   
@@ -42,9 +43,17 @@ class Email < ActiveRecord::Base
     field.gsub(/\n/,'') if field
   end
   
+  def subdomain
+    self.to.match(/(.*)@/)[1]
+  end
+  
   private
     def set_contact
-      self.contact = Contact.find_by_email(self.from)
+      self.contact = device.contacts.find_by_email(self.from)
+    end
+    
+    def set_device
+      self.device = Device.find_by_subdomain(self.subdomain)
     end
   
 end

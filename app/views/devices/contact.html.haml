@@ -1,0 +1,16 @@
+%h1
+  = link_to @contact.device.name, @contact.device
+  >
+  Contacts
+  
+<br /><br />
+
+= image_tag @contact.image.url
+<br />
+= @contact.name
+
+<br />
+<br />
+= link_to "Edit", edit_contact_path(@contact)
+<br />
+= link_to "Remove from contacts", contact_path(@contact), :method => :delete

@@ -3,6 +3,9 @@
 
 class ApplicationController < ActionController::Base
   
+  before_filter :set_current_device
+  layout :current_layout_name
+  
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   
@@ -10,6 +13,14 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :password_confirmation
 
   private
+    def set_current_device
+      @current_device = Device.find_by_subdomain(request.subdomains.first)
+    end
+    
+    def current_layout_name
+      @current_device.nil? ? "welcome" : "device"
+    end
+    
     def current_user_session
       return @current_user_session if defined?(@current_user_session)
       @current_user_session = UserSession.find

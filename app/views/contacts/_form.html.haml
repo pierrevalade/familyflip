@@ -1,0 +1,24 @@
+- form_for @contact, :html => { :multipart => true } do |f|
+
+  = f.error_messages
+
+  %table.input-form
+    %tr
+      %td= f.label :first_name
+      %td= f.text_field :first_name
+    %tr
+      %td= f.label :last_name
+      %td= f.text_field :last_name
+    %tr
+      %td= f.label :email
+      %td= f.text_field :email
+    %tr
+      %td= f.label :image
+      %td= f.file_field :image
+      %td
+      
+    %tr
+      %td
+      %td
+        = f.hidden_field :device_id
+        = f.submit

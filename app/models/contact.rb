@@ -2,23 +2,28 @@
 #
 # Table name: contacts
 #
-#  id         :integer(4)      not null, primary key
-#  first_name :string(255)
-#  last_name  :string(255)
-#  created_at :datetime
-#  updated_at :datetime
-#  email      :string(255)
+#  id                 :integer(4)      not null, primary key
+#  first_name         :string(255)
+#  last_name          :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  email              :string(255)
+#  device_id          :integer(4)
+#  image_file_name    :string(255)
+#  image_content_type :string(255)
+#  image_file_size    :integer(4)
+#  image_updated_at   :datetime
 #
 
 class Contact < ActiveRecord::Base
   
   has_many :messages
   has_many :albums
+  belongs_to :device
   
-  validates_presence_of :first_name, :last_name, :email
+  validates_presence_of :first_name, :last_name, :email, :device
   
   default_scope :order => 'last_name'
-  
   
   def name
     "#{first_name} #{last_name}"
@@ -29,7 +34,13 @@ class Contact < ActiveRecord::Base
   end
   
   def image_path
-    "contacts/#{first_name.parameterize}.jpg"
+    image.url
   end
+  
+  has_attached_file :image, :styles => { :original => ['300x300>'], :normal => ['100x100#']},
+                            :default_style => :normal,
+                            :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/aws.yml",
+                            :convert_options => { :all => '-auto-orient' },
+                            :path => "profile_images/:id/:style/:filename"
   
 end

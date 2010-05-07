@@ -8,6 +8,7 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  user_id    :integer(4)
+#  subdomain  :string(255)
 #
 
 class Device < ActiveRecord::Base
@@ -15,7 +16,19 @@ class Device < ActiveRecord::Base
   attr_accessor :email
   
   belongs_to :user
+  has_many :contacts
   
   validates_presence_of :name, :user_id
+  
+  validates_format_of :subdomain, :with => /^[A-Za-z0-9-]+$/
+                      #, :message => 'The subdomain can only contain alphanumeric characters and dashes.',
+                      # :allow_blank => true
+  validates_uniqueness_of :subdomain, :case_sensitive => false
+  
+  before_validation :downcase_subdomain
+  
+  def downcase_subdomain
+    self.subdomain.downcase!
+  end
   
 end

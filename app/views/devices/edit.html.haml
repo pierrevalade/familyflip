@@ -1,0 +1,20 @@
+- form_for @device do |f|
+  
+  = f.error_messages
+
+  %table.input-form
+    %tr
+      %td= f.label :name
+      %td= f.text_field :name
+    %tr
+      %td= f.label :subdomain
+      %td= f.text_field :subdomain
+    / %tr
+    /   %td= f.label :image
+    /   %td= f.file_field :image
+    /   %td
+    
+    %tr
+      %td
+      %td
+        = f.submit

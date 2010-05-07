@@ -12,6 +12,7 @@
 #  updated_at :datetime
 #  contact_id :integer(4)
 #  message_id :integer(4)
+#  device_id  :integer(4)
 #
 
 require 'test_helper'
