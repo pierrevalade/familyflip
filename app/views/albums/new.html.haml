@@ -1,0 +1,18 @@
+- form_for @album, :html => { :multipart => true } do |f|
+  = f.label :subject
+  = f.text_field :subject
+  <br />
+  <br />
+  
+  = f.label :text
+  = f.text_area :text
+  <br />
+  <br />
+  
+  - 3.times do
+    - f.fields_for "images", Image.new do |i|
+      = i.text_field :image_url
+  
+  = f.hidden_field :album
+  = f.hidden_field :contact_id
+  = f.submit

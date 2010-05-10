@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
   
   def show
     @contact = @current_device.contacts.find(params[:id])
-    @images = @contact.albums
+    @images = @contact.messages
     @images = @images.map { |album| album.images }.flatten.paginate(:page => params[:page], :per_page => 1) if @images
   end
   

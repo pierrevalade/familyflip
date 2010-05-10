@@ -18,7 +18,6 @@
 class Contact < ActiveRecord::Base
   
   has_many :messages
-  has_many :albums
   belongs_to :device
   
   validates_presence_of :first_name, :last_name, :email, :device

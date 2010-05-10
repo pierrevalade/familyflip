@@ -16,20 +16,38 @@ class Image < ActiveRecord::Base
   
   belongs_to :message
   
-  # temporary
-  attr_accessor :album
+  attr_accessor :url, :image_url
+  before_validation :download_remote_image, :if => :image_url_provided?
   
-  attr_accessor :url
-  
-  def file=(file)
-    self.attachment = file
+  def url
+    attachment.url
   end
   
   has_attached_file :attachment, :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/aws.yml",
-                                 :path => "messages_images/:id/:style/:filename"
+                                 :path => "messages_images/:id/:style/:filename",
+                                 :styles => { :original => ['1000x600>'], :normal => ['500x500>']},
+                                 :default_style => :normal
                                  # , :convert_options => { :all => '-auto-orient' }
-                                 # , :styles => { :original => ['300x300>'], :normal => ['75x75#']}
-                                 # , :default_style => :normal,
                                  # 
+                                 # ,
+                                 # 
+                                 
+  private
+    def image_url_provided?
+      !self.image_url.blank?
+    end
+    
+    def download_remote_image
+      self.attachment = do_download_remote_image
+      # self.image_remote_url = image_url
+    end
+  
+    def do_download_remote_image
+      io = open(URI.parse(image_url))
+      def io.original_filename; base_uri.path.split('/').last; end
+      io.original_filename.blank? ? nil : io
+    rescue
+      # catch url errors with validations instead of exceptions (Errno::ENOENT, OpenURI::HTTPError, etc...)
+    end
   
 end

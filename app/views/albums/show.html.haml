@@ -20,7 +20,7 @@
 
   .yui-u
     #right
-      .title= link_to @album.title, albums_url
+      .title= link_to @album.subject, albums_url
       
       - unless @images_in_groups.second.nil?
         - @images_in_groups.second.each do |image|
