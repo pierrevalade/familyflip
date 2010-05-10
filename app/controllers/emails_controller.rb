@@ -4,8 +4,13 @@ class EmailsController < ApplicationController
 
   def create
     email = Email.sendgrid(params)
-    # raise "#{email.attachments.first.inspect}"
     email.save!
+    
+    # m = Message.new
+    # m.images.build(:attachment => open(params[:attachment1]))
+    # m.contact = Contact.first
+    # m.text = "ok"
+    # m.save!
     
     render :nothing => true
   end
