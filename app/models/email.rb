@@ -19,7 +19,7 @@ class Email < ActiveRecord::Base
   
   belongs_to :contact
   belongs_to :device
-  belongs_to :message
+  belongs_to :message, :validate => false
   
   before_validation :set_device, :set_contact
   
