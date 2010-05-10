@@ -16,6 +16,9 @@ class Image < ActiveRecord::Base
   
   belongs_to :message
   
+  # temporary
+  attr_accessor :album
+  
   attr_accessor :url
   
   has_attached_file :attachment, :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/aws.yml"
