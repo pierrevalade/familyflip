@@ -4,6 +4,7 @@ class EmailsController < ApplicationController
 
   def create
     email = Email.sendgrid(params)
+    raise "#{email.attachments.first.inspect}"
     email.save
     
     render :nothing => true
