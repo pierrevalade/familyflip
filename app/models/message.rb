@@ -15,7 +15,7 @@
 class Message < ActiveRecord::Base
   
   belongs_to :contact
-  has_many :images
+  has_many :images, :validate => false
   
   validates_presence_of :contact
   
