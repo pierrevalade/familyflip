@@ -8,6 +8,8 @@
 #  text       :text
 #  created_at :datetime
 #  updated_at :datetime
+#  album      :boolean(1)
+#  date       :date
 #
 
 require 'test_helper'

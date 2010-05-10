@@ -8,11 +8,14 @@
 #  text       :text
 #  created_at :datetime
 #  updated_at :datetime
+#  album      :boolean(1)
+#  date       :date
 #
 
 class Message < ActiveRecord::Base
   
   belongs_to :contact
+  has_many :images
   
   validates_presence_of :contact, :text
   
@@ -26,6 +29,9 @@ class Message < ActiveRecord::Base
     self.contact = email.contact
     self.subject = email.subject
     self.text = email.text_body
+    email.attachments.each do |file|
+      self.images.build(:attachment => open(file))
+    end
   end
   
 end

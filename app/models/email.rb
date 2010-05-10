@@ -12,6 +12,7 @@
 #  updated_at :datetime
 #  contact_id :integer(4)
 #  message_id :integer(4)
+#  device_id  :integer(4)
 #
 
 class Email < ActiveRecord::Base
@@ -24,6 +25,8 @@ class Email < ActiveRecord::Base
   
   validates_presence_of :contact
   
+  attr_accessor :attachments
+  
   def self.sendgrid(params)
     email = Email.new
     email.from = format_from(params[:from])
@@ -31,12 +34,13 @@ class Email < ActiveRecord::Base
     email.subject = clean_field(params[:subject])
     email.text_body = params[:text]
     email.html_body = params[:html]
+    email.attachments = format_attachments(params)
 
     email
   end
   
   def self.format_from(email)
-    clean_field(email.match(/<(.*)>/)[1])
+    clean_field(email.match(/<(.*)>/)[1]) unless email.blank?
   end
   
   def self.clean_field(field)
@@ -49,11 +53,20 @@ class Email < ActiveRecord::Base
   
   private
     def set_contact
-      self.contact = device.contacts.find_by_email(self.from)
+      self.contact = device.contacts.find_by_email(self.from) if self.device
     end
     
     def set_device
       self.device = Device.find_by_subdomain(self.subdomain)
+    end
+    
+    def self.format_attachments(params)
+      return nil if params[:attachments].to_i == 0
+      attachments = []
+      params[:attachments].to_i.times do |i|
+        attachments << params["attachment#{i+1}".to_sym]
+      end
+      attachments
     end
   
 end

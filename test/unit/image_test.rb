@@ -3,7 +3,7 @@
 # Table name: images
 #
 #  id                      :integer(4)      not null, primary key
-#  album_id                :integer(4)
+#  message_id              :integer(4)
 #  created_at              :datetime
 #  updated_at              :datetime
 #  attachment_file_name    :string(255)
