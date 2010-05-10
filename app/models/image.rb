@@ -21,10 +21,15 @@ class Image < ActiveRecord::Base
   
   attr_accessor :url
   
-  has_attached_file :attachment, :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/aws.yml"
+  def file=(file)
+    self.attachment = file
+  end
+  
+  has_attached_file :attachment, :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/aws.yml",
+                                 :path => "messages_images/:id/:style/:filename"
                                  # , :convert_options => { :all => '-auto-orient' }
                                  # , :styles => { :original => ['300x300>'], :normal => ['75x75#']}
                                  # , :default_style => :normal,
-                                 # :path => "profile_images/:id/:style/:filename"
+                                 # 
   
 end

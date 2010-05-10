@@ -30,7 +30,7 @@ class Message < ActiveRecord::Base
     self.subject = email.subject
     self.text = email.text_body
     email.attachments.each do |file|
-      Image.create(:attachment => file)
+      self.images.build(:file => file)
     end
   end
   
