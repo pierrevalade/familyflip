@@ -35,13 +35,14 @@ a {
   #right .content, #left .content {
     padding: 20px; }
 
-.button {
-  color: white;
-  font-size: 120%;
+#left .button {
   position: absolute;
-  top: 725px; }
+  top: 953px;
+  left: 0px; }
 
 #right .button {
+  position: absolute;
+  top: 953px;
   right: 0px; }
 
 .albums.image .image {
