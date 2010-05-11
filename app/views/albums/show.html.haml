@@ -1,33 +1,30 @@
-.yui-g
-  .yui-u.first
-    #left
-      .contact{:onclick => "go('#{contact_path(@album.contact)}')"}
-        .picture
-          = image_tag(@album.contact.image_path, :width => 65)
-        .name
-          = @album.contact.name
-      /.title= link_to @album.title, albums_url
-      
-      - unless @images_in_groups.first.nil?
-        - @images_in_groups.first.each do |image|
-          = render image
-        
-      - if @images.previous_page
-        .button
-          = link_to image_tag('previous.png'), paged_images_albums_url(:id => @album.id, :page => @images.previous_page)
-            
-      .clear
-
-  .yui-u
-    #right
-      .title= link_to @album.subject, albums_url
-      
-      - unless @images_in_groups.second.nil?
-        - @images_in_groups.second.each do |image|
-          = render image
+#left
+  .content
+    .contact{:onclick => "go('#{contact_path(@album.contact)}')"}
+      .picture
+        = image_tag(@album.contact.image_path, :width => 65)
+      .name
+        = @album.contact.name
+    /.title= link_to @album.title, albums_url
+  
+    - unless @images_in_groups.first.nil?
+      - @images_in_groups.first.each do |image|
+        = render image
     
-      - if @images.next_page
-        .button
-          = link_to image_tag('next.png'), paged_images_albums_url(:id => @album.id, :page => @images.next_page)
-      
-      .clear
+    - if @images.previous_page
+      .button
+        = link_to image_tag('previous.png'), paged_images_albums_url(:id => @album.id, :page => @images.previous_page)
+        
+    .clear
+
+#right
+  .content  
+    - unless @images_in_groups.second.nil?
+      - @images_in_groups.second.each do |image|
+        = render image
+
+    - if @images.next_page
+      .button
+        = link_to image_tag('next.png'), paged_images_albums_url(:id => @album.id, :page => @images.next_page)
+  
+    .clear

@@ -32,11 +32,14 @@ class Contact < ActiveRecord::Base
     name
   end
   
-  def image_path
-    image.url
+  def image_path(size = 'normal')
+    image.url(size)
   end
   
-  has_attached_file :image, :styles => { :original => ['300x300>'], :normal => ['100x100#']},
+  has_attached_file :image, :styles => { :original => ['300x300>'],
+                                         :normal => ['100x100#'],
+                                         :small => ['50x50#']
+                                       },
                             :default_style => :normal,
                             :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/aws.yml",
                             :path => "profile_images/:id/:style/:filename"

@@ -12,15 +12,15 @@
 
 class Album < ActiveRecord::Base
   
-  belongs_to :contact
-  #has_many :images
-  
-  def preview_url
-    "/albums/#{self.id}/01.jpg"
-  end
-  
-  def images
-    Dir.glob("public/albums/#{self.id}/*.jpg").map { |i| Image.new(:album => self, :url => i.gsub('public', '')) }
-  end
+  # belongs_to :contact
+  # #has_many :images
+  # 
+  # def preview_url
+  #   "/albums/#{self.id}/01.jpg"
+  # end
+  # 
+  # def images
+  #   Dir.glob("public/albums/#{self.id}/*.jpg").map { |i| Image.new(:album => self, :url => i.gsub('public', '')) }
+  # end
   
 end

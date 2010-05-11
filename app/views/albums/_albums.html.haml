@@ -1,0 +1,10 @@
+%tr
+  - albums.each do |album|
+    %td.stack{:onclick => "go('#{album_path(album)}')"}
+      .stack
+        .image{:style => "background: transparent url(#{album.image.url(:stack)}) no-repeat"}
+        .contact= image_tag album.contact.image_path(:small)
+%tr
+  - albums.each do |album|
+    %td.title{:onclick => "go('#{album_path(album)}')"}
+      = album.subject

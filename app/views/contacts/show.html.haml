@@ -1,28 +1,17 @@
-.yui-g
-  .yui-u.first
-    #left
-      .contact
-        .picture
-          = image_tag(@contact.image_path, :width => 65)
-        .name
-          = @contact.name
-          
-      .phone
-        = image_tag 'interface/bphone.png'
-      .write
-        = image_tag 'interface/bwrite.png'
-      
-      .clear
-      
-      #messages
-        - @contact.messages.each do |message|
-          = render message
-        
-  .yui-u
-    #right
-      
-      / #navigation
-      /         .up= image_tag 'icons/up_64.png'
-      /         .down= image_tag 'icons/down_64.png'
+#page
+  .content
+    .contact
+      .picture
+        = image_tag(@contact.image_path, :width => 65)
+      .name
+        = @contact.name
+    
+    .phone
+      = image_tag 'interface/bphone.png'
+    .write
+      = image_tag 'interface/bwrite.png'
 
-      .clear
+    .clear
+
+    - @messages.each do |message|
+      = render message

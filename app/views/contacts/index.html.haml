@@ -1,28 +1,25 @@
-.yui-g
-  .yui-u.first
-    #left
-      .contacts MY CONTACTS
-      
-      
-      
-      - unless @contacts_in_groups.first.nil?
-        - @contacts_in_groups.first.each do |contact|
-          = render contact
-          .space
-        
-        - if @contacts.previous_page
-          .button
-            = link_to image_tag('previous.png'), paged_contacts_url(@contacts.previous_page)
-
-  .yui-u
-    #right
-      - unless @contacts_in_groups.second.nil?
-        - @contacts_in_groups.second.each do |contact|
-          = render contact
-          .space
+#left
+  .content
+    .title MY CONTACTS
     
-        - if @contacts.next_page
-          .button
-            = link_to image_tag('next.png'), paged_contacts_url(@contacts.next_page)
+    - unless @contacts_in_groups.first.nil?
+      - @contacts_in_groups.first.each do |contact|
+        = render contact
+        .space
       
-      .clear
+      - if @contacts.previous_page
+        .button
+          = link_to image_tag('previous.png'), paged_contacts_url(@contacts.previous_page)
+
+#right
+  .content
+    - unless @contacts_in_groups.second.nil?
+      - @contacts_in_groups.second.each do |contact|
+        = render contact
+        .space
+
+      - if @contacts.next_page
+        .button
+          = link_to image_tag('next.png'), paged_contacts_url(@contacts.next_page)
+  
+    .clear

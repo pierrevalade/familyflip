@@ -1,19 +1,18 @@
 class ContactsController < ApplicationController
   
   def index
-    @contacts = @current_device.contacts.paginate(:page => params[:page], :per_page => 16)
-    @contacts_in_groups = @contacts.in_groups_of(8, false)
+    @contacts = @current_device.contacts.paginate(:page => params[:page], :per_page => 18)
+    @contacts_in_groups = @contacts.in_groups_of(9, false)
   end
   
   def show
     @contact = @current_device.contacts.find(params[:id])
-    @images = @contact.messages
-    @images = @images.map { |album| album.images }.flatten.paginate(:page => params[:page], :per_page => 1) if @images
+    @messages = @contact.messages.find(:all, :order => 'created_at DESC')
   end
   
-  def call
-    @contact = Contact.find(params[:id])
-  end
+  # def call
+  #   @contact = Contact.find(params[:id])
+  # end
   
   def new
     @contact = Contact.new(:device_id => params[:device_id])

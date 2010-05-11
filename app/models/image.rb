@@ -19,13 +19,16 @@ class Image < ActiveRecord::Base
   attr_accessor :url, :image_url
   before_validation :download_remote_image, :if => :image_url_provided?
   
-  def url
-    attachment.url
+  def url(size = :normal)
+    attachment.url(size)
   end
   
   has_attached_file :attachment, :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/aws.yml",
                                  :path => "messages_images/:id/:style/:filename",
-                                 :styles => { :original => ['1000x600>'], :normal => ['500x500>']},
+                                 :styles => { :original => ['1000x600>'],
+                                              :normal => ['500x500>'],
+                                              :stack => ['137x133>']
+                                            },
                                  :default_style => :normal
                                  # , :convert_options => { :all => '-auto-orient' }
                                  # 

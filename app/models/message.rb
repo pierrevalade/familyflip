@@ -44,6 +44,10 @@ class Message < ActiveRecord::Base
     images.first
   end
   
+  def images?
+    !images.empty?
+  end
+  
   private
     def set_if_album
       self.album = images.empty? ? false : true

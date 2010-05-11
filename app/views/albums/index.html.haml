@@ -1,41 +1,24 @@
-.yui-g
-  .yui-u.first
-    #left
-      .title MY ALBUMS
-      
-      %table.albums
-        - @albums_in_groups[0..1].each do |albums|
-          %tr
-            - albums.each do |album|
-              %td{:onclick => "go('#{album_path(album)}')"}
-                .image= image_tag album.image.url, :width => '100'
-          %tr
-            - albums.each do |album|
-              %td.title{:onclick => "go('#{album_path(album)}')"}= album.subject
-            
-      - if @albums.previous_page
-        .button
-          = link_to image_tag('previous.png'), paged_albums_url(@albums.previous_page)
+#left
+  .content
+    .title MY ALBUMS
+  
+    %table.albums
+      - @albums_in_groups[0..1].each do |albums|
+        = render 'albums', :albums => albums
+        
+    - if @albums.previous_page
+      .button
+        = link_to image_tag('previous.png'), paged_albums_url(@albums.previous_page)
 
-  .yui-u
-    #right
-      
-      %table
-        %tr
-          %td{:onclick => "go('#{album_path(1)}')"}= image_tag 'interface/stack0.png'
-          %td{:onclick => "go('#{album_path(2)}')"}= image_tag 'interface/stack1.png'
-        %tr
-          %td.title{:onclick => "go('#{album_path(1)}')"} San Francisco 2/2
-          %td.title{:onclick => "go('#{album_path(2)}')"} Carolyn's holidays
-        %tr
-          %td.stack{:onclick => "go('#{album_path(3)}')"}= image_tag 'interface/stack3.png'
-          %td.stack{:onclick => "go('#{album_path(4)}')"}= image_tag 'interface/stack4.png'
-        %tr
-          %td.title{:onclick => "go('#{album_path(3)}')"} Marroco
-          %td.title{:onclick => "go('#{album_path(4)}')"} San Francisco 1/2
-      
-      - if @albums.next_page
-        .button
-          = link_to image_tag('next.png'), paged_albums_url(@albums.next_page)
-    
-      .clear
+#right
+  .content
+
+    %table.albums
+      - @albums_in_groups[2..3].each do |albums|
+        = render 'albums', :albums => albums
+  
+    - if @albums.next_page
+      .button
+        = link_to image_tag('next.png'), paged_albums_url(@albums.next_page)
+
+    .clear

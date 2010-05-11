@@ -3,3 +3,7 @@
     = time_ago_in_words message.created_at
     ago
   .text= simple_format message.text
+  
+  - if message.images?
+    .image
+      = image_tag message.image.url(:small)
