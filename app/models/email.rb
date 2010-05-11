@@ -29,8 +29,8 @@ class Email < ActiveRecord::Base
   
   def self.sendgrid(params)
     email = Email.new
-    email.from = format_from(params[:from])
-    email.to = clean_field(params[:to])
+    email.from = format_email(params[:from])
+    email.to = format_email(params[:to])
     email.subject = clean_field(params[:subject])
     email.text_body = params[:text]
     email.html_body = params[:html]
@@ -39,7 +39,7 @@ class Email < ActiveRecord::Base
     email
   end
   
-  def self.format_from(email)
+  def self.format_email(email)
     clean_field(email.match(/<(.*)>/)[1]) unless email.blank?
   end
   
