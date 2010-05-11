@@ -23,7 +23,7 @@ class Email < ActiveRecord::Base
   
   before_validation :set_device, :set_contact
   
-  validates_presence_of :contact
+  validates_presence_of :device, :contact
   
   attr_accessor :attachments
   
