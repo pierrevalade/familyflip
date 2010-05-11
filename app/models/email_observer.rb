@@ -4,7 +4,7 @@ class EmailObserver < ActiveRecord::Observer
     if email.valid?
       message = Message.new
       message.email = email
-      if message.save
+      if message.save!
         email.message = message
       end
     end

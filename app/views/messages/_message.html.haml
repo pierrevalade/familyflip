@@ -2,7 +2,9 @@
   .date
     = time_ago_in_words message.created_at
     ago
-  .text= simple_format message.text
+  .text
+    = message.subject
+    = simple_format message.text
   
   - if message.images?
     .image
