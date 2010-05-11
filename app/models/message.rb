@@ -36,6 +36,7 @@ class Message < ActiveRecord::Base
     self.contact = email.contact
     self.subject = email.subject
     self.text = email.text_body
+    self.reply = false
     email.attachments.each do |file|
       self.images.build(:attachment => file)
     end
