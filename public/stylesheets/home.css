@@ -45,6 +45,18 @@ a {
   top: 953px;
   right: 0px; }
 
+#contact {
+  background: transparent url(/images/interface/contact-bg.png) no-repeat;
+  height: 90px;
+  cursor: pointer; }
+  #contact .name {
+    float: left;
+    margin: 20px 0 0 10px;
+    font-size: 230%; }
+  #contact .picture {
+    float: left;
+    margin: 7px 0 0 20px; }
+
 .albums.image .image {
   margin: 40px auto;
   width: 1000px;
@@ -88,17 +100,6 @@ a {
 
 .albums.show .title {
   padding: 10px; }
-.albums.show .contact {
-  background: transparent url(/images/interface/contact-bg.png) no-repeat;
-  height: 90px;
-  cursor: pointer; }
-  .albums.show .contact .name {
-    float: left;
-    margin: 20px 0 0 10px;
-    font-size: 230%; }
-  .albums.show .contact .picture {
-    float: left;
-    margin: 7px 0 0 20px; }
 .albums.show .image {
   padding: 10px 10px 20px 10px;
   border: 1px solid #BFBFBF;
@@ -180,6 +181,10 @@ a {
   border: 1px solid #87cd96;
   display: block; }
 
+.messages.new .send, .messages.new .erase {
+  float: left; }
+.messages.new .erase {
+  margin-left: 10px; }
 .messages.new #container {
   position: relative; }
 .messages.new #imageView {

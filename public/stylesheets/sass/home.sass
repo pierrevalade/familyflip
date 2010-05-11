@@ -48,6 +48,19 @@ a
     :position absolute
     :top 953px
     :right 0px
+    
+#contact
+  :background transparent url(/images/interface/contact-bg.png) no-repeat
+  :height 90px
+  :cursor pointer
+  .name
+    :float left
+    :margin 20px 0 0 10px
+    :font-size 230%
+
+  .picture
+    :float left
+    :margin 7px 0 0 20px
   
 .albums.image
   .image
@@ -104,18 +117,7 @@ a
   .title
     :padding 10px
     
-  .contact
-    :background transparent url(/images/interface/contact-bg.png) no-repeat
-    :height 90px
-    :cursor pointer
-    .name
-      :float left
-      :margin 20px 0 0 10px
-      :font-size 230%
-      
-    .picture
-      :float left
-      :margin 7px 0 0 20px
+
     
   .image
     :padding 10px 10px 20px 10px
@@ -216,6 +218,12 @@ a
       :display block
   
 .messages.new
+  .send, .erase
+    :float left
+  
+  .erase
+    :margin-left 10px
+    
   form
   
   #container

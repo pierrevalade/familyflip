@@ -10,6 +10,7 @@
 #  updated_at :datetime
 #  album      :boolean(1)
 #  date       :date
+#  reply      :boolean(1)
 #
 
 require 'test_helper'

@@ -1,21 +1,34 @@
 - content_for :head do
   = javascript_include_tag 'canvas'
+  
+:javascript
+  $(function() {
+    var canvas = document.getElementById('imageView');
+    
+    $('#new_message').submit(function() {
+      $('#message_images_attributes_0_attachment64').val(canvas.toDataURL());
+    });
+    
+    $('.erase').click(function() {
+      canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+    })
+  });
+  
+- form_for @message do |f|
+  #left
+    .content
+      = render @message.contact
+    
+      .send= image_submit_tag 'send.png'
+      .erase= image_tag 'erase.png'
 
-#left
-
-#right
-  .content
-    - form_for @message, :html => { :multipart => true }  do |f|
+  #right
+    .content
       #container
-        <canvas id="imageView" width="536" height="900">
+        <canvas id="imageView" width="536" height="984">
         </canvas>
-      
+    
       - f.fields_for "images", Image.new do |i|
-        = i.text_field :attachment
-      
+        = i.hidden_field :attachment64
+    
       = f.hidden_field :contact_id
-      
-      = button_to_function "Export", "$('#message_images_attributes_0_attachment').val(document.getElementById('imageView').toDataURL())"
-      = button_to_function "Read", "window.open($('#message_images_attributes_0_attachment').val())"
-      
-      = f.submit 'Send'

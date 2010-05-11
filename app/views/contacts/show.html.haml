@@ -1,10 +1,6 @@
 #page
   .content
-    .contact
-      .picture
-        = image_tag(@contact.image_path, :width => 65)
-      .name
-        = @contact.name
+    = render @contact
     
     .phone
       = image_tag 'interface/bphone.png'

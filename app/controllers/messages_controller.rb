@@ -5,9 +5,9 @@ class MessagesController < ApplicationController
   end
   
   def create
-    
     @message = Message.new(params[:message])
-    @message.save
+    @message.reply = true
+    @message.save!
     redirect_to @message.contact
   end
   

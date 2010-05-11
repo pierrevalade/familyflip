@@ -1,6 +1,6 @@
 #left
   .content
-    .contact{:onclick => "go('#{contact_path(@album.contact)}')"}
+    #contact{:onclick => "go('#{contact_path(@album.contact)}')"}
       .picture
         = image_tag(@album.contact.image_path, :width => 65)
       .name
