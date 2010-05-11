@@ -2,7 +2,7 @@ class MessageMailer < ActionMailer::Base
 
   def reply_email(message)
     recipients  message.contact.email
-    from        "PixShare Notifications"
+    from        "PixShare Notifications <notifications@usefulsocial.com>"
     subject     "New message from #{message.contact.device.name}"
     sent_on     Time.now
     body        :message => message, :contact => message.contact, :device => message.contact.device

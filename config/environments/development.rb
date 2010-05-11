@@ -15,17 +15,3 @@ config.action_controller.perform_caching             = false
 
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
-
-# # http://api.rubyonrails.org/classes/ActionMailer/Base.html
-# # http://apidock.com/rails/ActionMailer/Base
-# 
-# ActionMailer::Base.smtp_settings = {
-#   :address => "smtp.sendgrid.net",
-#   :port => 25,
-#   :domain => "usefulsocial.com",
-#   :authentication => :plain,
-#   :user_name => "app163234@heroku.com",
-#   :password => "6cf7d68ac8e72dfea2"
-# }
-# 
-# ActionMailer::Base.default_url_options[:host] = "usefulsocial.com"
