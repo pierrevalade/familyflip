@@ -40,7 +40,7 @@ class Email < ActiveRecord::Base
   end
   
   def self.format_email(email)
-    clean_field(email.match(/<(.*)>/)[1]) unless email.blank?
+    clean_field(email).match(/[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/i)[0] unless email.blank?
   end
   
   def self.clean_field(field)
