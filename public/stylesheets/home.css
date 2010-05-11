@@ -57,6 +57,25 @@ a {
     float: left;
     margin: 7px 0 0 20px; }
 
+div.stack {
+  background: transparent url(/images/wstack.png) no-repeat;
+  width: 187px;
+  height: 144px;
+  cursor: pointer; }
+  div.stack .contact {
+    float: left;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: -90px;
+    left: 0; }
+  div.stack .image {
+    position: relative;
+    top: 35px;
+    left: 32px;
+    width: 137px;
+    height: 90px; }
+
 .albums.image .image {
   margin: 40px auto;
   width: 1000px;
@@ -78,23 +97,6 @@ a {
   font-size: 160%;
   padding-bottom: 30px;
   text-align: center; }
-.albums.index table.albums div.stack {
-  background: transparent url(/images/wstack.png) no-repeat;
-  width: 187px;
-  height: 144px; }
-  .albums.index table.albums div.stack .contact {
-    float: left;
-    width: 50px;
-    height: 50px;
-    position: relative;
-    top: -90px;
-    left: 0; }
-  .albums.index table.albums div.stack .image {
-    position: relative;
-    top: 35px;
-    left: 32px;
-    width: 137px;
-    height: 90px; }
 .albums.index #right table.albums {
   margin-top: 80px; }
 
@@ -153,16 +155,23 @@ a {
   float: left; }
 .contacts.show .write {
   margin-left: 8px; }
-.contacts.show .message {
-  background-color: #9bddf6;
+.contacts.show .reply, .contacts.show .message {
   padding: 20px;
   margin: 10px 0;
+  font-family: "Helvetica Neue", Arial;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px; }
-  .contacts.show .message .date {
+  .contacts.show .reply .date, .contacts.show .message .date {
     float: right;
     margin: 0 0 10px 10px; }
-  .contacts.show .message .text {
+.contacts.show .reply {
+  background-color: white; }
+.contacts.show .message {
+  background-color: #9bddf6; }
+  .contacts.show .message .text p.subject {
+    font-size: 150%;
+    margin-bottom: 10px; }
+  .contacts.show .message .text p {
     font-size: 130%; }
 .contacts.show #images {
   width: 400px;

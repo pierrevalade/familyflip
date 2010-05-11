@@ -31,4 +31,8 @@ class Device < ActiveRecord::Base
     self.subdomain.downcase!
   end
   
+  def email
+    "#{self.subdomain}@usefulsocial.com"
+  end
+  
 end

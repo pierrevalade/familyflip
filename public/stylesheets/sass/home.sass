@@ -61,6 +61,27 @@ a
   .picture
     :float left
     :margin 7px 0 0 20px
+    
+    
+div.stack
+  :background transparent url(/images/wstack.png) no-repeat
+  :width 187px
+  :height 144px
+  :cursor pointer
+  .contact
+    :float left
+    :width 50px
+    :height 50px
+    :position relative
+    :top -90px
+    :left 0
+    
+  .image
+    :position relative
+    :top 35px
+    :left 32px
+    :width 137px
+    :height 90px
   
 .albums.image
   .image
@@ -89,25 +110,6 @@ a
       :font-size 160%
       :padding-bottom 30px
       :text-align center
-      
-    div.stack
-      :background transparent url(/images/wstack.png) no-repeat
-      :width 187px
-      :height 144px
-      .contact
-        :float left
-        :width 50px
-        :height 50px
-        :position relative
-        :top -90px
-        :left 0
-        
-      .image
-        :position relative
-        :top 35px
-        :left 32px
-        :width 137px
-        :height 90px
           
   #right
     table.albums
@@ -185,17 +187,27 @@ a
   .write
     :margin-left 8px
       
-  .message
-    :background-color #9bddf6
+  .reply, .message
     :padding 20px
     :margin 10px 0
+    :font-family "Helvetica Neue", Arial
     :-moz-border-radius 10px
     :-webkit-border-radius 10px
     .date
       :float right
       :margin 0 0 10px 10px
+    
+  .reply
+    :background-color white
+    
+  .message
+    :background-color #9bddf6
     .text
-      :font-size 130%
+      p.subject
+        :font-size 150%
+        :margin-bottom 10px
+      p
+        :font-size 130%
       
   #images
     :width 400px
