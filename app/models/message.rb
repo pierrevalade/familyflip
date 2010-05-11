@@ -19,6 +19,8 @@ class Message < ActiveRecord::Base
   # TODO: reject_if needs to be setup for all different type of uploads
   accepts_nested_attributes_for :images, :reject_if => proc { |attributes| attributes['image_url'].blank? }
   
+  before_validation :set_if_album
+  
   validates_presence_of :contact
   
   default_scope :order => 'created_at ASC'
@@ -41,5 +43,10 @@ class Message < ActiveRecord::Base
   def image
     images.first
   end
+  
+  private
+    def set_if_album
+      self.album = images.empty? ? false : true
+    end
   
 end

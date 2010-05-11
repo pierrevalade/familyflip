@@ -6,7 +6,7 @@ class AlbumsController < ApplicationController
   end
   
   def new
-    @album = Message.new(:contact_id => Contact.first.id, :album => true)
+    @album = Message.new(:contact_id => Contact.first.id)
     
     render :layout => false
   end
