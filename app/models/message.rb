@@ -22,7 +22,9 @@ class Message < ActiveRecord::Base
   
   before_validation :set_if_album
   
-  validates_presence_of :contact, :reply
+  validates_presence_of :contact
+  # validates boolean
+  validates_inclusion_of :reply, :in => [true, false]
   
   default_scope :order => 'created_at ASC'
   
