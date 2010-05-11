@@ -90,7 +90,8 @@ a {
   padding: 10px; }
 .albums.show .contact {
   background: transparent url(/images/interface/contact-bg.png) no-repeat;
-  height: 90px; }
+  height: 90px;
+  cursor: pointer; }
   .albums.show .contact .name {
     float: left;
     margin: 20px 0 0 10px;
@@ -179,14 +180,11 @@ a {
   border: 1px solid #87cd96;
   display: block; }
 
-.messages.new form {
-  width: 400px;
-  margin: 50px auto; }
-.messages.new #message_text {
-  width: 400px;
-  height: 700px;
-  font-size: 170%;
-  padding: 30px; }
+.messages.new #container {
+  position: relative; }
+.messages.new #imageView {
+  border: 1px solid black;
+  background-color: white; }
 .messages.new #message_submit {
   width: 400px;
   height: 40px;

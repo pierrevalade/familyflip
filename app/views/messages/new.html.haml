@@ -1,15 +1,21 @@
-:javascript
-  $(function() {
-    $('#message_text').focus();
-  });
+- content_for :head do
+  = javascript_include_tag 'canvas'
 
-.yui-g
-  .yui-u.first
-    #left
+#left
 
-  .yui-u
-    #right
-      - form_for @message do |f|
-        = f.text_area :text
-        = f.hidden_field :contact_id
-        = f.submit 'Send'
+#right
+  .content
+    - form_for @message, :html => { :multipart => true }  do |f|
+      #container
+        <canvas id="imageView" width="536" height="900">
+        </canvas>
+      
+      - f.fields_for "images", Image.new do |i|
+        = i.text_field :attachment
+      
+      = f.hidden_field :contact_id
+      
+      = button_to_function "Export", "$('#message_images_attributes_0_attachment').val(document.getElementById('imageView').toDataURL())"
+      = button_to_function "Read", "window.open($('#message_images_attributes_0_attachment').val())"
+      
+      = f.submit 'Send'

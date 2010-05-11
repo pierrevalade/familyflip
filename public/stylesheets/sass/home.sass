@@ -107,6 +107,7 @@ a
   .contact
     :background transparent url(/images/interface/contact-bg.png) no-repeat
     :height 90px
+    :cursor pointer
     .name
       :float left
       :margin 20px 0 0 10px
@@ -216,13 +217,14 @@ a
   
 .messages.new
   form
-    :width 400px
-    :margin 50px auto
-  #message_text
-    :width 400px
-    :height 700px
-    :font-size 170%
-    :padding 30px
+  
+  #container
+    :position relative
+    
+  #imageView
+    :border 1px solid black
+    :background-color white
+    
   #message_submit
     :width 400px
     :height 40px

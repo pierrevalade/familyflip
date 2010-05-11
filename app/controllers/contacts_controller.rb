@@ -1,8 +1,8 @@
 class ContactsController < ApplicationController
   
   def index
-    @contacts = @current_device.contacts.paginate(:page => params[:page], :per_page => 2)
-    @contacts_in_groups = @contacts.in_groups_of(1, false)
+    @contacts = @current_device.contacts.paginate(:page => params[:page], :per_page => 18)
+    @contacts_in_groups = @contacts.in_groups_of(9, false)
   end
   
   def show
