@@ -2,9 +2,10 @@
   .content
     .title MY ALBUMS
   
-    %table.albums
-      - @albums_in_groups[0..1].each do |albums|
-        = render 'albums', :albums => albums
+    - if @albums_in_groups[0..1]
+      %table.albums
+        - @albums_in_groups[0..1].each do |albums|
+          = render 'albums', :albums => albums
         
     - if @albums.previous_page
       .button
@@ -12,10 +13,11 @@
 
 #right
   .content
-
-    %table.albums
-      - @albums_in_groups[2..3].each do |albums|
-        = render 'albums', :albums => albums
+  
+    - if @albums_in_groups[2..3]
+      %table.albums
+        - @albums_in_groups[2..3].each do |albums|
+          = render 'albums', :albums => albums
   
     - if @albums.next_page
       .button

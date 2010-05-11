@@ -61,7 +61,7 @@ class Email < ActiveRecord::Base
     end
     
     def self.format_attachments(params)
-      return nil if params[:attachments].to_i == 0
+      return [] if params[:attachments].to_i == 0
       attachments = []
       params[:attachments].to_i.times do |i|
         attachments << params["attachment#{i+1}".to_sym]
