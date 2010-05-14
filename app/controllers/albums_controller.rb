@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
     
   def index
-    @albums = Message.albums.paginate(:page => params[:page], :per_page => 8, :order => 'created_at DESC')
+    @albums = Message.albums.paginate(:page => params[:page], :per_page => 16, :order => 'created_at DESC')
     @albums_in_groups = @albums.in_groups_of(2, false)
   end
   

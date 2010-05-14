@@ -1,6 +1,6 @@
 #left
   .content
-    .title MY CONTACTS
+    .title{:onclick => "go('#{albums_path}')"} MY CONTACTS
     
     - unless @contacts_in_groups.first.nil?
       - @contacts_in_groups.first.each do |contact|
