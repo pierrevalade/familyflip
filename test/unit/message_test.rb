@@ -11,6 +11,7 @@
 #  album      :boolean(1)
 #  date       :date
 #  reply      :boolean(1)
+#  read_at    :datetime
 #
 
 require 'test_helper'

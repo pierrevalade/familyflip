@@ -11,11 +11,13 @@
 #  album      :boolean(1)
 #  date       :date
 #  reply      :boolean(1)
+#  read_at    :datetime
 #
 
 class Message < ActiveRecord::Base
   
   belongs_to :contact
+  
   has_many :images
   # TODO: reject_if needs to be setup for all different type of uploads
   accepts_nested_attributes_for :images#, :reject_if => proc { |attributes| attributes['image_url'].blank? }
@@ -29,6 +31,8 @@ class Message < ActiveRecord::Base
   default_scope :order => 'created_at ASC'
   
   named_scope :albums, :conditions => {:album => true, :reply => false}
+  
+  boolean_datetime_attribute :read_at
   
   def to_s
     subject

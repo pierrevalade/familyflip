@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100511171634) do
+ActiveRecord::Schema.define(:version => 20100511220623) do
 
   create_table "albums", :force => true do |t|
     t.integer  "contact_id"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20100511171634) do
     t.boolean  "album"
     t.date     "date"
     t.boolean  "reply"
+    t.datetime "read_at"
   end
 
   create_table "users", :force => true do |t|
