@@ -5,10 +5,10 @@ $(function() {
   document.onselectstart = function() {return false;} // ie
   document.onmousedown = function() {return false;} // mozilla
   
-  $(document).bind('keyup', 'a', function(){
+  $(document).bind('keydown', 'a', function(){
     window.location = '/albums/';
   })
-  $(document).bind('keyup', 'c', function(){
+  $(document).bind('keydown', 'c', function(){
      window.location = '/contacts/';
    })
    
