@@ -6,11 +6,9 @@ $(function() {
   document.onmousedown = function() {return false;} // mozilla
   
   $(document).bind('keydown', 'a', function(){
-    alert('ok');
     window.location = '/albums/';
   })
   $(document).bind('keydown', 'c', function(){
-     alert('ok');
      window.location = '/contacts/';
    })
    

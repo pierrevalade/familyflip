@@ -27,7 +27,7 @@ a {
   height: 10px; }
 
 #right, #left {
-  height: 1010px;
+  height: 990px;
   width: 576px;
   position: relative;
   overflow: hidden;
@@ -37,12 +37,12 @@ a {
 
 #left .button {
   position: absolute;
-  top: 953px;
+  top: 883px;
   left: 0px; }
 
 #right .button {
   position: absolute;
-  top: 953px;
+  top: 883px;
   right: 0px; }
 
 #contact {
