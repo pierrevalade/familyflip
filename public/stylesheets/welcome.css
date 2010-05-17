@@ -1,0 +1,62 @@
+html {
+  background-color: #DDEEF6; }
+
+body {
+  font-family: Lucida Grande, Verdana, Arial; }
+
+#hd {
+  margin-top: 10px;
+  padding: 0 4px; }
+  #hd #logo {
+    font-size: 200%;
+    float: left; }
+  #hd #nav {
+    float: right;
+    font-size: 113%; }
+    #hd #nav ul {
+      float: right; }
+    #hd #nav li {
+      display: block;
+      margin-left: 5px;
+      float: left;
+      background-color: blue;
+      -moz-border-radius: 3px;
+      -webkit-border-radius: 3px;
+      background-color: white;
+      padding: 7px 15px; }
+
+#bd {
+  margin: 10px 0;
+  padding: 20px;
+  background-color: white;
+  border: 4px solid #eee;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px; }
+
+#ft {
+  font-size: 93%;
+  padding: 0 4px;
+  text-align: right; }
+
+h1 {
+  font-size: 130%;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 3px; }
+
+p.error, p.notice, p.success {
+  margin: 0 10px 10px 10px; }
+
+table.input-form th, table.input-form td {
+  padding: 10px 5px; }
+table.input-form td.help {
+  font-size: 93%; }
+
+.inline {
+  display: inline; }
+
+.welcome.index .button {
+  padding: 10px;
+  background-color: #DDEEF6;
+  margin: 10px;
+  font-size: 130%;
+  text-align: center; }

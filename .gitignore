@@ -3,7 +3,3 @@ log/*
 log/*.pid
 tmp/**/*
 tmp/*.*
-public/stylesheets/development.css
-public/stylesheets/device.css
-public/stylesheets/production.css
-public/stylesheets/welcome.css
