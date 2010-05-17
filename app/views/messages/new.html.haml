@@ -23,12 +23,11 @@
       .erase= image_tag 'erase.png'
 
   #right
-    .content
-      #container
-        <canvas id="imageView" width="536" height="984">
-        </canvas>
+    #container
+      <canvas id="imageView" width="576" height="460">
+      </canvas>
     
-      - f.fields_for "images", Image.new do |i|
-        = i.hidden_field :attachment64
-    
-      = f.hidden_field :contact_id
+    - f.fields_for "images", Image.new do |i|
+      = i.hidden_field :attachment64
+  
+    = f.hidden_field :contact_id

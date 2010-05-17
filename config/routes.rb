@@ -1,5 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   
+  # html5
+  map.connect 'device2.manifest', :controller => "manifest", :format => "manifest"
+  
   # api
   map.resources :emails, :only => :create
   

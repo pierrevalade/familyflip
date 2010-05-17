@@ -47,8 +47,7 @@ a {
 
 #contact {
   background: transparent url(/images/interface/contact-bg.png) no-repeat;
-  height: 90px;
-  cursor: none; }
+  height: 90px; }
   #contact .name {
     float: left;
     margin: 20px 0 0 10px;
@@ -60,8 +59,7 @@ a {
 div.stack {
   background: transparent url(/images/wstack.png) no-repeat;
   width: 187px;
-  height: 144px;
-  cursor: none; }
+  height: 144px; }
   div.stack .contact {
     float: left;
     width: 50px;
@@ -89,8 +87,6 @@ div.stack {
 .albums.index div.title {
   font-size: 250%;
   margin: 10px 0 30px 0; }
-.albums.index table.albums td {
-  cursor: none; }
 .albums.index table.albums td.stack {
   padding: 0 30px; }
 .albums.index table.albums td.title {
@@ -126,7 +122,6 @@ div.stack {
 .contacts.index .contact {
   height: 90px;
   width: 310px;
-  cursor: none;
   background: transparent url(/images/interface/contact-bg.png) no-repeat; }
   .contacts.index .contact .picture {
     float: left;
@@ -195,7 +190,8 @@ div.stack {
 .messages.new .erase {
   margin-left: 10px; }
 .messages.new #container {
-  position: relative; }
+  position: relative;
+  margin-top: 492px; }
 .messages.new #imageView {
   border: 1px solid black;
   background-color: white; }

@@ -1,0 +1,39 @@
+CACHE MANIFEST
+\# version 100
+
+\# stylesheets
+= stylesheet_path 'reset-fonts-grids.css'
+= stylesheet_path 'device.css'
+= stylesheet_path "#{Rails.env}.css"
+
+\# javascripts
+= javascript_path 'jquery-1.4.2.min.js'
+= javascript_path 'jquery.hotkeys.js'
+= javascript_path 'application.js'
+= javascript_path 'canvas.js'
+
+\# images
+= image_path 'background.jpg'
+= image_path 'erase.png'
+= image_path 'send.png'
+= image_path 'next.png'
+= image_path 'previous.png'
+= image_path 'interface/bphone.png'
+= image_path 'interface/bwrite.png'
+= image_path 'contact-bg.png'
+= image_path 'hstack.png'
+= image_path 'wstack.png'
+
+\# urls
+= contacts_path
+= albums_path
+- @contacts.each do |contact|
+  = contact_path(contact)
+  = new_message_path(:contact_id => contact.id)
+  = contact.image_path
+- @albums.each do |album|
+  = album_path(album)
+  
+\# albums
+- @images.each do |image|
+  = image.url
