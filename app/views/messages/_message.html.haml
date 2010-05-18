@@ -8,7 +8,7 @@
       
     - else    
       %p.subject= message.subject
-      %p= simple_format message.text
+      %p= simple_format OEmbed.transform(message.text)
       
       - if message.images?
         .stack{:onclick => "go('#{album_path(message)}')"}

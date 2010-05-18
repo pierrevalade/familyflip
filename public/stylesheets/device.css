@@ -1,6 +1,7 @@
 html, body {
   margin: 0;
-  font-family: Arial; }
+  font-family: Arial;
+  font-size: 120%; }
 
 html {
   background: #fff url(/images/background.jpg) repeat; }
