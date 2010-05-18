@@ -8,9 +8,9 @@
           = render 'albums', :albums => albums
           
           
-    - if @albums_in_groups[2..3]
+    - if @albums_in_groups[2..2]
       %table.albums
-        - @albums_in_groups[2..3].each do |albums|
+        - @albums_in_groups[2..2].each do |albums|
           = render 'albums', :albums => albums
         
     - if @albums.previous_page
@@ -20,14 +20,14 @@
 #right
   .content
   
-    - if @albums_in_groups[4..5]
+    - if @albums_in_groups[3..4]
       %table.albums
-        - @albums_in_groups[4..5].each do |albums|
+        - @albums_in_groups[3..4].each do |albums|
           = render 'albums', :albums => albums
           
-    - if @albums_in_groups[6..7]
+    - if @albums_in_groups[5..5]
       %table.albums
-        - @albums_in_groups[6..7].each do |albums|
+        - @albums_in_groups[5..5].each do |albums|
           = render 'albums', :albums => albums
   
     - if @albums.next_page

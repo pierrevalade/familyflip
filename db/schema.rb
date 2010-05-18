@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100511220623) do
+ActiveRecord::Schema.define(:version => 20100518190453) do
 
   create_table "albums", :force => true do |t|
     t.integer  "contact_id"
@@ -30,6 +30,9 @@ ActiveRecord::Schema.define(:version => 20100511220623) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "cloudapp_login"
+    t.string   "cloudapp_password"
+    t.integer  "cloudapp_last_file_id", :default => 0
   end
 
   create_table "devices", :force => true do |t|
@@ -77,14 +80,17 @@ ActiveRecord::Schema.define(:version => 20100511220623) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",               :null => false
-    t.string   "crypted_password",    :null => false
-    t.string   "password_salt",       :null => false
-    t.string   "persistence_token",   :null => false
-    t.string   "single_access_token", :null => false
-    t.string   "perishable_token",    :null => false
+    t.string   "email",                 :null => false
+    t.string   "crypted_password",      :null => false
+    t.string   "password_salt",         :null => false
+    t.string   "persistence_token",     :null => false
+    t.string   "single_access_token",   :null => false
+    t.string   "perishable_token",      :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cloudapp_login"
+    t.string   "cloudapp_password"
+    t.integer  "cloudapp_last_file_id"
   end
 
 end

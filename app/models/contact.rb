@@ -2,17 +2,20 @@
 #
 # Table name: contacts
 #
-#  id                 :integer(4)      not null, primary key
-#  first_name         :string(255)
-#  last_name          :string(255)
-#  created_at         :datetime
-#  updated_at         :datetime
-#  email              :string(255)
-#  device_id          :integer(4)
-#  image_file_name    :string(255)
-#  image_content_type :string(255)
-#  image_file_size    :integer(4)
-#  image_updated_at   :datetime
+#  id                    :integer(4)      not null, primary key
+#  first_name            :string(255)
+#  last_name             :string(255)
+#  created_at            :datetime
+#  updated_at            :datetime
+#  email                 :string(255)
+#  device_id             :integer(4)
+#  image_file_name       :string(255)
+#  image_content_type    :string(255)
+#  image_file_size       :integer(4)
+#  image_updated_at      :datetime
+#  cloudapp_login        :string(255)
+#  cloudapp_password     :string(255)
+#  cloudapp_last_file_id :integer(4)      default(0)
 #
 
 class Contact < ActiveRecord::Base
@@ -34,6 +37,10 @@ class Contact < ActiveRecord::Base
   
   def image_path(size = 'normal')
     image.url(size)
+  end
+  
+  def cloudapp
+    @cloudapp ||= CloudApp.find_by_contact(self)
   end
   
   has_attached_file :image, :styles => { :original => ['300x300>'],
