@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class CloudFile
   
   attr_accessor :file_id, :file_name, :item_type, :remote_url
@@ -35,19 +37,18 @@ class CloudFile
   end
   
   def save_archive!
-    # message.subject = self.name
-    # Zip::ZipFile.open(open(URI.parse(self.remote_url))) do |zipfile|
-    #   # puts dir.entries('.')
-    #   zipfile.each do |entry|
-    #     puts "#{entry}"
-    #     zipfile.extract(entry, "./tmp/#{entry}")
-    #     image = Image.new
-    #     image.attachment = File.open("./tmp/#{entry}")
-    #     image.message = Message.albums.last
-    #     image.save!
-    #   end
-    # end
-    # message.save!
+    message.subject = self.name
+    archive = open(URI.parse(self.remote_url))
+    Zip::ZipFile.open(archive) do |zipfile|
+      # puts dir.entries('.')
+      zipfile.each do |entry|
+        zipfile.extract(entry, "./tmp/#{entry}")
+        image = messages.build
+        image.attachment = File.open("./tmp/#{entry}")
+        image.save!
+      end
+    end
+    message.save!
   end
   
 end
