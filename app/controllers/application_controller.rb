@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user_session, :current_user
   filter_parameter_logging :password, :password_confirmation
-
+  
   private
     def set_current_device
       @current_device = Device.find_by_subdomain(request.subdomains.first)

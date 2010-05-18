@@ -1,0 +1,5 @@
+{
+  "betaManifestVersion": 1,
+  "version": "<%= 100 %>",
+  "entries": [<%= @paths.collect { |path| "{\"url\": \"#{path}\"}" }.join(',') %>]
+}

@@ -1,15 +1,17 @@
 <!DOCTYPE HTML>
-%html{:manifest => "/device2.manifest"}
+%html
   %head
     = stylesheet_link_tag 'reset-fonts-grids.css'
     = stylesheet_link_tag 'device', "#{Rails.env}"
     
+    = javascript_include_tag 'gears_init.js'
     = javascript_include_tag 'jquery-1.4.2.min.js'
     = javascript_include_tag 'jquery.hotkeys.js'
     = javascript_include_tag 'application.js'
     = javascript_include_tag "#{Rails.env}.js"
+    = javascript_include_tag 'gears.js'
     
     = yield :head
-  %body    
+  %body{:onload => "init()"}
     #doc3{:class => "#{controller.controller_name} #{controller.action_name}"}
       = yield
