@@ -14,16 +14,16 @@ CACHE MANIFEST
 = javascript_path "#{Rails.env}.js"
 
 \# images
-= image_path 'background.jpg'
+= '/images/background.jpg'
 = image_path 'erase.png'
 = image_path 'send.png'
 = image_path 'next.png'
 = image_path 'previous.png'
 = image_path 'interface/bphone.png'
 = image_path 'interface/bwrite.png'
-= image_path 'interface/contact-bg.png'
+= '/images/interface/contact-bg.png'
 = image_path 'hstack.png'
-= image_path 'wstack.png'
+= '/images/wstack.png'
 
 \# urls
 = contacts_path
@@ -38,3 +38,4 @@ CACHE MANIFEST
 \# albums
 - @images.each do |image|
   = image.url
+  = image.url(:small)
