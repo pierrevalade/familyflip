@@ -23,7 +23,7 @@ Rails::Initializer.run do |config|
   config.gem "authlogic"
   # config.gem "mail"
   config.gem "oembed_links"
-  config.gem "rubyzip"
+  config.gem "rubyzip", :lib => "zip/zipfilesystem"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
