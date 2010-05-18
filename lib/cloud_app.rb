@@ -28,7 +28,7 @@ class CloudApp
   def update!
     files.each do |file|
       file.contact = contact
-      file.save! if file.file_id > contact.cloudapp_last_file_id
+      file.save! if file.file_id > (contact.cloudapp_last_file_id || 0)
     end
     contact.update_attribute(:cloudapp_last_file_id, files.first.file_id)
   end
