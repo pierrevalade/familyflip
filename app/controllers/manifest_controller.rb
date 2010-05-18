@@ -11,6 +11,8 @@ class ManifestController < ApplicationController
   end
   
   def show
+    @version = 92
+    
     @contacts = @current_device.contacts.all
     @albums = Message.albums.all
     @images = Image.all
@@ -25,6 +27,7 @@ class ManifestController < ApplicationController
     @paths << javascript_path('application.js')
     @paths << javascript_path('canvas.js')
     @paths << javascript_path("#{Rails.env}.js")
+    @paths << javascript_path("gears.js")
     
     @paths << '/images/background.jpg'
     @paths << image_path('erase.png')
