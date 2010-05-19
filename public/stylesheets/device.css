@@ -3,8 +3,6 @@ html, body {
   font-family: Arial;
   font-size: 120%; }
 
-html {
-  background: #fff url(/images/background.jpg) repeat; }
 
 body {
   font-family: "Angelina", "Dakota Medium";
@@ -32,18 +30,20 @@ a {
   width: 576px;
   position: relative;
   overflow: hidden;
-  border: 1px solid black; }
+  border-style: solid;
+  border-color: black;
+  border-width: 1px 0 1px 0; }
   #right .content, #left .content {
     padding: 20px; }
 
-#left .button {
+.button {
   position: absolute;
-  top: 883px;
+  top: 883px; }
+
+#left .button {
   left: 0px; }
 
 #right .button {
-  position: absolute;
-  top: 913px;
   right: 0px; }
 
 #contact {
@@ -51,7 +51,7 @@ a {
   height: 90px; }
   #contact .name {
     float: left;
-    margin: 20px 0 0 10px;
+    margin: 10px 0 0 20px;
     font-size: 230%; }
   #contact .picture {
     float: left;
@@ -132,9 +132,17 @@ div.stack {
     margin: 15px 0 0 10px;
     font-size: 170%; }
 
+.contacts.show #previous {
+  position: absolute;
+  top: 883px;
+  left: 0px; }
+.contacts.show #next {
+  position: absolute;
+  top: 1766px;
+  right: 0px; }
 .contacts.show #page {
-  width: 576px;
-  border: 1px solid black; }
+  position: relative;
+  width: 576px; }
   .contacts.show #page .content {
     margin: 20px; }
 .contacts.show .contact {

@@ -11,6 +11,9 @@
 
     - @messages.each do |message|
       = render message
+    
+    #previous
+      = link_to image_tag('previous.png'), paged_images_contacts_url(:id => @contact.id, :page => 2)
       
-    .button
-      = link_to image_tag('next.png'), paged_images_albums_url(:id => @album.id, :page => @images.next_page)
+    #next
+      = link_to image_tag('next.png'), paged_images_contacts_url(:id => @contact.id, :page => 2)
