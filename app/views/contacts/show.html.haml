@@ -11,3 +11,6 @@
 
     - @messages.each do |message|
       = render message
+      
+    .button
+      = link_to image_tag('next.png'), paged_images_albums_url(:id => @album.id, :page => @images.next_page)

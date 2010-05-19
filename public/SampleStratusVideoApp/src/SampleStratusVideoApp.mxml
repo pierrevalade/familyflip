@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+
+<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			
+			// stratus address, hosted by Adobe
+			private var connectUrl:String = "rtmfp://stratus.adobe.com";
+
+
+			// developer key, please insert your developer key here
+			private const DeveloperKey:String = "90ebd185dabd808edd8f4b1e-26b384990eeb";
+			
+			private var netConnection:NetConnection;
+			private var sendStream:NetStream;
+			private var recievedStream:NetStream;
+			private var remoteVideo:Video;
+			
+			private function initConnect(event:Event):void {
+				
+				netConnection = new NetConnection();
+				netConnection.addEventListener(NetStatusEvent.NET_STATUS, netConnectionHandler);
+				netConnection.connect(connectUrl + "/" + DeveloperKey);
+				
+			}
+			
+			private function subscribe(event:Event):void {
+				
+				recievedStream = new NetStream(netConnection, tiFarId.text);
+				recievedStream.client = this ;
+				recievedStream.addEventListener(NetStatusEvent.NET_STATUS, incomingStreamHandler);
+				recievedStream.play("chat");
+				btnConnect.enabled = false;
+			}
+			
+			public function netConnectionHandler(event:NetStatusEvent):void {
+				
+				if(event.info.code == "NetConnection.Connect.Success")
+				{
+					tiNearId.text = netConnection.nearID;
+					sendStream = new NetStream(netConnection, NetStream.DIRECT_CONNECTIONS);
+					sendStream.addEventListener(NetStatusEvent.NET_STATUS, netStreamHandler);
+					sendStream.publish("chat");
+					
+					
+					
+				}
+			}
+			
+			public function netStreamHandler(event:NetStatusEvent):void {
+				
+				trace(event.info.code);
+			}
+			
+			public function incomingStreamHandler(event:NetStatusEvent):void {
+				
+				trace(event.info.code);
+				if(event.info.code == "NetStream.Play.Start")
+				{
+					tiFarId.setStyle("backgroundColor", "#00FF00");
+					btnSubscribe.enabled = false;
+					nearId_videoDisplay_creationComplete();
+					btnNearIdVideoStream.enabled = true;
+					onVideoRecieve();
+					
+				}
+				
+				
+				
+			}
+
+            private function nearId_videoDisplay_creationComplete():void {
+                var camera:Camera = Camera.getCamera();
+                if (camera) {
+                    vdispNearId.attachCamera(camera);
+                } else {
+                    Alert.show("You don't seem to have a camera.");
+                }
+            }
+            
+            public function onVideoSend():void {
+            	
+            	 var camera:Camera = Camera.getCamera();
+            	 var mic:Microphone = Microphone.getMicrophone();
+            	sendStream.attachCamera(camera);
+            	sendStream.attachAudio(mic);
+            	btnNearIdVideoStream.enabled= false;
+            					
+				
+			}
+			
+			public function onVideoRecieve():void {
+				
+				remoteVideo = new Video();
+				remoteVideo.width = 320;
+				remoteVideo.height = 240;
+				remoteVideo.attachNetStream(recievedStream);
+				vdispFarId.addChild(remoteVideo);
+
+			}
+		]]>
+	</mx:Script>
+
+	<mx:VBox width="800" height="600">
+		<mx:Label text="Adobe Stratus Video Feed Example" fontSize="16"/>
+		
+		<mx:Button id="btnConnect" click="initConnect(event)"  label="Start Connection"/>
+		
+		<mx:Form label="Exchange Stratus IDs">
+			<mx:FormItem label="Near ID">
+				<mx:TextInput id="tiNearId" width="400"/>
+			</mx:FormItem>
+			<mx:FormItem label="Far ID">
+				<mx:TextInput id="tiFarId" width="400"/>
+			</mx:FormItem>
+			<mx:Button id="btnSubscribe" click="subscribe(event)"  label="Connect to FarId"/>
+		</mx:Form>
+		
+		<mx:HRule width="100%" height="1" />
+		
+		<mx:HBox width="100%" height="100%">
+			<mx:VBox width="50%" height="100%">
+				<mx:Label text="Your Webcam" />
+				<mx:VideoDisplay id="vdispNearId" width="320" height="240" />
+				<mx:Button id="btnNearIdVideoStream" label="Stream Your Webcam" click="onVideoSend()" enabled="false" />
+			</mx:VBox>			
+			<mx:VBox width="50%" height="100%">
+				<mx:Label text="Your Firend's Webcam" />
+				<mx:VideoDisplay id="vdispFarId" width="320" height="240" />
+			</mx:VBox>	
+		</mx:HBox>
+	</mx:VBox>
+
+</mx:Application>
+	
