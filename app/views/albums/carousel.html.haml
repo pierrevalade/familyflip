@@ -1,0 +1,11 @@
+:javascript
+  jQuery(document).ready(function() {
+      jQuery('#mycarousel').jcarousel({
+          // Configuration goes here
+      });
+  });
+
+
+%ul#mycarousel.jcarousel-skin-tango
+  - @images.each do |image|
+    %li= image_tag image.url

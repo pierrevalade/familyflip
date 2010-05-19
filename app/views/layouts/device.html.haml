@@ -2,10 +2,11 @@
 %html
   %head
     = stylesheet_link_tag 'reset-fonts-grids.css'
-    = stylesheet_link_tag 'device', "#{Rails.env}"
+    = stylesheet_link_tag 'device', "#{Rails.env}", "skin"
     
     = javascript_include_tag 'gears_init.js'
     = javascript_include_tag 'jquery-1.4.2.min.js'
+    = javascript_include_tag 'jquery.jcarousel.min.js'
     = javascript_include_tag 'jquery.hotkeys.js'
     = javascript_include_tag 'application.js'
     = javascript_include_tag "#{Rails.env}.js"

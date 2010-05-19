@@ -23,4 +23,9 @@ class AlbumsController < ApplicationController
     render :layout => false
   end
   
+  def carousel
+    @album = Message.albums.find(params[:id])
+    @images = @album.images.all
+  end
+  
 end

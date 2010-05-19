@@ -1,3 +1,24 @@
+:javascript
+  var i = 0;
+  function updatePage() {
+    top = $('#messages').css('top');
+    $('#messages').css('top', i * 1600 + 'px');
+    if (i < 0) {
+      $('#previous').show();
+    }
+    if (i == 0) {
+      $('#previous').hide();
+    }
+  }
+  function nextPage() {
+    i = i - 1;
+    updatePage();
+  }
+  function previousPage() {
+    i = i + 1;
+    updatePage();
+  }
+
 #page
   .content
     = render @contact
@@ -9,11 +30,13 @@
 
     .clear
 
-    - @messages.each do |message|
-      = render message
+    #messages-container
+      #messages
+        - @messages.each do |message|
+          = render message
     
-    #previous
-      = link_to image_tag('previous.png'), paged_images_contacts_url(:id => @contact.id, :page => 2)
+    #previous.hide
+      = link_to_function image_tag('previous.png'), 'previousPage()'
       
     #next
-      = link_to image_tag('next.png'), paged_images_contacts_url(:id => @contact.id, :page => 2)
+      = link_to_function image_tag('next.png'), 'nextPage()'

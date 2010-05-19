@@ -9,8 +9,10 @@ body {
   margin: 0; }
 
 a {
-  text-decoration: none;
-  color: white; }
+  text-decoration: none; }
+
+.hide {
+  display: none; }
 
 #doc3 {
   margin: 0; }
@@ -159,6 +161,14 @@ div.stack {
   float: left; }
 .contacts.show .write {
   margin-left: 8px; }
+.contacts.show #messages-container {
+  height: 1600px;
+  position: relative;
+  overflow: hidden; }
+.contacts.show #messages {
+  position: relative;
+  top: 0px;
+  left: 0px; }
 .contacts.show .reply, .contacts.show .message {
   padding: 20px;
   margin: 10px 0;

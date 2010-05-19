@@ -14,7 +14,9 @@ body
   
 a
   :text-decoration none
-  :color white
+  
+.hide
+  :display none
   
 #doc3
   :margin 0
@@ -205,6 +207,16 @@ div.stack
     
   .write
     :margin-left 8px
+    
+  #messages-container
+    :height 1600px
+    :position relative
+    :overflow hidden
+    
+  #messages
+    :position relative
+    :top 0px
+    :left 0px
       
   .reply, .message
     :padding 20px
