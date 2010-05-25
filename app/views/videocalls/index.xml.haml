@@ -1,0 +1,9 @@
+!!! XML
+%result
+  - if params[:username]
+    %update= 'true'
+  - else
+    %friend
+      %user= @call.user
+      %identity= @call.uuid
+      %registered= @call.user

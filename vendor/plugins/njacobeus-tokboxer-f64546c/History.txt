@@ -1,0 +1,34 @@
+== 0.1.4 2008-12-29
+
+* Raise an exception when there is an HTTP error
+* Updated player embed code
+
+== 0.1.3 2008-12-01
+
+* Fixed bug when a VMail list is empty
+* Corrected case of tokboxer.rb
+
+== 0.1.2 2008-11-27
+
+* VMail objects now hold both the message id and the vmail id
+* Added basic exception management
+
+== 0.1.1 2008-11-26
+
+* Fixed config problem causing missing files in the gem
+
+== 0.1.0 2008-11-13
+
+* First gem release
+
+== 0.0.2 2008-11-05
+
+* Added classes VMail and Call
+* Corrected bug with url encoding (didn't deal properly with spaces in params)
+* Some stupid bugs removed
+* Added some documentation and cleaned the gem
+* Removed useless dependency on rest-client (just using Net::HTTP now)
+
+== 0.0.1 2008-11-03
+
+* Initial release with all the methods implemented

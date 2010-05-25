@@ -1,0 +1,109 @@
+= TokBoxer
+
+* http://github.com/njacobeus/tokboxer/
+
+== DESCRIPTION:
+
+This is a ruby implementation of the TokBox API. Tokbox is a free video calling / video mailing platform (see http://www.tokbox.com).
+
+All API methods specified in the Tokbox Developer API wiki (http://developers.tokbox.com/index.php/API) are implemented but not all objects yet. So you may have to dig into the hash returned by the call (XML converted to a Ruby hash).
+
+For the moment, this gem currently specifically serves our needs for the implementation of video conversations and video mails on iStockCV (www.istockcv.com), an online recruitment network which we are developing. Your needs may vary so feel free to contact me (nj@belighted.com).
+
+== FEATURES/PROBLEMS:
+
+* Features currently available:
+
+  * Create a guest user or register a user on TokBox
+
+  * Get information about a user
+
+  * Create a call
+
+  * Retrieve the list of vmails for a user
+
+  * Generate embed codes for a player, a recorder, and a call
+
+* Limitations:
+
+  * For the moment, the Call and VMail objects are quite simple (they only hold an id)
+
+  * No tests yet (ouch)
+
+== SYNOPSIS:
+
+  # To create an instance of the API object:
+
+  api  = TokBoxer::Api.new(partner_key, partner_secret, api_server_url) # defaults to "http://sandbox.tokbox.com/"
+
+  # To create a user instance:
+
+  user = api.create_guest_user
+  # or
+  user = api.register_user(firstname, lastname, email)
+  # or if you have already created a user previously on TokBox
+  user = api.create_user(user_jabber_id, user_secret)
+
+  # To get info about the user object:
+
+  user.access_token_valid? # returns true or false whether the secret of the user is correct or not
+  user.is_online?
+  user.display_name
+  user.username
+  user.userid
+  user.show
+
+  # To embed a player or a recorder:
+  
+  user.recorder_embed_code(width, height)           # returns the HTML for embedding a recorder
+  user.player_embed_code(message_id, width, height) # returns the HTML for embedding a player for a specific message
+
+  # To create a call:
+
+  call = user.create_call("My full name") # set "true" as 2nd param if you want it persistent
+  call.embed_code                         # returns the HTML for embedding the call in a web page
+
+  # To manipulate vmails:
+
+  user.vmails          # returns an array of VMail objects for all the vmails in the user's feed
+  user.sent_vmails     # returns an array of VMail objects for sent vmails only
+  user.received_vmails # returns an array of VMail objects for received vmails only
+
+== REQUIREMENTS:
+
+* xml-simple
+* A partner key and a partner secret at Tokbox (you can get those here: http://developers.tokbox.com/index.php/Main_Page)
+
+== INSTALL:
+
+* gem sources -a http://gems.github.com
+* sudo gem install njacobeus-tokboxer
+
+OR (from RubyForge)
+
+* sudo gem install tokboxer
+
+== LICENSE:
+
+(The MIT License)
+
+Copyright (c) 2008 Nicolas Jacobeus - Belighted SPRL (http://www.belighted.com/)
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
