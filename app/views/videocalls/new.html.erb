@@ -21,7 +21,7 @@
         <style type="text/css" media="screen"> 
 			html, body	{ height:100%; }
 			body { margin:0; padding:0; overflow:auto; text-align:center; 
-			       background-color: #303030; }   
+			       background-color: #ffffff; }   
 			#flashContent { display:none; }
         </style>
 		
@@ -37,18 +37,18 @@
             var swfVersionStr = "10.0.0";
             <!-- To use express install, set to playerProductInstall.swf, otherwise the empty string. -->
             var xiSwfUrlStr = "playerProductInstall.swf";
-            var flashvars = {};
+            var flashvars = {"caller_id": "<%= params[:caller_id] %>", "contact_id": "<%= params[:contact_id] %>"};
             var params = {};
             params.quality = "high";
-            params.bgcolor = "#303030";
+            params.bgcolor = "#ffffff";
             params.allowscriptaccess = "sameDomain";
             params.allowfullscreen = "true";
             var attributes = {};
-            attributes.id = "VideoPhoneLabs";
-            attributes.name = "VideoPhoneLabs";
+            attributes.id = "SampleStratusVideoApp";
+            attributes.name = "SampleStratusVideoApp";
             attributes.align = "middle";
             swfobject.embedSWF(
-                "VideoPhoneLabs.swf", "flashContent", 
+                "SampleStratusVideoApp.swf", "flashContent", 
                 "100%", "100%", 
                 swfVersionStr, xiSwfUrlStr, 
                 flashvars, params, attributes);
@@ -74,16 +74,16 @@
         </div>
 	   	
        	<noscript>
-            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100%" height="100%" id="VideoPhoneLabs">
-                <param name="movie" value="VideoPhoneLabs.swf" />
+            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100%" height="100%" id="SampleStratusVideoApp">
+                <param name="movie" value="SampleStratusVideoApp.swf" />
                 <param name="quality" value="high" />
-                <param name="bgcolor" value="#303030" />
+                <param name="bgcolor" value="#ffffff" />
                 <param name="allowScriptAccess" value="sameDomain" />
                 <param name="allowFullScreen" value="true" />
                 <!--[if !IE]>-->
-                <object type="application/x-shockwave-flash" data="VideoPhoneLabs.swf" width="100%" height="100%">
+                <object type="application/x-shockwave-flash" data="SampleStratusVideoApp.swf" width="100%" height="100%">
                     <param name="quality" value="high" />
-                    <param name="bgcolor" value="#303030" />
+                    <param name="bgcolor" value="#ffffff" />
                     <param name="allowScriptAccess" value="sameDomain" />
                     <param name="allowFullScreen" value="true" />
                 <!--<![endif]-->

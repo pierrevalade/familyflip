@@ -10,4 +10,8 @@ class VideocallsController < ApplicationController
     end
   end
   
+  def new
+    render :layout => false
+  end
+  
 end
