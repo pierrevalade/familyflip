@@ -16,7 +16,7 @@
 
 class Message < ActiveRecord::Base
   
-  belongs_to :contact
+  belongs_to :contact, :touch => true
   
   has_many :images
   # TODO: reject_if needs to be setup for all different type of uploads

@@ -1,8 +1,8 @@
 :javascript
   var i = 0;
   function updatePage() {
-    top = $('#messages').css('top');
-    $('#messages').css('top', i * 1600 + 'px');
+    top = $('.inside-container').css('top');
+    $('.inside-container').css('top', -1 * i * $('.container').css('height').substr(0, 4) + 'px');
     if (i < 0) {
       $('#previous').show();
     }
@@ -24,14 +24,14 @@
     = render @contact
     
     .phone
-      = image_tag 'interface/bphone.png'
+      = link_to image_tag('interface/bphone.png'), call_contact_path
     .write
       = link_to image_tag('interface/bwrite.png'), new_message_path(:contact_id => @contact.id)
 
     .clear
 
-    #messages-container
-      #messages
+    .container
+      .inside-container
         - @messages.each do |message|
           = render message
     

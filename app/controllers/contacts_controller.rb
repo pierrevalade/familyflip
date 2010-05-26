@@ -1,8 +1,10 @@
 class ContactsController < ApplicationController
   
   def index
-    @contacts = @current_device.contacts.paginate(:page => params[:page], :per_page => 16)
-    @contacts_in_groups = @contacts.in_groups_of(8, false)
+    @contacts = @current_device.contacts.all
+    # @contacts = @contacts * 3
+    @per_page = 8
+    @groups = @contacts.in_groups_of(@per_page, false)
   end
   
   def show
@@ -10,9 +12,9 @@ class ContactsController < ApplicationController
     @messages = @contact.messages.find(:all, :order => 'created_at DESC')
   end
   
-  # def call
-  #   @contact = Contact.find(params[:id])
-  # end
+  def call
+    @contact = Contact.find(params[:id])
+  end
   
   def new
     @contact = Contact.new(:device_id => params[:device_id])

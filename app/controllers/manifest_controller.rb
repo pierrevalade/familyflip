@@ -11,7 +11,9 @@ class ManifestController < ApplicationController
   end
   
   def show
-    @version = 92
+    @time = Contact.find(:first, :order => 'updated_at DESC').updated_at
+    
+    @version = "#{@time.to_s}"
     
     @contacts = @current_device.contacts.all
     @albums = Message.albums.all
@@ -30,6 +32,7 @@ class ManifestController < ApplicationController
     @paths << javascript_path("gears.js")
     
     @paths << '/images/background.jpg'
+    @paths << '/images/ajax-loader-store.gif'
     @paths << image_path('erase.png')
     @paths << image_path('send.png')
     @paths << image_path('next.png')

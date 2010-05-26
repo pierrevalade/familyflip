@@ -1,25 +1,47 @@
-#left
-  .content
-    .title{:onclick => "go('#{albums_path}')"} MY CONTACTS
-    
-    - unless @contacts_in_groups.first.nil?
-      - @contacts_in_groups.first.each do |contact|
-        = render contact
-        .space
-      
-      - if @contacts.previous_page
-        .button
-          = link_to image_tag('previous.png'), paged_contacts_url(@contacts.previous_page)
+:javascript
+  var i = 0;
+  var iMin = 0;
+  var iMax = #{(@contacts.size / 14.0).floor};
+  function updatePage() {
+    top = $('.inside-container').css('top');
+    $('.inside-container').css('top', -1 * i * $('.container').css('height').substr(0, 4) + 'px');
+    if (i > 0) {
+      $('#previous').show();
+    }
+    if (i < iMax) {
+      $('#next').show();
+    }
+    if (i == iMin) {
+      $('#previous').hide();
+    }
+    if (i == iMax) {
+      $('#next').hide();
+    }
+  }
+  function nextPage() {
+    i = i + 1;
+    updatePage();
+  }
+  function previousPage() {
+    i = i - 1;
+    updatePage();
+  }
 
-#right
-  .content
-    - unless @contacts_in_groups.second.nil?
-      - @contacts_in_groups.second.each do |contact|
-        = render contact
-        .space
-
-      - if @contacts.next_page
-        .button
-          = link_to image_tag('next.png'), paged_contacts_url(@contacts.next_page)
+#page
+  #page-break
   
-    .clear
+  #previous.hide
+    = link_to_function image_tag('previous.png'), 'previousPage()'
+
+  - if @contacts.size > (@per_page * 2)
+    #next
+      = link_to_function image_tag('next.png'), 'nextPage()'
+  
+  .content
+    .title MY CONTACTS
+    
+    .container
+      .inside-container
+        - @groups.each do |contacts|
+          %div{:class => "page-#{cycle("left", "right")}"}
+            = render contacts

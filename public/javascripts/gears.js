@@ -56,7 +56,14 @@ function createStore() {
     return;
   }
   
+  $('.lightButton').hide();
+  $('.image').show();
+  
   store.checkForUpdate();
+  
+  store.onprogress = function() {
+    
+  }
   
   store.oncomplete = function() {
       textOut("The documents are now available offline.\n" + 
@@ -82,6 +89,8 @@ function removeStore() {
   localServer.removeManagedStore(STORE_NAME);
   textOut("Done. The local store has been removed." +
           "You will now see online versions of the documents.");
+          
+  go('/');
 }
 
 // Utility function to output some status text.

@@ -8,6 +8,9 @@ $(function() {
   $(document).bind('keyup', 'c', function(){
      window.location = '/contacts';
    })
+   $(document).bind('keyup', 'h', function(){
+      window.location = '/';
+    })
    
 });
 

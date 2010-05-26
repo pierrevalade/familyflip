@@ -1,30 +1,51 @@
-#left
+:javascript
+  var i = 0;
+  var iMin = 0;
+  var iMax = #{(@images.size / 4.0).floor};
+  function updatePage() {
+    top = $('.inside-container').css('top');
+    $('.inside-container').css('top', -1 * i * $('.container').css('height').substr(0, 4) + 'px');
+    if (i > 0) {
+      $('#previous').show();
+    }
+    if (i < iMax) {
+      $('#next').show();
+    }
+    if (i == iMin) {    
+      $('#previous').hide();
+    }
+    if (i == iMax) {
+      $('#next').hide();
+    }
+  }
+  function nextPage() {
+    i = i + 1;
+    updatePage();
+  }
+  function previousPage() {
+    i = i - 1;
+    updatePage();
+  }
+
+#page
+  #page-break
+  
+  #previous.hide
+    = link_to_function image_tag('previous.png'), 'previousPage()'
+
+  - if @images.size > (@per_page * 2)
+    #next
+      = link_to_function image_tag('next.png'), 'nextPage()'
+      
   .content
     #contact{:onclick => "go('#{contact_path(@album.contact)}')"}
       .picture
         = image_tag(@album.contact.image_path, :width => 65)
       .name
         = @album.contact.name
-    /.title= link_to @album.title, albums_url
-  
-    - unless @images_in_groups.first.nil?
-      - @images_in_groups.first.each do |image|
-        = render image
-    
-    - if @images.previous_page
-      .button
-        = link_to image_tag('previous.png'), paged_images_albums_url(:id => @album.id, :page => @images.previous_page)
-        
-    .clear
 
-#right
-  .content  
-    - unless @images_in_groups.second.nil?
-      - @images_in_groups.second.each do |image|
-        = render image
-
-    - if @images.next_page
-      .button
-        = link_to image_tag('next.png'), paged_images_albums_url(:id => @album.id, :page => @images.next_page)
-  
-    .clear
+    .container
+      .inside-container
+        - @groups.each do |images|
+          %div{:class => "page-#{cycle("left", "right")}"}
+            = render images

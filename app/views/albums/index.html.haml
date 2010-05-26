@@ -1,37 +1,48 @@
-#left
-  .content
-    .title{:onclick => "go('#{contacts_path}')"} MY ALBUMS
+:javascript
+  var i = 0;
+  var iMin = 0;
+  var iMax = #{(@albums.size / 14.0).floor};
+  function updatePage() {
+    top = $('.inside-container').css('top');
+    $('.inside-container').css('top', -1 * i * $('.container').css('height').substr(0, 4) + 'px');
+    if (i > 0) {
+      $('#previous').show();
+    }
+    if (i < iMax) {
+      $('#next').show();
+    }
+    if (i == iMin) {
+      $('#previous').hide();
+    }
+    if (i == iMax) {
+      $('#next').hide();
+    }
+  }
+  function nextPage() {
+    i = i + 1;
+    updatePage();
+  }
+  function previousPage() {
+    i = i - 1;
+    updatePage();
+  }
+
+#page
+  #page-break
+  #previous.hide
+    = link_to_function image_tag('previous.png'), 'previousPage()'
+
+  - if @albums.size > (@per_page * 2)
+    #next
+      = link_to_function image_tag('next.png'), 'nextPage()'
       
-    - if @albums_in_groups[0..1]
-      %table.albums
-        - @albums_in_groups[0..1].each do |albums|
-          = render 'albums', :albums => albums
-          
-          
-    - if @albums_in_groups[2..2]
-      %table.albums
-        - @albums_in_groups[2..2].each do |albums|
-          = render 'albums', :albums => albums
-        
-    - if @albums.previous_page
-      .button
-        = link_to image_tag('previous.png'), paged_albums_url(@albums.previous_page)
-
-#right
   .content
-  
-    - if @albums_in_groups[3..4]
-      %table.albums
-        - @albums_in_groups[3..4].each do |albums|
-          = render 'albums', :albums => albums
-          
-    - if @albums_in_groups[5..5]
-      %table.albums
-        - @albums_in_groups[5..5].each do |albums|
-          = render 'albums', :albums => albums
-  
-    - if @albums.next_page
-      .button
-        = link_to image_tag('next.png'), paged_albums_url(@albums.next_page)
-
-    .clear
+    .title MY ALBUMS
+    
+    .container
+      .inside-container
+        - @groups.each do |group|
+          %div{:class => "page-#{cycle("left", "right")}"}
+            - group.in_groups_of(2, false) do |albums|
+              %table.albums
+                = render 'albums', :albums => albums

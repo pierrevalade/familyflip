@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-%html
+%html{:class => "#{controller.controller_name} #{controller.action_name}"}
   %head
     = stylesheet_link_tag 'reset-fonts-grids.css'
     = stylesheet_link_tag 'device', "#{Rails.env}", "skin"
@@ -14,5 +14,5 @@
     
     = yield :head
   %body{:onload => "init()"}
-    #doc3{:class => "#{controller.controller_name} #{controller.action_name}"}
+    #doc3
       = yield

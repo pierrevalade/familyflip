@@ -1,18 +1,73 @@
 html, body {
   margin: 0;
+  padding: 0;
   font-family: Arial;
   font-size: 120%; }
 
 
 body {
-  font-family: "Angelina", "Dakota Medium";
-  margin: 0; }
+  font-family: "Angelina", "Dakota Medium"; }
 
 a {
   text-decoration: none; }
 
 .hide {
   display: none; }
+
+.lightButton {
+  background-color: #E0ECF0;
+  border-color: #BBBBBB;
+  color: #41545F;
+  text-shadow: 0 1px #FAFAFA;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -moz-box-shadow: 0 1px 2px #DDDDDD;
+  background-image: url("http://pinterest.com/home/images/buttonGradient20.png");
+  background-position: 0 0;
+  background-repeat: repeat;
+  border-style: solid;
+  border-width: 1px;
+  font-size: 110%;
+  font-weight: bold;
+  padding: 0.3em 0.825em;
+  text-decoration: none;
+  vertical-align: top;
+  font-family: "helvetica neue", arial, sans-serif; }
+
+#page {
+  position: relative;
+  width: 576px; }
+
+#page-break {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  top: 984px;
+  left: 0; }
+
+.container {
+  position: relative;
+  overflow: hidden; }
+
+.inside-container {
+  position: relative;
+  top: 0px;
+  left: 0px; }
+
+.page-left, .page-right {
+  border: 1px solid red; }
+
+#previous {
+  position: absolute;
+  top: 883px;
+  left: 0px;
+  z-index: 100; }
+
+#next {
+  position: absolute;
+  top: 1766px;
+  right: 0px;
+  z-index: 100; }
 
 #doc3 {
   margin: 0; }
@@ -87,6 +142,15 @@ div.stack {
   -moz-box-shadow: 2px 2px 3px rgba(135, 139, 144, 0.4);
   box-shadow: 2px 2px 3px rgba(135, 139, 144, 0.4); }
 
+.albums.index .page-left {
+  height: 760px;
+  margin-bottom: 120px; }
+.albums.index .page-right {
+  height: 770px;
+  margin-bottom: 120px; }
+.albums.index .container {
+  height: 1765px;
+  border: 1px solid red; }
 .albums.index div.title {
   font-size: 250%;
   margin: 10px 0 30px 0; }
@@ -99,8 +163,15 @@ div.stack {
 .albums.index #right table.albums {
   margin-top: 80px; }
 
-.albums.show .title {
-  padding: 10px; }
+.albums.show .page-left {
+  height: 770px;
+  margin-bottom: 120px; }
+.albums.show .page-right {
+  height: 770px;
+  margin-bottom: 120px; }
+.albums.show .container {
+  height: 1770px;
+  border: 1px solid red; }
 .albums.show .image {
   padding: 10px 10px 20px 10px;
   border: 1px solid #BFBFBF;
@@ -119,6 +190,15 @@ div.stack {
   -moz-transform: rotate(-2deg);
   transform: rotate(-2deg); }
 
+.contacts.index .page-left {
+  height: 760px;
+  margin-bottom: 120px; }
+.contacts.index .page-right {
+  height: 770px;
+  margin-bottom: 120px; }
+.contacts.index .container {
+  height: 1765px;
+  border: 1px solid red; }
 .contacts.index .title {
   font-size: 250%;
   margin: 10px 0 30px 0; }
@@ -134,19 +214,6 @@ div.stack {
     margin: 15px 0 0 10px;
     font-size: 170%; }
 
-.contacts.show #previous {
-  position: absolute;
-  top: 883px;
-  left: 0px; }
-.contacts.show #next {
-  position: absolute;
-  top: 1766px;
-  right: 0px; }
-.contacts.show #page {
-  position: relative;
-  width: 576px; }
-  .contacts.show #page .content {
-    margin: 20px; }
 .contacts.show .contact {
   background: transparent url(/images/interface/contact-bg.png) no-repeat;
   height: 90px; }
@@ -161,14 +228,6 @@ div.stack {
   float: left; }
 .contacts.show .write {
   margin-left: 8px; }
-.contacts.show #messages-container {
-  height: 1600px;
-  position: relative;
-  overflow: hidden; }
-.contacts.show #messages {
-  position: relative;
-  top: 0px;
-  left: 0px; }
 .contacts.show .reply, .contacts.show .message {
   padding: 20px;
   margin: 10px 0;
@@ -221,3 +280,18 @@ div.stack {
   background-color: #00a93e;
   border: 1px solid #87cd96;
   font-size: 140%; }
+
+.manifest.store {
+  background-color: #ECE5DB; }
+  .manifest.store .content {
+    text-align: center;
+    margin: 200px auto 0 auto;
+    background-color: #F5F5F5;
+    padding: 20px;
+    width: 500px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border: 3px solid #D4D5BA; }
+    .manifest.store .content .title {
+      font-size: 300%;
+      margin: 10px 0; }
