@@ -42,8 +42,8 @@ class ManifestController < ApplicationController
     @paths << '/images/interface/contact-bg.png'
     @paths << image_path('hstack.png')
     @paths << '/images/wstack.png'
-    @paths << image_tag('ajax-loader-store.gif')
-    @paths << image_tag('loading.gif')
+    @paths << image_path('ajax-loader-store.gif')
+    @paths << image_path('loading.gif')
     
     @paths << contacts_path
     @paths << albums_path
