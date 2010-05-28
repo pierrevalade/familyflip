@@ -11,6 +11,26 @@ body {
 a {
   text-decoration: none; }
 
+.yt-container {
+  width: 425px;
+  height: 319px;
+  position: relative; }
+
+.play-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url("/images/pause_screen_m_out.png");
+  z-index: 100; }
+
+.hide-yt-logo {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  position: absolute;
+  cursor: auto;
+  z-index: 100; }
+
 .hide {
   display: none; }
 

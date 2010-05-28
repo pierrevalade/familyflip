@@ -1,0 +1,39 @@
+- id = url.match(/http:\/\/www.youtube.com\/watch\?v=([a-zA-Z0-9]*)/)[1]
+- container = "container-#{id}"
+
+%div.yt-container{:id => container}
+  .hide-yt-logo
+  %div.play-overlay{:id => "play-overlay-#{id}"}
+  %div{:id => "ytapiplayer-#{id}"}#
+    
+
+:javascript
+
+  function onYouTubePlayerReady(playerid) {
+    ytplayer = document.getElementById("myytplayer-" + playerid);
+    ytplayer.loadVideoById(playerid);
+    ytplayer.pauseVideo();
+  }
+  
+  $(function() {
+    var videoId = '#{id}';
+    $("##{container}").click(function() {
+      var ytplayer = document.getElementById("myytplayer-" + videoId);
+      if (ytplayer.getPlayerState() == 1) {
+        // playing
+        ytplayer.pauseVideo();
+        $("#play-overlay-#{id}").show();
+      } else {
+        // stoped
+        $("#play-overlay-#{id}").hide();
+        ytplayer.playVideo();
+      }
+    })
+    
+    var params = { allowScriptAccess: "always" };
+    var atts = { id: "myytplayer-" + videoId, style: "position: absolute;" };
+    $(function() {
+      swfobject.embedSWF("http://www.youtube.com/apiplayer?enablejsapi=1&version=3&playerapiid=" + videoId, 
+                         "ytapiplayer-#{id}", "425", "319", "8", null, null, params, atts);
+    })
+  });

@@ -8,7 +8,9 @@
       
     - else    
       %p.subject= message.subject
-      %p= simple_format OEmbed.transform(message.text) unless message.text.blank?
+      - unless message.text.blank?
+        %p
+          = youtube(message)
       
       - if message.images?
         .stack{:onclick => "go('#{album_path(message)}')"}

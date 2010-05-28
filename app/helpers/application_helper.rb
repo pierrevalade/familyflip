@@ -6,4 +6,11 @@ module ApplicationHelper
     content_tag(:p, flash[sym], options) unless flash[sym].blank?
   end
   
+  def youtube(message)
+    text = simple_format(message.text)
+    text.gsub(/http:\/\/www.youtube.com\/watch\?v=([a-zA-Z0-9]*)/) do |url|
+      render 'messages/video', :url => url, :message => message
+    end
+  end
+  
 end
