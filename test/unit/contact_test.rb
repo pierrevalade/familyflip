@@ -16,6 +16,7 @@
 #  cloudapp_login        :string(255)
 #  cloudapp_password     :string(255)
 #  cloudapp_last_file_id :integer(4)      default(0)
+#  read_at               :datetime
 #
 
 require 'test_helper'

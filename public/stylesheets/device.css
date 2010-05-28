@@ -263,6 +263,14 @@ div.stack {
   border: 1px solid #87cd96;
   display: block; }
 
+.messages.new #loading {
+  position: relative;
+  top: 300px;
+  left: 240px; }
+.messages.new #buttons {
+  position: relative;
+  top: 400px;
+  left: 130px; }
 .messages.new .send, .messages.new .erase {
   float: left; }
 .messages.new .erase {

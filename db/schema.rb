@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100525212007) do
+ActiveRecord::Schema.define(:version => 20100526230002) do
 
   create_table "albums", :force => true do |t|
     t.integer  "contact_id"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20100525212007) do
     t.string   "cloudapp_login"
     t.string   "cloudapp_password"
     t.integer  "cloudapp_last_file_id", :default => 0
+    t.datetime "read_at"
   end
 
   create_table "devices", :force => true do |t|

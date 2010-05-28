@@ -6,6 +6,9 @@
     var canvas = document.getElementById('imageView');
     
     $('#new_message').submit(function() {
+      $('#loading').show();
+      $('#buttons').hide();
+      $('#container').hide();
       $('#message_images_attributes_0_attachment64').val(canvas.toDataURL());
     });
     
@@ -18,11 +21,16 @@
   #left
     .content
       = render @message.contact
-    
-      .send= image_submit_tag 'send.png'
-      .erase= image_tag 'erase.png'
 
   #right
+    
+    #loading.hide
+      = image_tag('loading.gif')
+    
+    #buttons
+      .send= image_submit_tag 'send.png'
+      .erase= image_tag 'erase.png'
+    
     #container
       <canvas id="imageView" width="576" height="460">
       </canvas>

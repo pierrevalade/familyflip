@@ -20,6 +20,13 @@ class ContactsController < ApplicationController
     @contact = Contact.new(:device_id => params[:device_id])
   end
   
+  def read
+    @contact = Contact.find(params[:id])
+    @contact.read!
+    
+    render :nothing => true
+  end
+  
   def create
     @contact = Contact.new(params[:contact])
     if @contact.save

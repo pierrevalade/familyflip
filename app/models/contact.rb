@@ -16,6 +16,7 @@
 #  cloudapp_login        :string(255)
 #  cloudapp_password     :string(255)
 #  cloudapp_last_file_id :integer(4)      default(0)
+#  read_at               :datetime
 #
 
 class Contact < ActiveRecord::Base
@@ -27,12 +28,30 @@ class Contact < ActiveRecord::Base
   
   default_scope :order => 'last_name'
   
+  boolean_datetime_attribute :read_at
+  
   def name
     "#{first_name} #{last_name}"
   end
   
   def to_s
     name
+  end
+  
+  def notification?
+    if messages.empty?
+      false
+    else
+      if self.read_at
+        if self.read_at < self.messages.last.created_at
+          true
+        else
+          false
+        end
+      else
+        true
+      end
+    end
   end
   
   def image_path(size = 'normal')

@@ -1,4 +1,10 @@
 :javascript
+  $(function() {
+    $.post("#{read_contact_path}", function(data) {
+      
+    });
+  })
+  
   var i = 0;
   function updatePage() {
     top = $('.inside-container').css('top');
