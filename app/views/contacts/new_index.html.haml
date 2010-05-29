@@ -7,10 +7,17 @@
   $(function() {
     $('#page-right .content').css('top', (-1 * $('.container').css('height').substr(0, 3) + 'px'));
     
+    hideNext();
+  });
+  
+  function hideNext() {
     if ((i+2) > iMax) {
       $("#next").hide();
     }
-  });
+    if ((i+1) > iMax) {
+      $('#page-right .pagination').hide();
+    }
+  }
   
   function updatePage() {
     $('#page-left .content').css('top', (-1 * (i-1) * $('.container').css('height').substr(0, 3) + 'px'));
@@ -28,6 +35,8 @@
     if ((i+2) > iMax) {
       $('#next').hide();
     }
+    
+    hideNext();
     
     $('#page-left .pagination span').html(i);
     $('#page-right .pagination span').html(i+1);
