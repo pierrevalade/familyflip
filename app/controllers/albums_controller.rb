@@ -7,6 +7,13 @@ class AlbumsController < ApplicationController
     @groups = @albums.in_groups_of(@per_page, false)
   end
   
+  def new_index
+    @albums = Message.albums.all(:order => 'created_at DESC')
+    @albums = @albums
+    @per_page = 5.0
+    @groups = @albums.in_groups_of(@per_page, false)
+  end
+  
   def new
     @album = Message.new(:contact_id => Contact.first.id)
     
@@ -17,6 +24,13 @@ class AlbumsController < ApplicationController
     @album = Message.albums.find(params[:id])
     @images = @album.images.all
     @per_page = 2
+    @groups = @images.in_groups_of(@per_page, false)
+  end
+  
+  def new_show
+    @album = Message.albums.find(params[:id])
+    @images = @album.images.all
+    @per_page = 2.0
     @groups = @images.in_groups_of(@per_page, false)
   end
   

@@ -1,0 +1,16 @@
+%div.message{:class => message.reply? ? 'reply' : nil}
+  .date
+    = time_ago_in_words message.created_at
+    ago
+  - if message.reply?
+    .hand-writing= image_tag message.image.url
+  - else    
+    %p.subject= message.subject
+    - unless message.text.blank?
+      .text
+        = youtube(message)
+    
+    - if message.images?
+      .stack{:onclick => "go('#{album_path(message)}')"}
+        .image{:style => "background: transparent url(#{message.image.url(:stack)}) no-repeat"}
+    

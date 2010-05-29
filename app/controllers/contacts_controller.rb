@@ -27,6 +27,17 @@ class ContactsController < ApplicationController
     render :nothing => true
   end
   
+  def new_index
+    @contacts = @current_device.contacts.all
+    @per_page = 8.0
+    @groups = @contacts.in_groups_of(@per_page, false)
+  end
+  
+  def new_show
+    @contact = @current_device.contacts.find(params[:id])
+    @messages = @contact.messages.find(:all, :order => 'created_at DESC')
+  end
+  
   def create
     @contact = Contact.new(params[:contact])
     if @contact.save

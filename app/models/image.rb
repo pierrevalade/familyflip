@@ -34,7 +34,7 @@ class Image < ActiveRecord::Base
   has_attached_file :attachment, :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/aws.yml",
                                  :path => "messages_images/:id/:style/:filename",
                                  :styles => { :original => ['1000x600>'],
-                                              :normal => ['500x500>'],
+                                              :normal => ['480x380>'],
                                               :stack => ['137x133>']
                                             },
                                  :default_style => :normal

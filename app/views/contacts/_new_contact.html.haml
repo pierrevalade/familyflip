@@ -1,0 +1,8 @@
+.contact{:onclick => "go('#{new_show_contact_path(contact)}')"}
+  - if contact.notification?
+    .notification
+  .image
+    .overlay= image_tag("contact-overlay.png")
+    = image_tag(contact.image_path(:small))
+  .name= contact.name
+  .clear

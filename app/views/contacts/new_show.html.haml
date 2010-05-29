@@ -1,0 +1,66 @@
+:javascript
+
+  var i = 1;
+  var iMin = 1;
+  var iMax = 100;
+  
+  $(function() {
+    $('#page-right .content').css('top', (-1 * $('.container').css('height').substr(0, 3) + 'px'));
+    
+    if ((i+2) > iMax) {
+      $("#next").hide();
+    }
+  });
+  
+  function updatePage() {
+    $('#page-left .content').css('top', (-1 * (i-1) * $('.container').css('height').substr(0, 3) + 'px'));
+    $('#page-right .content').css('top', (-1 * i * $('.container').css('height').substr(0, 3) + 'px'));
+    
+    if (i > 0) {
+      $('#previous').show();
+    }
+    if (i < iMax) {
+      $('#next').show();
+    }
+    if (i == iMin) {
+      $('#previous').hide();
+    }
+    if ((i+2) > iMax) {
+      $('#next').hide();
+    }
+    
+    $('#page-left .pagination span').html(i);
+    $('#page-right .pagination span').html(i+1);
+  }
+  function nextPage() {
+    i = i + 2;
+    updatePage();
+  }
+  function previousPage() {
+    i = i - 2;
+    updatePage();
+  }
+
+
+#page-left
+  #previous.hide{:onclick => "previousPage();"}
+  .pagination
+    %span
+      1
+  .wrapper
+    = render 'contacts/new_contact', :contact => @contact
+    .container
+      .content
+        - @messages.each do |message|
+          = render 'new_message', :message => message
+            
+#page-right
+  #next{:onclick => "nextPage();"}
+  .pagination
+    %span
+      2
+  .wrapper
+    .container
+      .content
+        - @messages.each do |message|
+          = render 'new_message', :message => message

@@ -6,8 +6,196 @@ html, body
   :font-size 120%
   
 html
-  //:background-color #2c2a2d
+  :background-color #ECE5DB
   //:background #fff url(/images/background.jpg) repeat
+  
+.pagination
+  :position absolute
+  :top 970px
+  :font-size 80%
+  span
+    :font-size 120%
+  
+#page-left
+  :width 600px
+  :height 1024px
+  //:border-right 1px dashed black
+  :float left
+  :position relative
+  #previous
+    :position absolute
+    :left 0
+    :top 934px
+    :z-index 100
+    :height 90px
+    :background-color #D4D5BA
+    :width 90px
+    :-moz-border-radius 0 25px 0 0
+    :-webkit-border-radius 0 25px 0 0
+  .pagination
+    :right 30px
+
+#page-right
+  :width 576px
+  :height 1024px
+  :margin-left 600px
+  :position relative
+  #next
+    :position absolute
+    :right 0
+    :top 934px
+    :z-index 100
+    :height 90px
+    :background-color #D4D5BA
+    :width 90px
+    :-moz-border-radius 25px 0 0 0
+    :-webkit-border-radius 25px 0 0 0
+  .pagination
+    :left 30px
+  
+#header
+  //:border 1px solid red
+  :padding 10px
+  :background-color #F5F5F5
+  :font-size 140%
+  .icon
+    :float left
+  .text
+    :margin-left 70px
+  
+#page-right
+  #header
+    :color #F5F5F5
+  
+.contacts.new_index, .albums.new_index, .albums.new_show, .contacts.new_show
+  body
+    :font-family Lucida Grande
+    
+  .wrapper
+    :padding 20px
+    
+  .container
+    :position relative
+    :overflow hidden
+    //:border 5px solid red
+
+  .content
+    :position relative
+    :top 0px
+    :left 0px
+    .page
+      //:border 5px solid yellow
+      
+.albums.new_show
+  .container, .page
+    :height 790px
+  
+  .page
+    .image
+      :width 500px
+      :padding 10px 10px 20px 10px
+      :border 1px solid #BFBFBF
+      :background-color white
+      :-webkit-box-shadow 2px 2px 3px rgba(135, 139, 144, 0.4)
+      :-moz-box-shadow 2px 2px 3px rgba(135, 139, 144, 0.4)
+      :box-shadow 2px 2px 3px rgba(135, 139, 144, 0.4)
+      :margin 20px auto
+      :text-align center
+    
+    .right
+      :-webkit-transform rotate(1deg)
+      :-moz-transform rotate(1deg)
+      :transform rotate(1deg)
+    
+    .left
+      :-webkit-transform rotate(-2deg)
+      :-moz-transform rotate(-2deg)
+      :transform rotate(-2deg)
+  
+.albums.new_index
+  #header
+    :border-bottom 7px solid #e85621
+    
+  .page, .container
+    //:border 1px solid red
+    :height 850px
+    
+  .album
+    :padding 10px
+    :margin 0 10px 10px 10px
+
+    .stack
+      :background transparent url(/images/wstack.png) no-repeat
+      :width 187px
+      :height 144px
+      :float left
+    .subject
+      :font-size 130%
+      :margin 20px 0 0 200px
+      
+.contacts.new_index
+  #header
+    :border-bottom 7px solid #008dd1
+    
+  .container, .page
+    :height 848px
+    
+.contacts.new_show
+  .container
+    :height 800px
+    
+  .message.reply
+    :border 2px solid #eee
+    :background-color white
+      
+  .message
+    :border 2px solid #7ab5d1
+    :font-size 80%
+    :background-color #8ed2f3
+    :margin 10px
+    :-moz-border-radius 3px
+    :-webkit-border-radius 3px
+    :padding 20px
+    :margin-bottom 20px
+    .date
+      :float right
+      :font-size 80%
+    .subject
+      :font-size 110%
+      :margin-bottom 10px
+    .text
+      :font-size 80%
+    
+.contacts.new_index, .albums.new_show, .contacts.new_show
+  .contact
+    :padding 10px
+    :margin 0 10px 10px 10px
+    :background-color #f3f2ef
+    :-moz-border-radius 1px
+    :-webkit-border-radius 1px
+    :border 3px solid #D4D5BA
+    .notification
+      :margin 20px 10px 0 0
+      :width 20px
+      :height 20px
+      :-moz-border-radius 20px
+      :-webkit-border-radius 20px
+      :background-color #008DD1
+      :float right
+    .image
+      :position relative
+      .overlay
+        :background-image transparent url(/images/contact-overlay.png)
+        :position absolute
+        :width 70px
+        :height 70px
+      :float left
+      //:border 1px solid #76838B
+      :width 70px
+      :height 70px
+    .name
+      :margin 10px 0 0 90px
+      :font-size 160%
 
 body
   :font-family "Angelina", "Dakota Medium"
@@ -19,6 +207,7 @@ a
   :width 425px
   :height 319px
   :position relative
+  :margin 10px auto
   
 .play-overlay
   :width 100%
@@ -78,7 +267,7 @@ a
   :top 0px
   :left 0px
   
-.page-left, .page-right
+div.page-left, div.page-right
   :border 1px solid red
   
 #previous
@@ -188,7 +377,7 @@ div.stack
   
   .container
     :height 1765px
-    :border 1px solid red
+    //:border 1px solid red
     
   div.title
     :font-size 250%
@@ -222,7 +411,7 @@ div.stack
   
   .container
     :height 1770px
-    :border 1px solid red
+    //:border 1px solid red
     
   .image
     :padding 10px 10px 20px 10px

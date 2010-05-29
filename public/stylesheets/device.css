@@ -4,6 +4,169 @@ html, body {
   font-family: Arial;
   font-size: 120%; }
 
+html {
+  background-color: #ECE5DB; }
+
+.pagination {
+  position: absolute;
+  top: 970px;
+  font-size: 80%; }
+  .pagination span {
+    font-size: 120%; }
+
+#page-left {
+  width: 600px;
+  height: 1024px;
+  float: left;
+  position: relative; }
+  #page-left #previous {
+    position: absolute;
+    left: 0;
+    top: 934px;
+    z-index: 100;
+    height: 90px;
+    background-color: #D4D5BA;
+    width: 90px;
+    -moz-border-radius: 0 25px 0 0;
+    -webkit-border-radius: 0 25px 0 0; }
+  #page-left .pagination {
+    right: 30px; }
+
+#page-right {
+  width: 576px;
+  height: 1024px;
+  margin-left: 600px;
+  position: relative; }
+  #page-right #next {
+    position: absolute;
+    right: 0;
+    top: 934px;
+    z-index: 100;
+    height: 90px;
+    background-color: #D4D5BA;
+    width: 90px;
+    -moz-border-radius: 25px 0 0 0;
+    -webkit-border-radius: 25px 0 0 0; }
+  #page-right .pagination {
+    left: 30px; }
+
+#header {
+  padding: 10px;
+  background-color: #F5F5F5;
+  font-size: 140%; }
+  #header .icon {
+    float: left; }
+  #header .text {
+    margin-left: 70px; }
+
+#page-right #header {
+  color: #F5F5F5; }
+
+.contacts.new_index body, .albums.new_index body, .albums.new_show body, .contacts.new_show body {
+  font-family: Lucida Grande; }
+.contacts.new_index .wrapper, .albums.new_index .wrapper, .albums.new_show .wrapper, .contacts.new_show .wrapper {
+  padding: 20px; }
+.contacts.new_index .container, .albums.new_index .container, .albums.new_show .container, .contacts.new_show .container {
+  position: relative;
+  overflow: hidden; }
+.contacts.new_index .content, .albums.new_index .content, .albums.new_show .content, .contacts.new_show .content {
+  position: relative;
+  top: 0px;
+  left: 0px; }
+
+.albums.new_show .container, .albums.new_show .page {
+  height: 790px; }
+.albums.new_show .page .image {
+  width: 500px;
+  padding: 10px 10px 20px 10px;
+  border: 1px solid #BFBFBF;
+  background-color: white;
+  -webkit-box-shadow: 2px 2px 3px rgba(135, 139, 144, 0.4);
+  -moz-box-shadow: 2px 2px 3px rgba(135, 139, 144, 0.4);
+  box-shadow: 2px 2px 3px rgba(135, 139, 144, 0.4);
+  margin: 20px auto;
+  text-align: center; }
+.albums.new_show .page .right {
+  -webkit-transform: rotate(1deg);
+  -moz-transform: rotate(1deg);
+  transform: rotate(1deg); }
+.albums.new_show .page .left {
+  -webkit-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
+  transform: rotate(-2deg); }
+
+.albums.new_index #header {
+  border-bottom: 7px solid #e85621; }
+.albums.new_index .page, .albums.new_index .container {
+  height: 850px; }
+.albums.new_index .album {
+  padding: 10px;
+  margin: 0 10px 10px 10px; }
+  .albums.new_index .album .stack {
+    background: transparent url(/images/wstack.png) no-repeat;
+    width: 187px;
+    height: 144px;
+    float: left; }
+  .albums.new_index .album .subject {
+    font-size: 130%;
+    margin: 20px 0 0 200px; }
+
+.contacts.new_index #header {
+  border-bottom: 7px solid #008dd1; }
+.contacts.new_index .container, .contacts.new_index .page {
+  height: 848px; }
+
+.contacts.new_show .container {
+  height: 800px; }
+.contacts.new_show .message.reply {
+  border: 2px solid #eee;
+  background-color: white; }
+.contacts.new_show .message {
+  border: 2px solid #7ab5d1;
+  font-size: 80%;
+  background-color: #8ed2f3;
+  margin: 10px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  padding: 20px;
+  margin-bottom: 20px; }
+  .contacts.new_show .message .date {
+    float: right;
+    font-size: 80%; }
+  .contacts.new_show .message .subject {
+    font-size: 110%;
+    margin-bottom: 10px; }
+  .contacts.new_show .message .text {
+    font-size: 80%; }
+
+.contacts.new_index .contact, .albums.new_show .contact, .contacts.new_show .contact {
+  padding: 10px;
+  margin: 0 10px 10px 10px;
+  background-color: #f3f2ef;
+  -moz-border-radius: 1px;
+  -webkit-border-radius: 1px;
+  border: 3px solid #D4D5BA; }
+  .contacts.new_index .contact .notification, .albums.new_show .contact .notification, .contacts.new_show .contact .notification {
+    margin: 20px 10px 0 0;
+    width: 20px;
+    height: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    background-color: #008DD1;
+    float: right; }
+  .contacts.new_index .contact .image, .albums.new_show .contact .image, .contacts.new_show .contact .image {
+    position: relative;
+    float: left;
+    width: 70px;
+    height: 70px; }
+    .contacts.new_index .contact .image .overlay, .albums.new_show .contact .image .overlay, .contacts.new_show .contact .image .overlay {
+      background-image: transparent url(/images/contact-overlay.png);
+      position: absolute;
+      width: 70px;
+      height: 70px; }
+  .contacts.new_index .contact .name, .albums.new_show .contact .name, .contacts.new_show .contact .name {
+    margin: 10px 0 0 90px;
+    font-size: 160%; }
 
 body {
   font-family: "Angelina", "Dakota Medium"; }
@@ -14,7 +177,8 @@ a {
 .yt-container {
   width: 425px;
   height: 319px;
-  position: relative; }
+  position: relative;
+  margin: 10px auto; }
 
 .play-overlay {
   width: 100%;
@@ -74,7 +238,7 @@ a {
   top: 0px;
   left: 0px; }
 
-.page-left, .page-right {
+div.page-left, div.page-right {
   border: 1px solid red; }
 
 #previous {
@@ -169,8 +333,7 @@ div.stack {
   height: 770px;
   margin-bottom: 120px; }
 .albums.index .container {
-  height: 1765px;
-  border: 1px solid red; }
+  height: 1765px; }
 .albums.index div.title {
   font-size: 250%;
   margin: 10px 0 30px 0; }
@@ -190,8 +353,7 @@ div.stack {
   height: 770px;
   margin-bottom: 120px; }
 .albums.show .container {
-  height: 1770px;
-  border: 1px solid red; }
+  height: 1770px; }
 .albums.show .image {
   padding: 10px 10px 20px 10px;
   border: 1px solid #BFBFBF;

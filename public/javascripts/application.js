@@ -3,10 +3,10 @@
 
 $(function() {
   $(document).bind('keyup', 'a', function(){
-    window.location = '/albums';
+    window.location = '/albums/new_index';
   })
   $(document).bind('keyup', 'c', function(){
-     window.location = '/contacts';
+     window.location = '/contacts/new_index';
    })
    $(document).bind('keyup', 'h', function(){
       window.location = '/';

@@ -1,0 +1,6 @@
+.album{:onclick => "go('#{new_show_album_path(album)}')"}
+  .stack
+    .image{:style => "background: transparent url(#{album.image.url(:stack)}) no-repeat"}
+  .subject
+    = album.subject
+  .clear

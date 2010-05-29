@@ -64,7 +64,7 @@ class Contact < ActiveRecord::Base
   
   has_attached_file :image, :styles => { :original => ['300x300>'],
                                          :normal => ['100x100#'],
-                                         :small => ['50x50#']
+                                         :small => ['70x70#']
                                        },
                             :default_style => :normal,
                             :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/aws.yml",
