@@ -1,0 +1,41 @@
+- content_for :head do
+  = javascript_include_tag 'canvas'
+  
+:javascript
+  $(function() {
+    var canvas = document.getElementById('imageView');
+    
+    $('#new_message').submit(function() {
+      $('#indicator').show();
+      $('#buttons').hide();
+      $('#container').hide();
+      $('#message_images_attributes_0_attachment64').val(canvas.toDataURL());
+    });
+    
+    $('.erase').click(function() {
+      canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+    })
+  });
+
+- form_for @message do |f|
+  #page-left
+    .wrapper
+      = render 'contacts/new_contact', :contact => @contact
+    
+  #page-right
+    #up
+      #indicator.hide
+        = image_tag('loading.gif')
+
+      #buttons
+        .send= image_submit_tag 'send.png'
+        .erase= image_tag 'erase.png'
+    
+    #down
+      #container
+        <canvas id="imageView" width="573" height="460"></canvas>
+
+      - f.fields_for "images", Image.new do |i|
+        = i.hidden_field :attachment64
+
+      = f.hidden_field :contact_id

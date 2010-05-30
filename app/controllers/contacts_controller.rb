@@ -16,6 +16,15 @@ class ContactsController < ApplicationController
     @contact = Contact.find(params[:id])
   end
   
+  def write
+    @contact = Contact.find(params[:id])
+    @message = @contact.messages.build
+  end
+  
+  def new_call
+    @contact = Contact.find(params[:id])
+  end
+  
   def new
     @contact = Contact.new(:device_id => params[:device_id])
   end
@@ -35,6 +44,7 @@ class ContactsController < ApplicationController
   
   def new_show
     @contact = @current_device.contacts.find(params[:id])
+    @contact.read!
     @messages = @contact.messages.find(:all, :order => 'created_at DESC')
   end
   

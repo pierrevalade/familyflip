@@ -20,7 +20,7 @@ ActionController::Routing::Routes.draw do |map|
   
   # embarqued
   map.resources :videocalls
-  map.resources :contacts, :member => {:call => :get, :write => :get, :read => :post, :new_show => :get}, :collection => {:new_index => :get}
+  map.resources :contacts, :member => {:call => :get, :new_call => :get, :write => :get, :read => :post, :new_show => :get}, :collection => {:new_index => :get}
   map.paged_contacts '/contacts/pages/:page', :controller => :contacts  
   map.paged_images_contacts '/contacts/:id/pages/:page', :controller => :contacts, :action => :show
   

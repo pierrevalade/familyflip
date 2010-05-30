@@ -19,7 +19,7 @@ html
 #page-left
   :width 600px
   :height 1024px
-  //:border-right 1px dashed black
+  :border-right 1px dashed black
   :float left
   :position relative
   #previous
@@ -40,6 +40,7 @@ html
   :height 1024px
   :margin-left 600px
   :position relative
+  :border-right 1px dashed black
   #next
     :position absolute
     :right 0
@@ -67,7 +68,7 @@ html
   #header
     :color #F5F5F5
   
-.contacts.new_index, .albums.new_index, .albums.new_show, .contacts.new_show
+.contacts.new_index, .albums.new_index, .albums.new_show, .contacts.new_show, .contacts.new_call, .contacts.write
   body
     :font-family Lucida Grande
     
@@ -140,9 +141,15 @@ html
   .container, .page
     :height 848px
     
-.contacts.new_show
+.contacts.new_show    
+  a#call, a#write
+    :float left
+    :margin 0px 10px
+    :width 215px
+    :text-align center
+  
   .container
-    :height 800px
+    :height 770px
     
   .message.reply
     :border 2px solid #eee
@@ -165,8 +172,37 @@ html
       :margin-bottom 10px
     .text
       :font-size 80%
+      
+.contacts.write
+
+  #up
+    :height 500px
+  
+    #buttons
+      :padding-top 250px
+      
+    #indicator
+      :padding-top 230px
     
-.contacts.new_index, .albums.new_show, .contacts.new_show
+  #down
+    
+  #container
+    :position relative
+    
+    #imageView
+      :border 1px solid black
+      :background-color white
+      
+.contacts.new_call
+  #page
+    :border 1px dashed black
+    :width 1176px
+    :height 1024px
+  
+  #videochat
+    :margin 20px 0
+    
+.contacts.new_index, .albums.new_show, .contacts.new_show, .contacts.write, .contacts.new_call
   .contact
     :padding 10px
     :margin 0 10px 10px 10px

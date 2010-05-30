@@ -5,7 +5,7 @@
   var iMax = 100;
   
   $(function() {
-    $('#page-right .content').css('top', (-1 * $('.container').css('height').substr(0, 3) + 'px'));
+    $('#page-right .content').css('top', ((-1 * $('.container').css('height').substr(0, 3) + 30) + 'px'));
     
     if ((i+2) > iMax) {
       $("#next").hide();
@@ -49,6 +49,11 @@
       1
   .wrapper
     = render 'contacts/new_contact', :contact => @contact
+    
+    = link_to "Write a message", write_contact_path(@contact), :class => "lightButton", :id => "write"
+    = link_to "Call #{@contact.first_name}", new_call_contact_path(@contact), :class => "lightButton", :id => "call"
+    .clear
+    
     .container
       .content
         - @messages.each do |message|

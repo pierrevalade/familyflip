@@ -17,6 +17,7 @@ html {
 #page-left {
   width: 600px;
   height: 1024px;
+  border-right: 1px dashed black;
   float: left;
   position: relative; }
   #page-left #previous {
@@ -36,7 +37,8 @@ html {
   width: 576px;
   height: 1024px;
   margin-left: 600px;
-  position: relative; }
+  position: relative;
+  border-right: 1px dashed black; }
   #page-right #next {
     position: absolute;
     right: 0;
@@ -62,14 +64,14 @@ html {
 #page-right #header {
   color: #F5F5F5; }
 
-.contacts.new_index body, .albums.new_index body, .albums.new_show body, .contacts.new_show body {
+.contacts.new_index body, .albums.new_index body, .albums.new_show body, .contacts.new_show body, .contacts.new_call body, .contacts.write body {
   font-family: Lucida Grande; }
-.contacts.new_index .wrapper, .albums.new_index .wrapper, .albums.new_show .wrapper, .contacts.new_show .wrapper {
+.contacts.new_index .wrapper, .albums.new_index .wrapper, .albums.new_show .wrapper, .contacts.new_show .wrapper, .contacts.new_call .wrapper, .contacts.write .wrapper {
   padding: 20px; }
-.contacts.new_index .container, .albums.new_index .container, .albums.new_show .container, .contacts.new_show .container {
+.contacts.new_index .container, .albums.new_index .container, .albums.new_show .container, .contacts.new_show .container, .contacts.new_call .container, .contacts.write .container {
   position: relative;
   overflow: hidden; }
-.contacts.new_index .content, .albums.new_index .content, .albums.new_show .content, .contacts.new_show .content {
+.contacts.new_index .content, .albums.new_index .content, .albums.new_show .content, .contacts.new_show .content, .contacts.new_call .content, .contacts.write .content {
   position: relative;
   top: 0px;
   left: 0px; }
@@ -116,8 +118,13 @@ html {
 .contacts.new_index .container, .contacts.new_index .page {
   height: 848px; }
 
+.contacts.new_show a#call, .contacts.new_show a#write {
+  float: left;
+  margin: 0px 10px;
+  width: 215px;
+  text-align: center; }
 .contacts.new_show .container {
-  height: 800px; }
+  height: 770px; }
 .contacts.new_show .message.reply {
   border: 2px solid #eee;
   background-color: white; }
@@ -139,14 +146,33 @@ html {
   .contacts.new_show .message .text {
     font-size: 80%; }
 
-.contacts.new_index .contact, .albums.new_show .contact, .contacts.new_show .contact {
+.contacts.write #up {
+  height: 500px; }
+  .contacts.write #up #buttons {
+    padding-top: 250px; }
+  .contacts.write #up #indicator {
+    padding-top: 230px; }
+.contacts.write #container {
+  position: relative; }
+  .contacts.write #container #imageView {
+    border: 1px solid black;
+    background-color: white; }
+
+.contacts.new_call #page {
+  border: 1px dashed black;
+  width: 1176px;
+  height: 1024px; }
+.contacts.new_call #videochat {
+  margin: 20px 0; }
+
+.contacts.new_index .contact, .albums.new_show .contact, .contacts.new_show .contact, .contacts.write .contact, .contacts.new_call .contact {
   padding: 10px;
   margin: 0 10px 10px 10px;
   background-color: #f3f2ef;
   -moz-border-radius: 1px;
   -webkit-border-radius: 1px;
   border: 3px solid #D4D5BA; }
-  .contacts.new_index .contact .notification, .albums.new_show .contact .notification, .contacts.new_show .contact .notification {
+  .contacts.new_index .contact .notification, .albums.new_show .contact .notification, .contacts.new_show .contact .notification, .contacts.write .contact .notification, .contacts.new_call .contact .notification {
     margin: 20px 10px 0 0;
     width: 20px;
     height: 20px;
@@ -154,17 +180,17 @@ html {
     -webkit-border-radius: 20px;
     background-color: #008DD1;
     float: right; }
-  .contacts.new_index .contact .image, .albums.new_show .contact .image, .contacts.new_show .contact .image {
+  .contacts.new_index .contact .image, .albums.new_show .contact .image, .contacts.new_show .contact .image, .contacts.write .contact .image, .contacts.new_call .contact .image {
     position: relative;
     float: left;
     width: 70px;
     height: 70px; }
-    .contacts.new_index .contact .image .overlay, .albums.new_show .contact .image .overlay, .contacts.new_show .contact .image .overlay {
+    .contacts.new_index .contact .image .overlay, .albums.new_show .contact .image .overlay, .contacts.new_show .contact .image .overlay, .contacts.write .contact .image .overlay, .contacts.new_call .contact .image .overlay {
       background-image: transparent url(/images/contact-overlay.png);
       position: absolute;
       width: 70px;
       height: 70px; }
-  .contacts.new_index .contact .name, .albums.new_show .contact .name, .contacts.new_show .contact .name {
+  .contacts.new_index .contact .name, .albums.new_show .contact .name, .contacts.new_show .contact .name, .contacts.write .contact .name, .contacts.new_call .contact .name {
     margin: 10px 0 0 90px;
     font-size: 160%; }
 

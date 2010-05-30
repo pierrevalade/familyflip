@@ -12,6 +12,8 @@
 #  attachment_updated_at   :datetime
 #
 
+require 'open-uri'
+
 class Image < ActiveRecord::Base
   
   belongs_to :message
@@ -31,14 +33,14 @@ class Image < ActiveRecord::Base
   
   validates_attachment_presence :attachment
   
-  has_attached_file :attachment, :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/aws.yml",
-                                 :path => "messages_images/:id/:style/:filename",
+  has_attached_file :attachment, :path => ":rails_root/public/system/messages_images/:id/:style/image.:extension",
+                                 :url => "/system/messages_images/:id/:style/image.:extension",
                                  :styles => { :original => ['1000x600>'],
                                               :normal => ['480x380>'],
                                               :stack => ['137x133>']
                                             },
-                                 :default_style => :normal
-                                 # , :convert_options => { :all => '-auto-orient' }
+                                 :default_style => :normal,
+                                 :convert_options => { :all => '-auto-orient' }
                                  
   private
     def attachment64_provided?
@@ -56,15 +58,12 @@ class Image < ActiveRecord::Base
     
     def download_remote_image
       self.attachment = do_download_remote_image
-      # self.image_remote_url = image_url
     end
   
     def do_download_remote_image
-      io = open(URI.parse(image_url))
+      io = open(URI.parse(image_url.gsub(" ", "+")))
       def io.original_filename; base_uri.path.split('/').last; end
       io.original_filename.blank? ? nil : io
-    rescue
-      # catch url errors with validations instead of exceptions (Errno::ENOENT, OpenURI::HTTPError, etc...)
     end
   
 end

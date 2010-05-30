@@ -39,17 +39,19 @@ class Contact < ActiveRecord::Base
   end
   
   def notification?
-    if messages.empty?
+    if self.messages.empty?
       false
     else
-      if self.read_at
+      if self.read_at && self.messages.last.created_at
         if self.read_at < self.messages.last.created_at
           true
         else
           false
         end
-      else
+      elsif self.messages.last.created_at
         true
+      else 
+        false
       end
     end
   end

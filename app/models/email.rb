@@ -22,29 +22,23 @@ class Email < ActiveRecord::Base
   belongs_to :message, :validate => false
   
   before_validation :set_device, :set_contact
+  after_create :set_last_email_id_to_device
   
   validates_presence_of :device, :contact
   
-  attr_accessor :attachments
+  attr_accessor :images
   
-  def self.sendgrid(params)
-    email = Email.new
-    email.from = format_email(params[:from])
-    email.to = format_email(params[:to])
-    email.subject = clean_field(params[:subject])
-    email.text_body = params[:text]
-    email.html_body = params[:html]
-    email.attachments = format_attachments(params)
-
-    email
-  end
+  include HTTParty
+  base_uri 'familyflip.heroku.com'
   
-  def self.format_email(email)
-    clean_field(email).match(/[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/i)[0] unless email.blank?
-  end
-  
-  def self.clean_field(field)
-    field.gsub(/\n/,'') if field
+  def self.update!
+    from = Device.first.last_email_id
+    messages = self.get("/emails?from=#{from}")
+    messages.each do |message|
+      email = Email.new(message["email"])
+      email.save
+    end
+    
   end
   
   def subdomain
@@ -52,21 +46,16 @@ class Email < ActiveRecord::Base
   end
   
   private
+    def set_last_email_id_to_device
+      self.device.update_attribute(:last_email_id, self.id)
+    end
+  
     def set_contact
       self.contact = device.contacts.find_by_email(self.from) if self.device
     end
     
     def set_device
       self.device = Device.find_by_subdomain(self.subdomain)
-    end
-    
-    def self.format_attachments(params)
-      return [] if params[:attachments].to_i == 0
-      attachments = []
-      params[:attachments].to_i.times do |i|
-        attachments << params["attachment#{i+1}".to_sym]
-      end
-      attachments
     end
   
 end

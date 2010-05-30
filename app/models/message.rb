@@ -43,8 +43,8 @@ class Message < ActiveRecord::Base
     self.subject = email.subject
     self.text = email.text_body
     self.reply = false
-    email.attachments.each do |file|
-      self.images.build(:attachment => file)
+    email.images.each do |image|
+      self.images.build(:image_url => image["url"])
     end
   end
   

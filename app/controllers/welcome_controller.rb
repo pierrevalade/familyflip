@@ -5,7 +5,7 @@ class WelcomeController < ApplicationController
     #   ''
     # end
     if @current_device 
-      return redirect_to(store_manifest_path)
+      return redirect_to(albums_path)
     end
   end
   

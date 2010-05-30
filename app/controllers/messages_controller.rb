@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
     @message = Message.new(params[:message])
     @message.reply = true
     @message.save!
-    redirect_to @message.contact
+    redirect_to new_show_contact_path(@message.contact)
   end
   
 end
