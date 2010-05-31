@@ -13,8 +13,10 @@ html
   :position absolute
   :top 970px
   :font-size 80%
+  :border-bottom 2px solid #eee
   span
     :font-size 120%
+    :font-weight bold
   
 #page-left
   :width 600px
@@ -59,10 +61,19 @@ html
   :padding 10px
   :background-color #F5F5F5
   :font-size 140%
+  :-webkit-box-shadow 2px 2px 3px rgba(135, 139, 144, 0.4)
+  :-moz-box-shadow 2px 2px 3px rgba(135, 139, 144, 0.4)
+  :box-shadow 2px 2px 3px rgba(135, 139, 144, 0.4)
+  :padding-left 30px
+  //:font-family georgia
   .icon
     :float left
   .text
     :margin-left 70px
+  
+#page-left
+  #header
+    :text-shadow 0 2px #BBD7E6
   
 #page-right
   #header
@@ -93,7 +104,7 @@ html
   
   .page
     .image
-      :width 500px
+      :width 510px
       :padding 10px 10px 20px 10px
       :border 1px solid #BFBFBF
       :background-color white
@@ -124,7 +135,7 @@ html
   .album
     :padding 10px
     :margin 0 10px 10px 10px
-
+    :border-bottom 1px solid #dcd5cc
     .stack
       :background transparent url(/images/wstack.png) no-repeat
       :width 187px
@@ -133,6 +144,10 @@ html
     .subject
       :font-size 130%
       :margin 20px 0 0 200px
+      :text-shadow 0 2px #FAFAFA
+    .contact
+      :margin 10px 0 0 200px
+      :font-size 80%
       
 .contacts.new_index
   #header
@@ -207,9 +222,11 @@ html
     :padding 10px
     :margin 0 10px 10px 10px
     :background-color #f3f2ef
-    :-moz-border-radius 1px
-    :-webkit-border-radius 1px
-    :border 3px solid #D4D5BA
+    :-moz-border-radius 2px
+    :-webkit-border-radius 2px
+    :-moz-box-shadow 1px 1px 10px -5px rgba(0, 0, 0, 0.5)
+    :-webkit-box-shadow 1px 1px 10px -5px rgba(0, 0, 0, 0.5)
+    :border 2px solid #D4D5BA
     .notification
       :margin 20px 10px 0 0
       :width 20px
@@ -220,6 +237,8 @@ html
       :float right
     .image
       :position relative
+      :-moz-box-shadow 1px 1px 5px -5px rgba(0, 0, 0, 0.8)
+      :-webkit-box-shadow 1px 1px 5px -5px rgba(0, 0, 0, 0.8)
       .overlay
         :background-image transparent url(/images/contact-overlay.png)
         :position absolute
@@ -232,7 +251,7 @@ html
     .name
       :margin 10px 0 0 90px
       :font-size 160%
-
+      :text-shadow 0 2px #FAFAFA
 body
   :font-family "Angelina", "Dakota Medium"
   
@@ -266,7 +285,7 @@ a
 .lightButton
   :background-color #E0ECF0
   :border-color #BBBBBB
-  :color #41545F
+  :color black
   :text-shadow 0 1px #FAFAFA
   :-moz-border-radius 3px 3px 3px 3px
   :-moz-box-shadow 0 1px 2px #DDDDDD
@@ -276,7 +295,7 @@ a
   :border-style solid
   :border-width 1px
   :font-size 110%
-  :font-weight bold
+  //:font-weight bold
   :padding 0.3em 0.825em
   :text-decoration none
   :vertical-align top

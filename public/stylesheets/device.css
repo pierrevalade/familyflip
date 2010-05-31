@@ -10,9 +10,11 @@ html {
 .pagination {
   position: absolute;
   top: 970px;
-  font-size: 80%; }
+  font-size: 80%;
+  border-bottom: 2px solid #eee; }
   .pagination span {
-    font-size: 120%; }
+    font-size: 120%;
+    font-weight: bold; }
 
 #page-left {
   width: 600px;
@@ -55,11 +57,18 @@ html {
 #header {
   padding: 10px;
   background-color: #F5F5F5;
-  font-size: 140%; }
+  font-size: 140%;
+  -webkit-box-shadow: 2px 2px 3px rgba(135, 139, 144, 0.4);
+  -moz-box-shadow: 2px 2px 3px rgba(135, 139, 144, 0.4);
+  box-shadow: 2px 2px 3px rgba(135, 139, 144, 0.4);
+  padding-left: 30px; }
   #header .icon {
     float: left; }
   #header .text {
     margin-left: 70px; }
+
+#page-left #header {
+  text-shadow: 0 2px #BBD7E6; }
 
 #page-right #header {
   color: #F5F5F5; }
@@ -79,7 +88,7 @@ html {
 .albums.new_show .container, .albums.new_show .page {
   height: 790px; }
 .albums.new_show .page .image {
-  width: 500px;
+  width: 510px;
   padding: 10px 10px 20px 10px;
   border: 1px solid #BFBFBF;
   background-color: white;
@@ -103,7 +112,8 @@ html {
   height: 850px; }
 .albums.new_index .album {
   padding: 10px;
-  margin: 0 10px 10px 10px; }
+  margin: 0 10px 10px 10px;
+  border-bottom: 1px solid #dcd5cc; }
   .albums.new_index .album .stack {
     background: transparent url(/images/wstack.png) no-repeat;
     width: 187px;
@@ -111,7 +121,11 @@ html {
     float: left; }
   .albums.new_index .album .subject {
     font-size: 130%;
-    margin: 20px 0 0 200px; }
+    margin: 20px 0 0 200px;
+    text-shadow: 0 2px #FAFAFA; }
+  .albums.new_index .album .contact {
+    margin: 10px 0 0 200px;
+    font-size: 80%; }
 
 .contacts.new_index #header {
   border-bottom: 7px solid #008dd1; }
@@ -169,9 +183,11 @@ html {
   padding: 10px;
   margin: 0 10px 10px 10px;
   background-color: #f3f2ef;
-  -moz-border-radius: 1px;
-  -webkit-border-radius: 1px;
-  border: 3px solid #D4D5BA; }
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-box-shadow: 1px 1px 10px -5px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 1px 1px 10px -5px rgba(0, 0, 0, 0.5);
+  border: 2px solid #D4D5BA; }
   .contacts.new_index .contact .notification, .albums.new_show .contact .notification, .contacts.new_show .contact .notification, .contacts.write .contact .notification, .contacts.new_call .contact .notification {
     margin: 20px 10px 0 0;
     width: 20px;
@@ -182,6 +198,8 @@ html {
     float: right; }
   .contacts.new_index .contact .image, .albums.new_show .contact .image, .contacts.new_show .contact .image, .contacts.write .contact .image, .contacts.new_call .contact .image {
     position: relative;
+    -moz-box-shadow: 1px 1px 5px -5px rgba(0, 0, 0, 0.8);
+    -webkit-box-shadow: 1px 1px 5px -5px rgba(0, 0, 0, 0.8);
     float: left;
     width: 70px;
     height: 70px; }
@@ -192,7 +210,8 @@ html {
       height: 70px; }
   .contacts.new_index .contact .name, .albums.new_show .contact .name, .contacts.new_show .contact .name, .contacts.write .contact .name, .contacts.new_call .contact .name {
     margin: 10px 0 0 90px;
-    font-size: 160%; }
+    font-size: 160%;
+    text-shadow: 0 2px #FAFAFA; }
 
 body {
   font-family: "Angelina", "Dakota Medium"; }
@@ -227,7 +246,7 @@ a {
 .lightButton {
   background-color: #E0ECF0;
   border-color: #BBBBBB;
-  color: #41545F;
+  color: black;
   text-shadow: 0 1px #FAFAFA;
   -moz-border-radius: 3px 3px 3px 3px;
   -moz-box-shadow: 0 1px 2px #DDDDDD;
@@ -237,7 +256,6 @@ a {
   border-style: solid;
   border-width: 1px;
   font-size: 110%;
-  font-weight: bold;
   padding: 0.3em 0.825em;
   text-decoration: none;
   vertical-align: top;
