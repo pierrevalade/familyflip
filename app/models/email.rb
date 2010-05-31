@@ -26,7 +26,7 @@ class Email < ActiveRecord::Base
   
   validates_presence_of :device, :contact
   
-  attr_accessor :images
+  attr_accessor :images, :remote_id
   
   include HTTParty
   base_uri 'familyflip.heroku.com'
@@ -36,6 +36,7 @@ class Email < ActiveRecord::Base
     messages = self.get("/emails?from=#{from}")
     messages.each do |message|
       email = Email.new(message["email"])
+      email.remote_id = message["email"]["id"]
       email.save
     end
   end
@@ -46,7 +47,7 @@ class Email < ActiveRecord::Base
   
   private
     def set_last_email_id_to_device
-      self.device.update_attribute(:last_email_id, self.id)
+      self.device.update_attribute(:last_email_id, self.remote_id)
     end
   
     def set_contact
