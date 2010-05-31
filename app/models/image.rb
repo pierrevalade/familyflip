@@ -39,7 +39,7 @@ class Image < ActiveRecord::Base
                                  
                                  :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/aws.yml",
                                  :styles => { :original => ['1000x600>'],
-                                              :normal => ['480x380>'],
+                                              :normal => ['480x320>'],
                                               :stack => ['137x133>']
                                             },
                                  :default_style => :normal # ,

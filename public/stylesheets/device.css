@@ -84,7 +84,8 @@ html {
   left: 0px; }
 
 .albums.new_show .container, .albums.new_show .page {
-  height: 790px; }
+  height: 775px;
+  border: 1px solid #ECE5DB; }
 .albums.new_show .page .image {
   width: 510px;
   padding: 10px 10px 20px 10px;
