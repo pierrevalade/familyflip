@@ -19,7 +19,6 @@ html {
 #page-left {
   width: 600px;
   height: 964px;
-  border: 1px dashed black;
   float: left;
   position: relative; }
   #page-left #previous {
@@ -39,8 +38,7 @@ html {
   width: 576px;
   height: 964px;
   margin-left: 600px;
-  position: relative;
-  border: 1px dashed black; }
+  position: relative; }
   #page-right #next {
     position: absolute;
     right: 0;
@@ -86,9 +84,20 @@ html {
 .albums.new_show .container, .albums.new_show .page {
   height: 775px;
   border: 1px solid #ECE5DB; }
-.albums.new_show .page .image {
+.albums.new_show .subject {
+  text-shadow: 0 2px #FAFAFA;
+  font-size: 150%;
+  text-align: center;
+  margin: 15px 0 0 0; }
+.albums.new_show .page.horizontal .image {
+  margin-top: 150px; }
+.albums.new_show .page.vertical .image {
+  margin-top: 70px; }
+.albums.new_show #page-right .container {
+  margin-top: 45px; }
+.albums.new_show .content .image {
   width: 510px;
-  padding: 10px 10px 20px 10px;
+  padding: 10px 5px 8px 5px;
   border: 1px solid #BFBFBF;
   background-color: white;
   -webkit-box-shadow: 2px 2px 3px rgba(135, 139, 144, 0.4);
@@ -96,28 +105,46 @@ html {
   box-shadow: 2px 2px 3px rgba(135, 139, 144, 0.4);
   margin: 20px auto;
   text-align: center; }
-.albums.new_show .page .right {
+.albums.new_show .content .right {
   -webkit-transform: rotate(1deg);
   -moz-transform: rotate(1deg);
   transform: rotate(1deg); }
-.albums.new_show .page .left {
-  -webkit-transform: rotate(-2deg);
-  -moz-transform: rotate(-2deg);
-  transform: rotate(-2deg); }
+.albums.new_show .content .left {
+  -webkit-transform: rotate(-1deg);
+  -moz-transform: rotate(-1deg);
+  transform: rotate(-1deg); }
 
 .albums.new_index #header {
   border-bottom: 7px solid #e85621; }
 .albums.new_index .page, .albums.new_index .container {
   height: 850px; }
+.albums.new_index .album.vertical .stack {
+  background: transparent url(/images/hstack.png) no-repeat;
+  width: 139px;
+  height: 179px;
+  float: left;
+  margin-left: 20px; }
+  .albums.new_index .album.vertical .stack .image {
+    position: relative;
+    top: 10px;
+    left: 35px;
+    width: 90px;
+    height: 135px; }
+.albums.new_index .album.horizontal .stack {
+  background: transparent url(/images/wstack.png) no-repeat;
+  width: 187px;
+  height: 144px;
+  float: left; }
+  .albums.new_index .album.horizontal .stack .image {
+    position: relative;
+    top: 35px;
+    left: 32px;
+    width: 137px;
+    height: 90px; }
 .albums.new_index .album {
   padding: 10px;
   margin: 0 10px 10px 10px;
-  border-bottom: 1px solid #dcd5cc; }
-  .albums.new_index .album .stack {
-    background: transparent url(/images/wstack.png) no-repeat;
-    width: 187px;
-    height: 144px;
-    float: left; }
+  height: 180px; }
   .albums.new_index .album .subject {
     font-size: 130%;
     margin: 20px 0 0 200px;
@@ -172,9 +199,8 @@ html {
     background-color: white; }
 
 .contacts.new_call #page {
-  border: 1px dashed black;
-  width: 1176px;
-  height: 1024px; }
+  width: 1152px;
+  height: 964px; }
 .contacts.new_call #videochat {
   margin: 20px 0; }
 
@@ -352,12 +378,6 @@ div.stack {
     position: relative;
     top: -90px;
     left: 0; }
-  div.stack .image {
-    position: relative;
-    top: 35px;
-    left: 32px;
-    width: 137px;
-    height: 90px; }
 
 .albums.image .image {
   margin: 40px auto;

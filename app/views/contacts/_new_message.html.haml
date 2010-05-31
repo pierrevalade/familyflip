@@ -11,6 +11,5 @@
         = youtube(message)
     
     - if message.images?
-      .stack{:onclick => "go('#{album_path(message)}')"}
+      .stack{:onclick => "go('#{new_show_album_path(message)}')"}
         .image{:style => "background: transparent url(#{message.image.url(:stack)}) no-repeat"}
-    

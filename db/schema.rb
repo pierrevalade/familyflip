@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100529233735) do
+ActiveRecord::Schema.define(:version => 20100531203201) do
 
   create_table "albums", :force => true do |t|
     t.integer  "contact_id"
@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(:version => 20100529233735) do
     t.string   "attachment_content_type"
     t.integer  "attachment_file_size"
     t.datetime "attachment_updated_at"
+    t.integer  "attachment_width"
+    t.integer  "attachment_height"
   end
 
   create_table "messages", :force => true do |t|

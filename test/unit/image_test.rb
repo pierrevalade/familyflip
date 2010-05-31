@@ -10,6 +10,8 @@
 #  attachment_content_type :string(255)
 #  attachment_file_size    :integer(4)
 #  attachment_updated_at   :datetime
+#  attachment_width        :integer(4)
+#  attachment_height       :integer(4)
 #
 
 require 'test_helper'

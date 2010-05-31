@@ -100,11 +100,29 @@ html
   .container, .page
     :height 775px
     :border 1px solid #ECE5DB
+    
+  .subject
+    :text-shadow 0 2px #FAFAFA
+    :font-size 150%
+    :text-align center
+    :margin 15px 0 0 0
+    
+  .page.horizontal
+    .image
+      :margin-top 150px
+    
+  .page.vertical
+    .image
+      :margin-top 70px
+      
+  #page-right
+    .container
+      :margin-top 45px
   
-  .page
+  .content
     .image
       :width 510px
-      :padding 10px 10px 20px 10px
+      :padding 10px 5px 8px 5px
       :border 1px solid #BFBFBF
       :background-color white
       :-webkit-box-shadow 2px 2px 3px rgba(135, 139, 144, 0.4)
@@ -112,16 +130,16 @@ html
       :box-shadow 2px 2px 3px rgba(135, 139, 144, 0.4)
       :margin 20px auto
       :text-align center
-    
+  
     .right
       :-webkit-transform rotate(1deg)
       :-moz-transform rotate(1deg)
       :transform rotate(1deg)
-    
+  
     .left
-      :-webkit-transform rotate(-2deg)
-      :-moz-transform rotate(-2deg)
-      :transform rotate(-2deg)
+      :-webkit-transform rotate(-1deg)
+      :-moz-transform rotate(-1deg)
+      :transform rotate(-1deg)
   
 .albums.new_index
   #header
@@ -131,15 +149,39 @@ html
     //:border 1px solid red
     :height 850px
     
-  .album
-    :padding 10px
-    :margin 0 10px 10px 10px
-    :border-bottom 1px solid #dcd5cc
+  .album.vertical
+    .stack
+      :background transparent url(/images/hstack.png) no-repeat
+      :width 139px
+      :height 179px
+      :float left
+      :margin-left 20px
+      .image
+        :position relative
+        :top 10px
+        :left 35px
+        :width 90px
+        :height 135px
+  
+  .album.horizontal
     .stack
       :background transparent url(/images/wstack.png) no-repeat
       :width 187px
       :height 144px
       :float left
+      .image
+        :position relative
+        :top 35px
+        :left 32px
+        :width 137px
+        :height 90px
+    
+  .album
+    :padding 10px
+    :margin 0 10px 10px 10px
+    //:border-bottom 1px solid #dcd5cc
+    :height 180px
+      
     .subject
       :font-size 130%
       :margin 20px 0 0 200px
@@ -209,9 +251,9 @@ html
       
 .contacts.new_call
   #page
-    :border 1px dashed black
-    :width 1176px
-    :height 1024px
+    //:border 1px dashed black
+    :width 1152px
+    :height 964px
   
   #videochat
     :margin 20px 0
@@ -400,13 +442,6 @@ div.stack
     :position relative
     :top -90px
     :left 0
-    
-  .image
-    :position relative
-    :top 35px
-    :left 32px
-    :width 137px
-    :height 90px
   
 .albums.image
   .image

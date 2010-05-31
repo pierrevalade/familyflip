@@ -2,7 +2,7 @@
 
   var i = 1;
   var iMin = 1;
-  var iMax = #{((@images.size/@per_page)).ceil};
+  var iMax = #{@album.pages};
   
   $(function() {
     $('#page-right .content').css('top', (-1 * $('.container').css('height').substr(0, 3) + 'px'));
@@ -52,26 +52,25 @@
   .pagination
     %span
       1
-    = "/#{(@images.size / (@per_page)).ceil}"
+    = "/#{@album.pages}"
   .wrapper
     = render 'contacts/new_contact', :contact => @album.contact
     .container
       .content
-        - @groups.each do |group|
-          .page
-            - group.each do |image|
-              = render 'new_image', :image => image
-            
+        - @images.each do |image|
+          .page{:class => image.orientation.to_s}
+            = render 'new_image', :image => image
+                        
 #page-right
   #next{:onclick => "nextPage();"}
   .pagination
     %span
       2
-    = "/#{(@images.size / (@per_page)).ceil}"
+    = "/#{@album.pages}"
   .wrapper
+    .subject= @album.subject
     .container
       .content
-        - @groups.each do |group|
-          .page
-            - group.each do |image|
-              = render 'new_image', :image => image
+        - @images.each do |image|
+          .page{:class => image.orientation.to_s}
+            = render 'new_image', :image => image

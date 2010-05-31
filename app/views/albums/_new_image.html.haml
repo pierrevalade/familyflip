@@ -1,3 +1,3 @@
-.image{:class => ['right', 'left'][rand(2)]}
+.image{:class => ['right', 'left'][image.id % 2]}
   =# link_to image_tag(image.url), image_album_path(@album.id, :url => image.url)
-  = image_tag(image.url)
+  = image_tag(image.url, :title => "#{image.orientation} - #{image.attachment_width}x#{image.attachment_height}")

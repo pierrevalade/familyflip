@@ -31,7 +31,7 @@ class AlbumsController < ApplicationController
     @album = Message.albums.find(params[:id])
     @images = @album.images.all
     @per_page = 2.0
-    @groups = @images.in_groups_of(@per_page, false)
+    # @groups = @images.in_groups_of(@per_page, false)
   end
   
   def image

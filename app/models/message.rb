@@ -56,6 +56,18 @@ class Message < ActiveRecord::Base
     !images.empty?
   end
   
+  def pages
+    pages = 0
+    images.each do |image|
+      if image.vertical?
+        pages += 1
+      else
+        pages += 1
+      end
+    end
+    pages.ceil
+  end
+  
   def reply?
     reply == true
   end

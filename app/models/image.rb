@@ -10,9 +10,12 @@
 #  attachment_content_type :string(255)
 #  attachment_file_size    :integer(4)
 #  attachment_updated_at   :datetime
+#  attachment_width        :integer(4)
+#  attachment_height       :integer(4)
 #
 
 require 'open-uri'
+require 'paperclip/thubmnail_with_dimensions'
 
 class Image < ActiveRecord::Base
   
@@ -31,15 +34,32 @@ class Image < ActiveRecord::Base
     attachment.url(size)
   end
   
+  def orientation
+    return :horizontal if attachment_width.blank? || attachment_height.blank?
+    if attachment_width > attachment_height
+      :horizontal
+    else
+      :vertical
+    end
+  end
+  
+  def vertical?
+    self.orientation == :vertical
+  end
+  
+  def horizontal?
+    self.horizontal == :horizontal
+  end
+  
   validates_attachment_presence :attachment
   
   has_attached_file :attachment, #:path => ":rails_root/public/system/messages_images/:id/:style/image.:extension",
                                  #:url => "/system/messages_images/:id/:style/image.:extension",
                                  :path => "messages_images/:id/:style/image.:extension",
-                                 
+                                 :processors => [:thumbnail_with_dimensions],
                                  :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/aws.yml",
                                  :styles => { :original => ['1000x600>'],
-                                              :normal => ['480x320>'],
+                                              :normal => ['500x590>'],
                                               :stack => ['137x133>']
                                             },
                                  :default_style => :normal # ,

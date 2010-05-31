@@ -1,4 +1,4 @@
-.album{:onclick => "go('#{new_show_album_path(album)}')"}
+.album{:onclick => "go('#{new_show_album_path(album)}')", :class => album.image.orientation.to_s}
   .stack
     .image{:style => "background: transparent url(#{album.image.url(:stack)}) no-repeat"}
   .subject
