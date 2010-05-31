@@ -19,7 +19,6 @@ html {
 #page-left {
   width: 600px;
   height: 954px;
-  border: 1px dashed black;
   float: left;
   position: relative; }
   #page-left #previous {
@@ -39,8 +38,7 @@ html {
   width: 576px;
   height: 954px;
   margin-left: 600px;
-  position: relative;
-  border: 1px dashed black; }
+  position: relative; }
   #page-right #next {
     position: absolute;
     right: 0;

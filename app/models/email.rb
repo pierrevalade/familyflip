@@ -38,7 +38,6 @@ class Email < ActiveRecord::Base
       email = Email.new(message["email"])
       email.save
     end
-    
   end
   
   def subdomain
