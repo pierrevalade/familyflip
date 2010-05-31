@@ -2,7 +2,8 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: Arial;
-  font-size: 120%; }
+  font-size: 120%;
+  overflow: hidden; }
 
 html {
   background-color: #ECE5DB; }
@@ -74,7 +75,7 @@ html {
   color: #F5F5F5; }
 
 .contacts.new_index body, .albums.new_index body, .albums.new_show body, .contacts.new_show body, .contacts.new_call body, .contacts.write body {
-  font-family: Lucida Grande; }
+  font-family: Lucida Grande, "Lucida Sans Unicode"; }
 .contacts.new_index .wrapper, .albums.new_index .wrapper, .albums.new_show .wrapper, .contacts.new_show .wrapper, .contacts.new_call .wrapper, .contacts.write .wrapper {
   padding: 20px; }
 .contacts.new_index .container, .albums.new_index .container, .albums.new_show .container, .contacts.new_show .container, .contacts.new_call .container, .contacts.write .container {
