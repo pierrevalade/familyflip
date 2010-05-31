@@ -19,12 +19,13 @@ html {
 #page-left {
   width: 600px;
   height: 954px;
+  border: 1px dashed black;
   float: left;
   position: relative; }
   #page-left #previous {
     position: absolute;
     left: 0;
-    top: 879px;
+    top: 899px;
     z-index: 100;
     height: 100px;
     background: transparent url(/images/previous.png);
@@ -38,11 +39,12 @@ html {
   width: 576px;
   height: 954px;
   margin-left: 600px;
-  position: relative; }
+  position: relative;
+  border: 1px dashed black; }
   #page-right #next {
     position: absolute;
     right: 0;
-    top: 889px;
+    top: 899px;
     z-index: 100;
     height: 100px;
     background: transparent url(/images/next.png);
