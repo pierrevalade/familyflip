@@ -10,7 +10,7 @@ class AlbumsController < ApplicationController
   def new_index
     @albums = Message.albums.all(:order => 'created_at DESC')
     @albums = @albums
-    @per_page = 5.0
+    @per_page = 4.0
     @groups = @albums.in_groups_of(@per_page, false)
   end
   
