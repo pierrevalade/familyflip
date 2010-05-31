@@ -2,8 +2,7 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: Arial;
-  font-size: 120%;
-  overflow: hidden; }
+  font-size: 120%; }
 
 html {
   background-color: #ECE5DB; }
@@ -131,7 +130,7 @@ html {
 .contacts.new_index #header {
   border-bottom: 7px solid #008dd1; }
 .contacts.new_index .container, .contacts.new_index .page {
-  height: 848px; }
+  height: 748px; }
 
 .contacts.new_show a#call, .contacts.new_show a#write {
   float: left;
