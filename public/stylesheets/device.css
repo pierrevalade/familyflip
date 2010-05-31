@@ -24,7 +24,7 @@ html {
   #page-left #previous {
     position: absolute;
     left: 0;
-    top: 864px;
+    top: 869px;
     z-index: 100;
     height: 100px;
     background: transparent url(/images/previous.png);
@@ -42,7 +42,7 @@ html {
   #page-right #next {
     position: absolute;
     right: 0;
-    top: 864px;
+    top: 869px;
     z-index: 100;
     height: 100px;
     background: transparent url(/images/next.png);
