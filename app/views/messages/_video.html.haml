@@ -1,5 +1,5 @@
 - id = url.match(/http:\/\/www.youtube.com\/watch\?v=([a-zA-Z0-9]*)/)[1]
-- container = "container-#{id}"
+- container = "container-#{UUIDTools::UUID.random_create.to_s}"
 
 %div.yt-container{:id => container}
   .hide-yt-logo
