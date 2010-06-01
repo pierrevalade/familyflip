@@ -50,8 +50,8 @@
   .wrapper
     = render 'contacts/new_contact', :contact => @contact
     
-    = link_to "Write a message", write_contact_path(@contact), :class => "lightButton", :id => "write"
-    = link_to "Call #{@contact.first_name}", new_call_contact_path(@contact), :class => "lightButton", :id => "call"
+    = link_to "", write_contact_path(@contact), :id => "write"
+    = link_to "", new_call_contact_path(@contact), :id => "call"
     .clear
     
     .container

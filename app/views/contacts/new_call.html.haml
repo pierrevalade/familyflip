@@ -1,6 +1,9 @@
 #page
   #contact
     = render 'contacts/new_contact', :contact => @contact
+
+  .clear
+  #hangup= link_to image_tag('hangup.png'), new_show_contact_path(@contact)
   
   #videochat
     :plain

@@ -200,9 +200,15 @@ html
 .contacts.new_show    
   a#call, a#write
     :float left
-    :margin 0px 10px
-    :width 215px
+    :width 265px
     :text-align center
+    :height 85px
+    :margin-left 10px
+  a#write
+    :background transparent url(/images/write.png) no-repeat
+    
+  a#call
+    :background transparent url(/images/call.png) no-repeat
   
   .container
     :height 770px
@@ -235,10 +241,20 @@ html
 .contacts.write
 
   #up
+    :position relative
     :height 500px
   
     #buttons
-      :padding-top 250px
+      :position absolute
+      :top 200px
+      div
+        :float left
+        :margin-left 10px
+      
+    #instructions
+      :position absolute
+      :top 420px
+      :font-size 170%
       
     #indicator
       :padding-top 230px
@@ -257,9 +273,11 @@ html
     //:border 1px dashed black
     :width 1152px
     :height 964px
+    
+  #hangup
+    :margin 30px 0 0 60px
   
   #videochat
-    :margin 20px 0
     
 .contacts.new_index, .albums.new_show, .contacts.new_show, .contacts.write, .contacts.new_call
   .contact
@@ -310,7 +328,7 @@ a
   :border-color #BBBBBB
   :color black
   :text-shadow 0 1px #FAFAFA
-  :-moz-border-radius 3px 3px 3px 3px
+  :-moz-border-radius 10px
   :-moz-box-shadow 0 1px 2px #DDDDDD
   :background-image url("http://pinterest.com/home/images/buttonGradient20.png") 
   :background-position 0 0
