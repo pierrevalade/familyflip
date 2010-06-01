@@ -24,7 +24,7 @@ ActionController::Routing::Routes.draw do |map|
   map.paged_contacts '/contacts/pages/:page', :controller => :contacts  
   map.paged_images_contacts '/contacts/:id/pages/:page', :controller => :contacts, :action => :show
   
-  map.resources :messages, :member => {:reply => :get}
+  map.resources :messages, :member => {:reply => :get}, :collection => {:video => :get}
   
   map.resources :albums, :member => {:image => :get, :carousel => :get, :new_show => :get}, :collection => {:messages => :get, :new_index => :get}
   map.paged_albums '/albums/pages/:page', :controller => :albums

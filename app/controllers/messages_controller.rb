@@ -11,4 +11,9 @@ class MessagesController < ApplicationController
     redirect_to new_show_contact_path(@message.contact)
   end
   
+  def video
+    @video_id = params[:url].match(/http:\/\/www.youtube.com\/watch\?v=([a-zA-Z0-9]*)/)[1]
+    render :layout => false
+  end
+  
 end

@@ -17,9 +17,11 @@
   
   $(function() {
     var videoId = '#{id}';
+    var playerId = "myytplayer-1uBEpEIjwyA";
+    
     $("##{container}").click(function() {
-      var ytplayer = document.getElementById("myytplayer-" + videoId);
-      console.log(ytplayer.getPlayerState());
+      var ytplayer = document.getElementById(playerId);
+      alert(ytplayer.getPlayerState());
       if (ytplayer.getPlayerState() == 1) {
         // playing
         ytplayer.pauseVideo();
