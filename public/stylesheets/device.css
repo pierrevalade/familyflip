@@ -185,6 +185,9 @@ html {
     margin-bottom: 10px; }
   .contacts.new_show .message .text {
     font-size: 80%; }
+  .contacts.new_show .message .video {
+    margin: 20px auto;
+    width: 425px; }
 
 .contacts.write #up {
   height: 500px; }

@@ -3,16 +3,23 @@
     = javascript_include_tag 'jquery-1.4.2.min.js'
     = javascript_include_tag 'swfobject.js'
   %body
-    %div.yt-container
+    #buttons
+      #play Play video
+      #pause.hide Pause video
+    .yt-container
       .hide-yt-logo
       #play-overlay
       #ytapiplayer
-    
+        
     %style
       :sass
         html, body
           :margin 0
           :padding 0
+          :font-family Lucida Grande, "Lucida Sans Unicode"
+          
+        .hide
+          :display none
           
         .yt-container
           :width 425px
@@ -23,8 +30,10 @@
           :width 100%
           :height 100%
           :position absolute
-          :background-image url("/images/pause_screen_m_out.png")
+          //:background-image url("/images/pause_screen_m_out.png")
           :z-index 100
+          :opacity 0.4
+          :background-color black
 
         .hide-yt-logo
           :width 100%
@@ -33,6 +42,19 @@
           :position absolute
           :cursor auto
           :z-index 100
+          
+        #buttons
+          div
+            :width 425px
+            :height 20px
+            :background black
+            :color white
+            :text-align center
+            :padding 30px 0
+            :font-size 150%
+          #play
+            :background black url(/images/play.png) no-repeat 80px 25px
+          #pause
       
     :javascript
 
@@ -41,24 +63,31 @@
         ytplayer.loadVideoById("#{@video_id}");
         ytplayer.pauseVideo();
       }
+      
+      function togglePlay() {
+        var ytplayer = document.getElementById("myytplayer");
+        if (ytplayer.getPlayerState() == 1) {
+          // playing
+          ytplayer.pauseVideo();
+          $("#play-overlay").show();
+          $("#play").show();
+          $("#pause").hide();
+        } else {
+          // pauseed
+          $("#play-overlay").hide();
+          $("#play").hide();
+          $("#pause").show();
+          ytplayer.playVideo();
+        }
+      }
 
       $(function() {
-        $(".yt-container").click(function() {
-          var ytplayer = document.getElementById("myytplayer");
-          // alert(ytplayer);
-          if (ytplayer.getPlayerState() == 1) {
-            // playing
-            ytplayer.pauseVideo();
-            $("#play-overlay").show();
-          } else {
-            // stoped
-            $("#play-overlay").hide();
-            ytplayer.playVideo();
-          }
-        })
-
+        $("#buttons").click(function() {
+          togglePlay();
+        });
+        
         var params = { allowScriptAccess: "always" };
-        var atts = { id: "myytplayer", style: "position: absolute;" };
+        var atts = { id: "myytplayer", style: "position: absolute;", onclick: "alert('ok');" };
         $(function() {
           swfobject.embedSWF("http://www.youtube.com/apiplayer?enablejsapi=1&version=3", 
                              "ytapiplayer", "425", "319", "8", null, null, params, atts);

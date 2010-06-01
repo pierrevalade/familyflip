@@ -12,7 +12,8 @@ class MessagesController < ApplicationController
   end
   
   def video
-    @video_id = params[:url].match(/http:\/\/www.youtube.com\/watch\?v=([a-zA-Z0-9]*)/)[1]
+    url = params[:url]
+    @video_id = Rack::Utils.parse_query(url)["http://www.youtube.com/watch?v"]
     render :layout => false
   end
   
