@@ -207,6 +207,9 @@ html {
     margin: 20px auto;
     width: 425px; }
 
+.contacts.write #instructions {
+  margin: 20px 30px;
+  font-size: 150%; }
 .contacts.write #up {
   position: relative;
   height: 500px; }
