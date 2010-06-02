@@ -19,6 +19,7 @@ html {
 #page-left {
   width: 600px;
   height: 964px;
+  background: transparent url(/images/page-left-bg.png) top right repeat-y;
   float: left;
   position: relative; }
   #page-left #previous {
@@ -38,7 +39,8 @@ html {
   width: 576px;
   height: 964px;
   margin-left: 600px;
-  position: relative; }
+  position: relative;
+  background: transparent url(/images/page-right-bg.png) top left repeat-y; }
   #page-right #next {
     position: absolute;
     right: 0;
@@ -118,38 +120,39 @@ html {
   border-bottom: 7px solid #e85621; }
 .albums.new_index .page, .albums.new_index .container {
   height: 850px; }
-.albums.new_index .album.vertical .stack {
+
+.albums.new_index .album.vertical .stack, .contacts.new_show .album.vertical .stack {
   background: transparent url(/images/hstack.png) no-repeat;
   width: 139px;
   height: 179px;
   float: left;
   margin-left: 20px; }
-  .albums.new_index .album.vertical .stack .image {
+  .albums.new_index .album.vertical .stack .image, .contacts.new_show .album.vertical .stack .image {
     position: relative;
     top: 10px;
     left: 35px;
     width: 90px;
     height: 135px; }
-.albums.new_index .album.horizontal .stack {
+.albums.new_index .album.horizontal .stack, .contacts.new_show .album.horizontal .stack {
   background: transparent url(/images/wstack.png) no-repeat;
   width: 187px;
   height: 144px;
   float: left; }
-  .albums.new_index .album.horizontal .stack .image {
+  .albums.new_index .album.horizontal .stack .image, .contacts.new_show .album.horizontal .stack .image {
     position: relative;
     top: 35px;
     left: 32px;
     width: 137px;
     height: 90px; }
-.albums.new_index .album {
+.albums.new_index .album, .contacts.new_show .album {
   padding: 10px;
   margin: 0 10px 10px 10px;
   height: 180px; }
-  .albums.new_index .album .subject {
+  .albums.new_index .album .subject, .contacts.new_show .album .subject {
     font-size: 130%;
     margin: 20px 0 0 200px;
     text-shadow: 0 2px #FAFAFA; }
-  .albums.new_index .album .contact {
+  .albums.new_index .album .contact, .contacts.new_show .album .contact {
     margin: 10px 0 0 200px;
     font-size: 80%; }
 
@@ -158,6 +161,16 @@ html {
 .contacts.new_index .container, .contacts.new_index .page {
   height: 748px; }
 
+.contacts.new_show #contact {
+  border: 3px solid #359acd;
+  margin: 0 10px 10px 10px;
+  padding: 10px;
+  background-color: white; }
+  .contacts.new_show #contact .image {
+    float: left; }
+  .contacts.new_show #contact .name {
+    font-size: 200%;
+    margin: 10px 0 0 120px; }
 .contacts.new_show a#call, .contacts.new_show a#write {
   float: left;
   width: 265px;
@@ -222,14 +235,11 @@ html {
   margin: 30px 0 0 60px; }
 
 .contacts.new_index .contact, .albums.new_show .contact, .contacts.new_show .contact, .contacts.write .contact, .contacts.new_call .contact {
-  padding: 10px;
-  margin: 0 10px 10px 10px;
-  background-color: #f3f2ef;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  -moz-box-shadow: 1px 1px 10px -5px rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 1px 1px 10px -5px rgba(0, 0, 0, 0.5);
-  border: 2px solid #D4D5BA; }
+  padding: 5px;
+  margin: 0 10px 15px 10px;
+  height: 109px;
+  background: transparent url(/images/contact-bg.png) no-repeat;
+  width: 500px; }
   .contacts.new_index .contact .notification, .albums.new_show .contact .notification, .contacts.new_show .contact .notification, .contacts.write .contact .notification, .contacts.new_call .contact .notification {
     margin: 20px 10px 0 0;
     width: 20px;
@@ -251,9 +261,10 @@ html {
       width: 70px;
       height: 70px; }
   .contacts.new_index .contact .name, .albums.new_show .contact .name, .contacts.new_show .contact .name, .contacts.write .contact .name, .contacts.new_call .contact .name {
-    margin: 10px 0 0 90px;
-    font-size: 160%;
-    text-shadow: 0 2px #FAFAFA; }
+    margin: 25px 0 0 120px;
+    font-size: 140%; }
+.contacts.new_index .contact.notification, .albums.new_show .contact.notification, .contacts.new_show .contact.notification, .contacts.write .contact.notification, .contacts.new_call .contact.notification {
+  background: transparent url(/images/contact-notification-bg.png) no-repeat; }
 
 body {
   font-family: "Angelina", "Dakota Medium"; }
@@ -351,17 +362,6 @@ div.page-left, div.page-right {
 
 #right .button {
   right: 0px; }
-
-#contact {
-  background: transparent url(/images/interface/contact-bg.png) no-repeat;
-  height: 90px; }
-  #contact .name {
-    float: left;
-    margin: 10px 0 0 20px;
-    font-size: 230%; }
-  #contact .picture {
-    float: left;
-    margin: 7px 0 0 20px; }
 
 div.stack {
   background: transparent url(/images/wstack.png) no-repeat;

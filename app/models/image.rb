@@ -53,11 +53,11 @@ class Image < ActiveRecord::Base
   
   validates_attachment_presence :attachment
   
-  has_attached_file :attachment, #:path => ":rails_root/public/system/messages_images/:id/:style/image.:extension",
-                                 #:url => "/system/messages_images/:id/:style/image.:extension",
-                                 :path => "messages_images/:id/:style/image.:extension",
+  has_attached_file :attachment, :path => ":rails_root/public/system/messages_images/:id/:style/image.:extension",
+                                 :url => "/system/messages_images/:id/:style/image.:extension",
+                                 #:path => "messages_images/:id/:style/image.:extension",
                                  :processors => [:thumbnail_with_dimensions],
-                                 :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/aws.yml",
+                                 #:storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/aws.yml",
                                  :styles => { :original => ['1000x600>'],
                                               :normal => ['500x590>'],
                                               :stack => ['137x133>']

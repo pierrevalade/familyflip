@@ -48,7 +48,11 @@
     %span
       1
   .wrapper
-    = render 'contacts/new_contact', :contact => @contact
+    #contact
+      .image
+        = image_tag(@contact.image_path(:normal))
+      .name= @contact.name
+      .clear
     
     = link_to "", write_contact_path(@contact), :id => "write"
     = link_to "", new_call_contact_path(@contact), :id => "call"

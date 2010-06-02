@@ -21,6 +21,7 @@ html
 #page-left
   :width 600px
   :height 964px
+  :background transparent url(/images/page-left-bg.png) top right repeat-y
   //:border 1px dashed black
   :float left
   :position relative
@@ -42,6 +43,7 @@ html
   :height 964px
   :margin-left 600px
   :position relative
+  :background transparent url(/images/page-right-bg.png) top left repeat-y
   //:border 1px dashed black
   #next
     :position absolute
@@ -148,7 +150,8 @@ html
   .page, .container
     //:border 1px solid red
     :height 850px
-    
+  
+.albums.new_index, .contacts.new_show
   .album.vertical
     .stack
       :background transparent url(/images/hstack.png) no-repeat
@@ -162,7 +165,7 @@ html
         :left 35px
         :width 90px
         :height 135px
-  
+
   .album.horizontal
     .stack
       :background transparent url(/images/wstack.png) no-repeat
@@ -196,8 +199,20 @@ html
     
   .container, .page
     :height 748px
+    //:border 1px solid red
     
-.contacts.new_show    
+.contacts.new_show
+  #contact
+    :border 3px solid #359acd
+    :margin 0 10px 10px 10px
+    :padding 10px
+    :background-color white
+    .image
+      :float left
+    .name
+      :font-size 200%
+      :margin 10px 0 0 120px
+    
   a#call, a#write
     :float left
     :width 265px
@@ -281,14 +296,16 @@ html
     
 .contacts.new_index, .albums.new_show, .contacts.new_show, .contacts.write, .contacts.new_call
   .contact
-    :padding 10px
-    :margin 0 10px 10px 10px
-    :background-color #f3f2ef
-    :-moz-border-radius 2px
-    :-webkit-border-radius 2px
-    :-moz-box-shadow 1px 1px 10px -5px rgba(0, 0, 0, 0.5)
-    :-webkit-box-shadow 1px 1px 10px -5px rgba(0, 0, 0, 0.5)
-    :border 2px solid #D4D5BA
+    :padding 5px
+    :margin 0 10px 15px 10px
+    :height 109px
+    :background transparent url(/images/contact-bg.png) no-repeat
+    :width 500px
+    //:-moz-border-radius 2px
+    //:-webkit-border-radius 2px
+    //:-moz-box-shadow 1px 1px 10px -5px rgba(0, 0, 0, 0.5)
+    //:-webkit-box-shadow 1px 1px 10px -5px rgba(0, 0, 0, 0.5)
+    //:border 2px solid #D4D5BA
     .notification
       :margin 20px 10px 0 0
       :width 20px
@@ -311,9 +328,12 @@ html
       :width 70px
       :height 70px
     .name
-      :margin 10px 0 0 90px
-      :font-size 160%
-      :text-shadow 0 2px #FAFAFA
+      :margin 25px 0 0 120px
+      :font-size 140%
+      //:text-shadow 0 2px #FAFAFA
+  .contact.notification
+    :background transparent url(/images/contact-notification-bg.png) no-repeat
+      
 body
   :font-family "Angelina", "Dakota Medium"
   
@@ -413,20 +433,6 @@ div.page-left, div.page-right
 #right
   .button
     :right 0px
-    
-#contact
-  :background transparent url(/images/interface/contact-bg.png) no-repeat
-  :height 90px
-  // :cursor pointer
-  // :cursor none
-  .name
-    :float left
-    :margin 10px 0 0 20px
-    :font-size 230%
-
-  .picture
-    :float left
-    :margin 7px 0 0 20px
     
     
 div.stack

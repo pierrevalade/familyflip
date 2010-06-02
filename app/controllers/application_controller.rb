@@ -13,8 +13,12 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :password_confirmation
   
   private
+    def device_subdomain
+      request.subdomains.first || session[:device]
+    end
+    
     def set_current_device
-      @current_device = Device.find_by_subdomain(request.subdomains.first)
+      @current_device = Device.find_by_subdomain(device_subdomain)
     end
     
     def current_layout_name

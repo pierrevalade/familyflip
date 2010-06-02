@@ -33,6 +33,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
   
+  map.connect '/set_device', :controller => "welcome", :action => :set_device
   map.root :controller => 'welcome', :action => :index
   
 end

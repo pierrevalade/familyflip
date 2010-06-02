@@ -38,7 +38,7 @@ class ContactsController < ApplicationController
   
   def new_index
     @contacts = @current_device.contacts.all
-    @per_page = 7.0
+    @per_page = 5.0
     @groups = @contacts.in_groups_of(@per_page, false)
   end
   

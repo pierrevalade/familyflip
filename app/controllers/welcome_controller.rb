@@ -4,9 +4,14 @@ class WelcomeController < ApplicationController
     # authenticate_or_request_with_http_digest("Test") do |user|
     #   ''
     # end
-    if @current_device 
+    if @current_device
       return redirect_to(new_index_albums_path)
     end
+  end
+  
+  def set_device
+    session[:device] = "box1"
+    redirect_to new_index_albums_path
   end
   
 end

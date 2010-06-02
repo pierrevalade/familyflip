@@ -3,3 +3,4 @@ log/*
 log/*.pid
 tmp/**/*
 tmp/*.*
+public/system/*

@@ -38,15 +38,15 @@ var store;
 
 // Called onload to initialize local server and store variables
 function init() {
-  if (!window.google || !google.gears) {
-    textOut("NOTE:  You must install Gears first.");
-  } else {
-    textOut("Yeay, Gears is already installed.");
-    localServer = google.gears.factory.create("beta.localserver");
-    store = localServer.createManagedStore(STORE_NAME);
-    store.manifestUrl = MANIFEST_FILENAME;
-    textOut(store.currentVersion);
-  }
+  // if (!window.google || !google.gears) {
+  //   textOut("NOTE:  You must install Gears first.");
+  // } else {
+  //   textOut("Yeay, Gears is already installed.");
+  //   localServer = google.gears.factory.create("beta.localserver");
+  //   store = localServer.createManagedStore(STORE_NAME);
+  //   store.manifestUrl = MANIFEST_FILENAME;
+  //   textOut(store.currentVersion);
+  // }
 }
 
 // Create the managed resource store
