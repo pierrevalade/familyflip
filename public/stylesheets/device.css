@@ -224,7 +224,9 @@ html {
     top: 420px;
     font-size: 170%; }
   .contacts.write #up #indicator {
-    padding-top: 230px; }
+    position: absolute;
+    top: 320px;
+    left: 200px; }
 .contacts.write #container {
   position: relative; }
   .contacts.write #container #imageView {

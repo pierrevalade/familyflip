@@ -9,6 +9,7 @@
       $('#indicator').show();
       $('#buttons').hide();
       $('#container').hide();
+      $('.instructions').hide();
       $('#message_images_attributes_0_attachment64').val(canvas.toDataURL());
     });
     
@@ -22,7 +23,7 @@
     .wrapper
       = render 'contacts/new_contact', :contact => @contact
       
-    #instructions
+    #instructions.instructions
       Write on the right screen
     
   #page-right
@@ -34,7 +35,7 @@
         .send= image_submit_tag 'send.png'
         .erase= image_tag 'erase.png'
         
-      #instructions
+      #instructions.instructions
         Write your message below:
     
     #down
