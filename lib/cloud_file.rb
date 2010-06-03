@@ -39,16 +39,37 @@ class CloudFile
   def save_archive!
     message.subject = self.name
     archive = open(URI.parse(self.remote_url))
-    Zip::ZipFile.open(archive) do |zipfile|
-      # puts dir.entries('.')
+    dir_path = "./tmp/#{UUIDTools::UUID.random_create}"
+    puts dir_path
+    Zip::ZipFile.open(archive.path) do |zipfile|
       zipfile.each do |entry|
-        zipfile.extract(entry, "./tmp/#{entry}")
-        image = messages.build
-        image.attachment = File.open("./tmp/#{entry}")
-        image.save!
+        # puts "#{dir}/#{entry}"
+        file_path = "#{dir_path}/#{entry}"
+        FileUtils.mkdir_p(File.dirname(file_path))
+        zipfile.extract(entry, file_path)
+        puts "file: #{entry} #{image_type(file_path)}"
+        if image_type(file_path)
+          image = message.images.build
+          image.attachment = File.open(file_path)
+          image.save!
+        end
       end
     end
     message.save!
+  end
+  
+  def image_type(file)
+    begin
+      case IO.read(file, 10)
+        when /^GIF8/: 'gif'
+        when /^\x89PNG/: 'png'
+        when /^\xff\xd8\xff\xe0\x00\x10JFIF/: 'jpg'
+        when /^\xff\xd8\xff\xe1(.*){2}Exif/: 'jpg'
+      else nil
+      end
+    rescue
+      nil
+    end
   end
   
 end

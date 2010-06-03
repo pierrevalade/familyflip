@@ -61,6 +61,7 @@ class Contact < ActiveRecord::Base
   end
   
   def cloudapp
+    return nil if cloudapp_login.blank?
     @cloudapp ||= CloudApp.find_by_contact(self)
   end
   

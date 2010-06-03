@@ -14,4 +14,14 @@ config.action_view.debug_rjs                         = true
 config.action_controller.perform_caching             = false
 
 # Don't care if the mailer can't send
-config.action_mailer.raise_delivery_errors = false
+config.action_mailer.raise_delivery_errors = true
+
+ActionMailer::Base.smtp_settings = {
+  :address        => "smtp.sendgrid.net",
+  :port           => 587,
+  :authentication => :plain,
+  :enable_starttls_auto => true,
+  :user_name      => "familyflip@valade.info",
+  :password       => "748596",
+  :domain         => "usefulsocial.com"
+}

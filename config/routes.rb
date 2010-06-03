@@ -34,6 +34,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id.:format'
   
   map.connect '/set_device', :controller => "welcome", :action => :set_device
+  map.connect '/notifications', :controller => "welcome", :action => :notifications
   map.root :controller => 'welcome', :action => :index
   
 end

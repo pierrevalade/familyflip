@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 # You might want to change this
-ENV["RAILS_ENV"] ||= "production"
+ENV["RAILS_ENV"] ||= "development"
 
 require File.dirname(__FILE__) + "/../../config/environment"
 
@@ -13,7 +13,10 @@ end
 while($running) do
   
   # Replace this with your code
-  ActiveRecord::Base.logger.info "This daemon is still running at #{Time.now}.\n"
+  ActiveRecord::Base.logger.info "{cloudapp-update} is running at #{Time.now}.\n"
+  Contact.all.each do |contact|
+    contact.cloudapp.try(:update!)
+  end
   
   sleep 10
 end

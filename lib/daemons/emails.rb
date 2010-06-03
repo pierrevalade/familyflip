@@ -13,7 +13,7 @@ end
 while($running) do
   
   # Replace this with your code
-  ActiveRecord::Base.logger.info "This daemon is still running at #{Time.now}.\n"
+  ActiveRecord::Base.logger.info "{email-update} is running at #{Time.now}.\n"
   Email.update!
   
   sleep 10
